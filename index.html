@@ -1,1 +1,5415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- ============================================= -->
+  <!-- ALADDIN CHIRAGH - Complete Website             -->
+  <!-- Part 1: HTML Structure + CSS + Header +        -->
+  <!--         Home Page + Footer                     -->
+  <!-- ============================================= -->
+  
+  <title>ALADDIN CHIRAGH</title>
 
+  <!-- Google Fonts - Website ke fonts ke liye -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome - Icons ke liye -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* ============================================= */
+    /* RESET CSS - Sab elements ka default style      */
+    /* hatane ke liye                                  */
+    /* ============================================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ============================================= */
+    /* ROOT VARIABLES - Poore website ke colors aur   */
+    /* sizes yahan se control honge                   */
+    /* ============================================= */
+    :root {
+      /* Primary Colors - Website ke main rang */
+      --primary: #FFD700;
+      --primary-dark: #B8960C;
+      --primary-light: #FFF3B0;
+
+      /* Background Colors - Website ka background */
+      --bg-dark: #0A0A0A;
+      --bg-card: #1A1A2E;
+      --bg-card-hover: #252542;
+      --bg-header: rgba(10, 10, 10, 0.95);
+
+      /* Text Colors - Likhawat ke rang */
+      --text-white: #FFFFFF;
+      --text-light: #B0B0B0;
+      --text-gold: #FFD700;
+      --text-muted: #666666;
+
+      /* Accent Colors - Special highlights ke liye */
+      --accent-blue: #4A90D9;
+      --accent-green: #27AE60;
+      --accent-red: #E74C3C;
+      --accent-purple: #9B59B6;
+
+      /* Border & Shadow */
+      --border-color: #2A2A3E;
+      --shadow-gold: 0 0 20px rgba(255, 215, 0, 0.3);
+      --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+      /* Sizes */
+      --header-height: 70px;
+      --border-radius: 12px;
+      --transition: 0.3s ease;
+    }
+
+    /* ============================================= */
+    /* BODY - Poore page ka base style                */
+    /* ============================================= */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ============================================= */
+    /* SCROLLBAR - Custom scrollbar design            */
+    /* ============================================= */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-dark);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 10px;
+    }
+
+    /* ============================================= */
+    /* HEADER / NAVBAR - Website ka upar wala hissa   */
+    /* Logo + Navigation Links                        */
+    /* ============================================= */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--header-height);
+      background: var(--bg-header);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      z-index: 1000;
+      transition: var(--transition);
+    }
+
+    /* Header scroll hone pe thoda change hoga */
+    .header.scrolled {
+      background: rgba(10, 10, 10, 0.98);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Logo Section - Website ka naam/logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .logo img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 2px solid var(--primary);
+    }
+
+    .logo-text {
+      font-size: 22px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 1px;
+    }
+
+    /* Navigation Links - Pages ke links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-light);
+      font-size: 15px;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    /* Hover pe gold color aayega */
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Hover pe neeche gold line aayegi */
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Login/Signup Button */
+    .nav-auth-btn {
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      color: var(--bg-dark) !important;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-weight: 600;
+      -webkit-text-fill-color: var(--bg-dark) !important;
+    }
+
+    .nav-auth-btn:hover {
+      box-shadow: var(--shadow-gold);
+      transform: translateY(-2px);
+    }
+
+    .nav-auth-btn::after {
+      display: none !important;
+    }
+
+    /* Mobile Menu Button - Sirf mobile pe dikhega */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--primary);
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* ============================================= */
+    /* MAIN CONTENT - Header ke neeche content area   */
+    /* ============================================= */
+    .main-content {
+      margin-top: var(--header-height);
+    }
+
+    /* ============================================= */
+    /* HERO SECTION - Home page ka pehla bada section */
+    /* Yahan welcome message aur info hogi            */
+    /* ============================================= */
+    .hero {
+      position: relative;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #0A0A0A 0%, #1A1A2E 50%, #0A0A0A 100%);
+      overflow: hidden;
+    }
+
+    /* Hero ke peeche glow effect */
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      font-weight: 900;
+      margin-bottom: 15px;
+      background: linear-gradient(135deg, var(--primary), #FFA500, var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      color: var(--text-light);
+      margin-bottom: 30px;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ============================================= */
+    /* BUTTONS - Website ke sab buttons ka style      */
+    /* ============================================= */
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      color: var(--bg-dark);
+      padding: 14px 35px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover {
+      box-shadow: var(--shadow-gold);
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      padding: 14px 35px;
+      border: 2px solid var(--primary);
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: var(--bg-dark);
+      transform: translateY(-3px);
+    }
+
+    /* ============================================= */
+    /* SECTION TITLE - Har section ka heading style   */
+    /* ============================================= */
+    .section-title {
+      text-align: center;
+      padding: 50px 20px 30px;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-title p {
+      color: var(--text-light);
+      font-size: 16px;
+    }
+
+    /* ============================================= */
+    /* FREE BLOGS SECTION - Home page ke top 3 free   */
+    /* blogs yahan dikhayen ge                        */
+    /* ============================================= */
+    .free-blogs-section {
+      padding: 20px 40px 50px;
+    }
+
+    .free-blogs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Blog Card - Har blog ka card style */
+    .blog-card {
+      background: var(--bg-card);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-gold);
+    }
+
+    .blog-card-image {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .blog-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .blog-card:hover .blog-card-image img {
+      transform: scale(1.1);
+    }
+
+    .blog-card-body {
+      padding: 20px;
+    }
+
+    .blog-card-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .tag-free {
+      background: rgba(39, 174, 96, 0.2);
+      color: var(--accent-green);
+      border: 1px solid var(--accent-green);
+    }
+
+    .tag-paid {
+      background: rgba(255, 215, 0, 0.2);
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+
+    .blog-card-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-white);
+      line-height: 1.4;
+    }
+
+    .blog-card-body p {
+      font-size: 14px;
+      color: var(--text-light);
+      margin-bottom: 15px;
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .blog-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .blog-card-date {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .blog-card-price {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent-green);
+    }
+
+    .blog-card-price.paid {
+      color: var(--primary);
+    }
+
+    /* ============================================= */
+    /* CATEGORIES SECTION - 21 categories yahan       */
+    /* dikhayen ge grid layout mein                   */
+    /* ============================================= */
+    .categories-section {
+      padding: 20px 40px 50px;
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Category Card - Har category ka card */
+    .category-card {
+      background: var(--bg-card);
+      border-radius: var(--border-radius);
+      padding: 25px;
+      text-align: center;
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-gold);
+    }
+
+    /* Category card ke upar glow effect */
+    .category-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), #FFA500);
+      transform: scaleX(0);
+      transition: var(--transition);
+    }
+
+    .category-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .category-icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .category-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-white);
+    }
+
+    .category-card p {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    .category-count {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--primary);
+      background: rgba(255, 215, 0, 0.1);
+      padding: 4px 12px;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 215, 0, 0.3);
+    }
+
+    /* ============================================= -->
+    /* CATEGORIES INFO - Categories ke neeche         */
+    /* description / info section                     */
+    /* ============================================= */
+    .section-info {
+      max-width: 1200px;
+      margin: 0 auto 50px;
+      padding: 25px 30px;
+      background: var(--bg-card);
+      border-radius: var(--border-radius);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--primary);
+    }
+
+    .section-info h4 {
+      color: var(--primary);
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .section-info p {
+      color: var(--text-light);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* ============================================= */
+    /* FOOTER - Website ka neeche wala hissa          */
+    /* Links, copyright, social media                 */
+    /* ============================================= */
+    .footer {
+      background: #050510;
+      border-top: 1px solid var(--border-color);
+      padding: 60px 40px 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-col h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-col h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    .footer-col p {
+      color: var(--text-light);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 14px;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+      padding-left: 5px;
+    }
+
+    /* Social Media Icons */
+    .social-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 16px;
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+      color: var(--bg-dark);
+      border-color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    /* Footer Bottom - Copyright */
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      margin-top: 40px;
+      border-top: 1px solid var(--border-color);
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer-bottom p {
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .footer-bottom a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    /* ============================================= */
+    /* PAGES CONTAINER - Different pages show/hide    */
+    /* ke liye. Sirf active page dikhega              */
+    /* ============================================= */
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    /* ============================================= */
+    /* RESPONSIVE - Mobile aur tablet ke liye         */
+    /* design adjust hoga                             */
+    /* ============================================= */
+
+    /* Tablet - 1024px se chhota */
+    @media (max-width: 1024px) {
+      .free-blogs-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Mobile - 768px se chhota */
+    @media (max-width: 768px) {
+      .header {
+        padding: 0 20px;
+      }
+
+      /* Mobile menu button dikhega */
+      .menu-toggle {
+        display: block;
+      }
+
+      /* Nav links hide honge mobile pe */
+      .nav-links {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background: var(--bg-header);
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        border-bottom: 1px solid var(--border-color);
+        transform: translateY(-150%);
+        transition: var(--transition);
+      }
+
+      /* Menu open hone pe links dikhayen ge */
+      .nav-links.active {
+        transform: translateY(0);
+      }
+
+      .hero-content h1 {
+        font-size: 32px;
+      }
+
+      .hero-content p {
+        font-size: 15px;
+      }
+
+      .free-blogs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .categories-section,
+      .free-blogs-section {
+        padding: 20px 15px 40px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title h2 {
+        font-size: 28px;
+      }
+    }
+
+    /* Small Mobile - 480px se chhota */
+    @media (max-width: 480px) {
+      .categories-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content h1 {
+        font-size: 26px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+        /* ============================================= */
+    /* PART 2 CSS START                               */
+    /* ============================================= */
+
+    /* ============================================= */
+    /* BREADCRUMB - Page ka path dikhane ke liye       */
+    /* Jaise: Home > Category > Sub-Category          */
+    /* ============================================= */
+    .breadcrumb {
+      padding: 20px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumb a {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 14px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb span {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .breadcrumb .separator {
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    /* ============================================= */
+    /* PAGE HEADER - Har page ka top heading area     */
+    /* Category / Sub-Category page ke upar dikhega   */
+    /* ============================================= */
+    .page-header {
+      padding: 40px 40px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #0A0A0A 0%, #1A1A2E 50%, #0A0A0A 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255, 215, 0, 0.08) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+
+    .page-header h1 {
+      font-size: 36px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .page-header p {
+      color: var(--text-light);
+      font-size: 16px;
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ============================================= */
+    /* SUB-CATEGORIES GRID - Category page mein       */
+    /* 30 sub-categories dikhane ke liye              */
+    /* ============================================= */
+    .subcategories-section {
+      padding: 20px 40px 50px;
+    }
+
+    .subcategories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 18px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Sub-Category Card */
+    .subcat-card {
+      background: var(--bg-card);
+      border-radius: var(--border-radius);
+      padding: 22px;
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .subcat-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-gold);
+    }
+
+    .subcat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), #FFA500);
+      transform: scaleX(0);
+      transition: var(--transition);
+    }
+
+    .subcat-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .subcat-card-number {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      font-size: 11px;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    .subcat-card-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .subcat-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 6px;
+    }
+
+    .subcat-card p {
+      font-size: 12px;
+      color: var(--text-light);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .subcat-card-blogs-count {
+      font-size: 11px;
+      color: var(--primary);
+      background: rgba(255, 215, 0, 0.1);
+      padding: 3px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      display: inline-block;
+    }
+
+    /* ============================================= */
+    /* BLOGS GRID - Sub-category page mein 6 blogs    */
+    /* dikhane ke liye                                */
+    /* ============================================= */
+    .blogs-section {
+      padding: 20px 40px 50px;
+    }
+
+    .blogs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Paid Blog Card - Jab blog paid ho */
+    .blog-card .lock-overlay {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.7);
+      color: var(--primary);
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      border: 1px solid var(--primary);
+    }
+
+    .blog-card-image {
+      position: relative;
+    }
+
+    .blog-card-price-badge {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      color: var(--bg-dark);
+      padding: 4px 12px;
+      border-radius: 15px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* ============================================= */
+    /* SINGLE BLOG PAGE - Blog ka content dikhane     */
+    /* ke liye                                        */
+    /* ============================================= */
+    .blog-content-section {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 30px 40px 60px;
+    }
+
+    .blog-content-header {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .blog-content-header h1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--text-white);
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .blog-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    .blog-meta-item i {
+      color: var(--primary);
+    }
+
+    /* Blog ka actual content - Markdown se aayega */
+    .blog-content-body {
+      color: var(--text-light);
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    .blog-content-body h1,
+    .blog-content-body h2,
+    .blog-content-body h3 {
+      color: var(--text-white);
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+
+    .blog-content-body h1 { font-size: 28px; }
+    .blog-content-body h2 { font-size: 24px; }
+    .blog-content-body h3 { font-size: 20px; }
+
+    .blog-content-body p {
+      margin-bottom: 18px;
+    }
+
+    .blog-content-body ul,
+    .blog-content-body ol {
+      margin-bottom: 18px;
+      padding-left: 25px;
+    }
+
+    .blog-content-body li {
+      margin-bottom: 8px;
+    }
+
+    .blog-content-body strong {
+      color: var(--text-white);
+    }
+
+    .blog-content-body a {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    .blog-content-body blockquote {
+      border-left: 4px solid var(--primary);
+      padding: 15px 20px;
+      margin: 20px 0;
+      background: rgba(255, 215, 0, 0.05);
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: var(--text-light);
+    }
+
+    .blog-content-body code {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      color: var(--primary);
+    }
+
+    .blog-content-body pre {
+      background: #111;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 20px 0;
+      border: 1px solid var(--border-color);
+    }
+
+    .blog-content-body pre code {
+      background: none;
+      padding: 0;
+      color: var(--text-light);
+    }
+
+    .blog-content-body img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    /* ============================================= */
+    /* LOCKED BLOG OVERLAY - Paid blog ka lock        */
+    /* preview dikhane ke baad lock hoga               */
+    /* ============================================= */
+    .blog-locked-section {
+      text-align: center;
+      padding: 50px 30px;
+      background: var(--bg-card);
+      border-radius: var(--border-radius);
+      border: 1px solid var(--border-color);
+      margin-top: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-locked-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 10, 0.9) 100%);
+      pointer-events: none;
+    }
+
+    .blog-locked-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .lock-icon-big {
+      font-size: 60px;
+      color: var(--primary);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .blog-locked-section h3 {
+      font-size: 22px;
+      color: var(--text-white);
+      margin-bottom: 10px;
+    }
+
+    .blog-locked-section p {
+      color: var(--text-light);
+      margin-bottom: 25px;
+      font-size: 15px;
+    }
+
+    .locked-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-buy-blog {
+      background: linear-gradient(135deg, var(--accent-green), #2ECC71);
+      color: white;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 25px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-buy-blog:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 20px rgba(39, 174, 96, 0.4);
+    }
+
+    .btn-get-plan {
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      color: var(--bg-dark);
+      padding: 12px 28px;
+      border: none;
+      border-radius: 25px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-get-plan:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-gold);
+    }
+
+    /* ============================================= */
+    /* BLOG INFO SECTION - Blog ke neeche info        */
+    /* Blog kis type ka hai yeh batayega              */
+    /* ============================================= */
+    .blog-info-box {
+      max-width: 850px;
+      margin: 30px auto;
+      padding: 20px 25px;
+      background: var(--bg-card);
+      border-radius: var(--border-radius);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-blue);
+    }
+
+    .blog-info-box h4 {
+      color: var(--accent-blue);
+      font-size: 15px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .blog-info-box p {
+      color: var(--text-light);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* ============================================= */
+    /* CONTENT PAGES - About, Services, Products,     */
+    /* Contact pages ka style                         */
+    /* ============================================= */
+    .content-page-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 40px 60px;
+    }
+
+    .content-page-body {
+      color: var(--text-light);
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    .content-page-body h1,
+    .content-page-body h2,
+    .content-page-body h3 {
+      color: var(--text-white);
+      margin-top: 25px;
+      margin-bottom: 12px;
+    }
+
+    .content-page-body p {
+      margin-bottom: 15px;
+    }
+
+    .content-page-body ul,
+    .content-page-body ol {
+      margin-bottom: 15px;
+      padding-left: 25px;
+    }
+
+    .content-page-body li {
+      margin-bottom: 8px;
+    }
+
+    /* ============================================= */
+    /* LOADING SPINNER - Data load hote waqt          */
+    /* dikhega                                        */
+    /* ============================================= */
+    .loading-spinner {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid var(--border-color);
+      border-top: 4px solid var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 15px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .loading-spinner p {
+      color: var(--text-light);
+      font-size: 14px;
+    }
+
+    /* ============================================= */
+    /* BACK BUTTON - Wapas jane ke liye button        */
+    /* ============================================= */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 8px 0;
+      transition: var(--transition);
+      background: none;
+      border: none;
+      margin-left: 40px;
+      margin-top: 20px;
+    }
+
+    .back-btn:hover {
+      color: #FFA500;
+    }
+
+    /* ============================================= */
+    /* PART 2 RESPONSIVE                              */
+    /* ============================================= */
+    @media (max-width: 768px) {
+      .subcategories-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .blogs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .page-header h1 {
+        font-size: 26px;
+      }
+
+      .blog-content-header h1 {
+        font-size: 24px;
+      }
+
+      .blog-content-section,
+      .content-page-section {
+        padding: 20px 15px 40px;
+      }
+
+      .breadcrumb {
+        padding: 15px 15px;
+      }
+
+      .subcategories-section,
+      .blogs-section {
+        padding: 15px 15px 40px;
+      }
+
+      .back-btn {
+        margin-left: 15px;
+      }
+
+      .locked-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .subcategories-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ============================================= */
+    /* PART 2 CSS END                                 */
+    /* ============================================= */
+
+        /* ============================================= */
+    /* PART 3 CSS START                               */
+    /* ============================================= */
+
+    /* ============================================= */
+    /* AUTH PAGE - Login / Signup Forms                */
+    /* ============================================= */
+    .auth-section {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 30px 40px 60px;
+    }
+
+    /* Tab Buttons - Login/Signup switch */
+    .auth-tabs {
+      display: flex;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 2px solid var(--primary);
+      margin-bottom: 30px;
+    }
+
+    .auth-tabs button {
+      flex: 1;
+      padding: 14px;
+      border: none;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      background: transparent;
+      color: var(--primary);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .auth-tabs button.active {
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      color: var(--bg-dark);
+    }
+
+    /* Auth Forms */
+    .auth-form {
+      display: none;
+    }
+
+    .auth-form.active {
+      display: block;
+    }
+
+    .auth-form h2 {
+      text-align: center;
+      font-size: 26px;
+      margin-bottom: 25px;
+      color: var(--text-white);
+    }
+
+    /* Input Groups */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text-light);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 16px;
+      background: var(--bg-card);
+      border: 2px solid var(--border-color);
+      border-radius: 10px;
+      color: var(--text-white);
+      font-size: 15px;
+      font-family: 'Poppins', sans-serif;
+      transition: var(--transition);
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.15);
+    }
+
+    .form-group input::placeholder {
+      color: var(--text-muted);
+    }
+
+    /* Password field wrapper - Show/hide toggle */
+    .password-field {
+      position: relative;
+    }
+
+    .password-field input {
+      padding-right: 50px;
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 18px;
+      color: var(--text-muted);
+      background: none;
+      border: none;
+      transition: var(--transition);
+    }
+
+    .password-toggle:hover {
+      color: var(--primary);
+    }
+
+    /* Submit Buttons */
+    .auth-submit-btn {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      color: var(--bg-dark);
+      border: none;
+      border-radius: 10px;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .auth-submit-btn:hover {
+      box-shadow: var(--shadow-gold);
+      transform: translateY(-2px);
+    }
+
+    .auth-submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Auth Messages */
+    .auth-message {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+      font-weight: 600;
+      min-height: 22px;
+    }
+
+    .auth-message.success {
+      color: var(--accent-green);
+    }
+
+    .auth-message.error {
+      color: var(--accent-red);
+    }
+
+    .auth-message.loading {
+      color: var(--primary);
+    }
+
+    /* ============================================= */
+    /* USER DASHBOARD - Login ke baad dikhega          */
+    /* User ki info aur subscription status           */
+    /* ============================================= */
+    .dashboard-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 40px 60px;
+    }
+
+    .dashboard-welcome {
+      background: var(--bg-card);
+      border-radius: var(--border-radius);
+      padding: 30px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .dashboard-welcome-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .dashboard-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: var(--bg-dark);
+      font-weight: 800;
+    }
+
+    .dashboard-welcome-info h2 {
+      font-size: 22px;
+      color: var(--text-white);
+      margin-bottom: 4px;
+    }
+
+    .dashboard-welcome-info p {
+      color: var(--text-light);
+      font-size: 14px;
+    }
+
+    .btn-logout {
+      background: transparent;
+      border: 2px solid var(--accent-red);
+      color: var(--accent-red);
+      padding: 10px 24px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-logout:hover {
+      background: var(--accent-red);
+      color: white;
+    }
+
+    /* Subscription Status Card */
+    .sub-status-card {
+      background: var(--bg-card);
+      border-radius: var(--border-radius);
+      padding: 25px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 25px;
+    }
+
+    .sub-status-card h3 {
+      color: var(--primary);
+      font-size: 18px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sub-status-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+    }
+
+    .sub-status-item {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      border: 1px solid var(--border-color);
+    }
+
+    .sub-status-item .label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+    }
+
+    .sub-status-item .value {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-white);
+    }
+
+    .sub-status-item .value.active {
+      color: var(--accent-green);
+    }
+
+    .sub-status-item .value.expired {
+      color: var(--accent-red);
+    }
+
+    .sub-status-item .value.free {
+      color: var(--text-muted);
+    }
+
+    /* Purchased Blogs List */
+    .purchased-blogs-card {
+      background: var(--bg-card);
+      border-radius: var(--border-radius);
+      padding: 25px;
+      border: 1px solid var(--border-color);
+    }
+
+    .purchased-blogs-card h3 {
+      color: var(--primary);
+      font-size: 18px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .purchased-blog-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 15px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 8px;
+      margin-bottom: 8px;
+      border: 1px solid var(--border-color);
+    }
+
+    .purchased-blog-item span {
+      font-size: 14px;
+      color: var(--text-light);
+    }
+
+    .purchased-blog-item .price-tag {
+      color: var(--accent-green);
+      font-weight: 600;
+    }
+
+    .no-purchases {
+      text-align: center;
+      padding: 30px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* ============================================= */
+    /* PRICING PAGE - 3 Subscription Plans            */
+    /* Basic, Pro, Premium                            */
+    /* ============================================= */
+    .pricing-section {
+      padding: 20px 40px 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .pricing-card {
+      background: var(--bg-card);
+      border-radius: var(--border-radius);
+      padding: 35px 25px;
+      text-align: center;
+      border: 1px solid var(--border-color);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-gold);
+    }
+
+    /* Popular plan ka badge */
+    .pricing-card.popular {
+      border-color: var(--primary);
+    }
+
+    .pricing-card.popular::before {
+      content: '⭐ MOST POPULAR';
+      position: absolute;
+      top: 15px;
+      right: -35px;
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      color: var(--bg-dark);
+      padding: 5px 40px;
+      font-size: 11px;
+      font-weight: 700;
+      transform: rotate(45deg);
+    }
+
+    .pricing-card-icon {
+      font-size: 50px;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .pricing-card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 5px;
+    }
+
+    .pricing-card .price {
+      font-size: 42px;
+      font-weight: 900;
+      color: var(--primary);
+      margin: 15px 0;
+    }
+
+    .pricing-card .price span {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text-light);
+    }
+
+    .pricing-card .duration {
+      font-size: 14px;
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+
+    .pricing-features {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 25px;
+    }
+
+    .pricing-features li {
+      padding: 8px 0;
+      font-size: 14px;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .pricing-features li:last-child {
+      border-bottom: none;
+    }
+
+    .pricing-features li i {
+      color: var(--accent-green);
+      font-size: 12px;
+    }
+
+    .pricing-card .btn-primary {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* ============================================= */
+    /* PAYMENT MODAL - Payment method select karne    */
+    /* ka popup                                       */
+    /* ============================================= */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 20px;
+    }
+
+    .modal-overlay.show {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--bg-card);
+      border-radius: 15px;
+      padding: 35px;
+      max-width: 550px;
+      width: 100%;
+      border: 1px solid var(--border-color);
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 22px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .modal-close:hover {
+      color: var(--accent-red);
+    }
+
+    .modal-box h2 {
+      font-size: 22px;
+      color: var(--text-white);
+      margin-bottom: 5px;
+    }
+
+    .modal-box .modal-subtitle {
+      color: var(--text-light);
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    /* Payment Method Cards */
+    .payment-methods {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .payment-method-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 2px solid var(--border-color);
+      border-radius: 10px;
+      padding: 18px 15px;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .payment-method-card:hover,
+    .payment-method-card.selected {
+      border-color: var(--primary);
+      background: rgba(255, 215, 0, 0.05);
+    }
+
+    .payment-method-card .pm-icon {
+      font-size: 30px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .payment-method-card .pm-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-white);
+    }
+
+    /* Payment Details Section */
+    .payment-details-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      display: none;
+    }
+
+    .payment-details-box.show {
+      display: block;
+    }
+
+    .payment-details-box h4 {
+      color: var(--primary);
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+
+    .payment-detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .payment-detail-row:last-child {
+      border-bottom: none;
+    }
+
+    .payment-detail-row .pd-label {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .payment-detail-row .pd-value {
+      font-size: 13px;
+      color: var(--text-white);
+      font-weight: 600;
+      word-break: break-all;
+      max-width: 250px;
+      text-align: right;
+    }
+
+    .copy-btn {
+      background: rgba(255, 215, 0, 0.1);
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      padding: 4px 10px;
+      border-radius: 5px;
+      font-size: 11px;
+      cursor: pointer;
+      margin-left: 8px;
+      transition: var(--transition);
+    }
+
+    .copy-btn:hover {
+      background: var(--primary);
+      color: var(--bg-dark);
+    }
+
+    /* QR Code placeholder */
+    .qr-code-box {
+      text-align: center;
+      margin: 15px 0;
+      padding: 15px;
+      background: white;
+      border-radius: 10px;
+      display: inline-block;
+    }
+
+    .qr-code-box img {
+      width: 150px;
+      height: 150px;
+    }
+
+    /* Payment Confirmation Form */
+    .payment-confirm-form {
+      display: none;
+    }
+
+    .payment-confirm-form.show {
+      display: block;
+    }
+
+    .payment-confirm-form h4 {
+      color: var(--text-white);
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    /* Order Summary */
+    .order-summary {
+      background: rgba(255, 215, 0, 0.05);
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+
+    .order-summary h4 {
+      color: var(--primary);
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .order-summary-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+      font-size: 14px;
+    }
+
+    .order-summary-row .os-label {
+      color: var(--text-light);
+    }
+
+    .order-summary-row .os-value {
+      color: var(--text-white);
+      font-weight: 600;
+    }
+
+    .order-summary-row.total {
+      border-top: 1px solid rgba(255, 215, 0, 0.2);
+      margin-top: 8px;
+      padding-top: 10px;
+    }
+
+    .order-summary-row.total .os-value {
+      color: var(--primary);
+      font-size: 18px;
+    }
+
+    /* ============================================= */
+    /* PART 3 RESPONSIVE                              */
+    /* ============================================= */
+    @media (max-width: 768px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .auth-section {
+        padding: 20px 15px 40px;
+      }
+
+      .dashboard-section {
+        padding: 20px 15px 40px;
+      }
+
+      .dashboard-welcome {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .dashboard-welcome-left {
+        flex-direction: column;
+      }
+
+      .payment-methods {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-box {
+        padding: 25px 20px;
+      }
+
+      .pricing-section {
+        padding: 20px 15px 40px;
+      }
+
+      .sub-status-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* ============================================= */
+    /* PART 3 CSS END                                 */
+    /* ============================================= */
+ 
+      /* ============================================= */
+    /* PART 4 CSS START                               */
+    /* ============================================= */
+
+    /* ============================================= */
+    /* BLOG PREVIEW BLUR - Paid blog ka content       */
+    /* blur hoga agar access nahi hai                 */
+    /* ============================================= */
+    .blog-content-blur {
+      position: relative;
+    }
+
+    .blog-content-blur::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(10, 10, 10, 0.8) 50%,
+        rgba(10, 10, 10, 1) 100%
+      );
+      pointer-events: none;
+    }
+
+    /* ============================================= */
+    /* ADMIN BADGE - Admin user ke liye special       */
+    /* badge dikhega header mein                     */
+    /* ============================================= */
+    .admin-badge {
+      background: linear-gradient(135deg, #E74C3C, #C0392B);
+      color: white;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 10px;
+      font-weight: 700;
+      margin-left: 8px;
+      letter-spacing: 1px;
+    }
+
+    /* ============================================= */
+    /* ACCESS GRANTED BADGE - Blog page pe jab       */
+    /* access ho toh dikhega                         */
+    /* ============================================= */
+    .access-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    .access-badge.granted {
+      background: rgba(39, 174, 96, 0.15);
+      color: var(--accent-green);
+      border: 1px solid rgba(39, 174, 96, 0.3);
+    }
+
+    .access-badge.locked {
+      background: rgba(231, 76, 60, 0.15);
+      color: var(--accent-red);
+      border: 1px solid rgba(231, 76, 60, 0.3);
+    }
+
+    .access-badge.free-access {
+      background: rgba(74, 144, 217, 0.15);
+      color: var(--accent-blue);
+      border: 1px solid rgba(74, 144, 217, 0.3);
+    }
+
+    /* ============================================= */
+    /* BLOG CARD UNLOCK INDICATOR - Agar user ne     */
+    /* blog kharida hai ya subscriber hai toh         */
+    /* lock icon ki jagah unlock dikhega              */
+    /* ============================================= */
+    .lock-overlay.unlocked {
+      background: rgba(39, 174, 96, 0.8);
+      border-color: var(--accent-green);
+      color: white;
+    }
+
+    /* ============================================= */
+    /* NOTIFICATION TOAST - Success/Error messages    */
+    /* screen ke top pe dikhenge                      */
+    /* ============================================= */
+    .toast-container {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      z-index: 3000;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .toast {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 15px 20px;
+      min-width: 280px;
+      max-width: 380px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      animation: slideIn 0.3s ease;
+      transition: var(--transition);
+    }
+
+    .toast.success {
+      border-left: 4px solid var(--accent-green);
+    }
+
+    .toast.error {
+      border-left: 4px solid var(--accent-red);
+    }
+
+    .toast.info {
+      border-left: 4px solid var(--primary);
+    }
+
+    .toast-icon {
+      font-size: 22px;
+    }
+
+    .toast-text {
+      font-size: 14px;
+      color: var(--text-light);
+      flex: 1;
+    }
+
+    .toast-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideOut {
+      from {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+    }
+
+    /* ============================================= */
+    /* SEARCH BAR - Categories mein search karne     */
+    /* ke liye (Home page pe)                        */
+    /* ============================================= */
+    .search-bar {
+      max-width: 500px;
+      margin: 0 auto 30px;
+      position: relative;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 14px 20px 14px 50px;
+      background: var(--bg-card);
+      border: 2px solid var(--border-color);
+      border-radius: 30px;
+      color: var(--text-white);
+      font-size: 15px;
+      font-family: 'Poppins', sans-serif;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .search-bar input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.15);
+    }
+
+    .search-bar input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .search-bar .search-icon {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 16px;
+    }
+
+    /* ============================================= */
+    /* EMPTY STATE - Jab koi result na mile           */
+    /* ============================================= */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .empty-state .empty-icon {
+      font-size: 60px;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .empty-state h3 {
+      color: var(--text-white);
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .empty-state p {
+      color: var(--text-light);
+      font-size: 14px;
+    }
+
+    /* ============================================= */
+    /* PART 4 RESPONSIVE                              */
+    /* ============================================= */
+    @media (max-width: 768px) {
+      .toast-container {
+        right: 10px;
+        left: 10px;
+      }
+
+      .toast {
+        min-width: auto;
+        max-width: 100%;
+      }
+
+      .search-bar {
+        margin: 0 15px 30px;
+      }
+    }
+
+    /* ============================================= */
+    /* PART 4 CSS END                                 */
+    /* ============================================= */
+  
+  </style>
+</head>
+<body>
+  <!-- ============================================= -->
+  <!-- TOAST NOTIFICATIONS - Success/Error messages   -->
+  <!-- ============================================= -->
+  <div class="toast-container" id="toastContainer"></div>
+<!-- ============================================= -->
+  <!-- HEADER START - Website ka top navigation       -->
+  <!-- Yahan logo aur links hain                      -->
+  <!-- ============================================= -->
+  <header class="header" id="header">
+    
+    <!-- Logo - Website ka naam aur image -->
+    <a class="logo" onclick="showPage('home')">
+      <img src="https://raw.githubusercontent.com/usaid3/Design-images/main/IMG_20260620_041709.jpg" alt="Aladdin Chiragh Logo">
+      <span class="logo-text">ALADDIN CHIRAGH</span>
+    </a>
+
+    <!-- Navigation Links - Pages ke buttons -->
+    <ul class="nav-links" id="navLinks">
+      <li><a onclick="showPage('home')"><i class="fas fa-home"></i> Home</a></li>
+      <li><a onclick="showPage('about')"><i class="fas fa-info-circle"></i> About Us</a></li>
+      <li><a onclick="showPage('services')"><i class="fas fa-cogs"></i> Services</a></li>
+      <li><a onclick="showPage('products')"><i class="fas fa-box"></i> Products</a></li>
+      <li><a onclick="showPage('pricing')"><i class="fas fa-tags"></i> Pricing</a></li>
+      <li><a onclick="showPage('contact')"><i class="fas fa-envelope"></i> Contact</a></li>
+      <!-- Login/Signup button - Baad mein Part 3 mein functional banega -->
+      <li><a class="nav-auth-btn" onclick="showPage('auth')" id="authBtn"><i class="fas fa-user"></i> Login</a></li>
+    </ul>
+
+    <!-- Mobile Menu Button - Sirf mobile pe dikhega -->
+    <button class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars" id="menuIcon"></i>
+    </button>
+  </header>
+  <!-- HEADER END -->
+
+  <!-- ============================================= -->
+  <!-- MAIN CONTENT START - Sab pages yahan hain     -->
+  <!-- Sirf ek page ek waqt dikhega                  -->
+  <!-- ============================================= -->
+  <main class="main-content">
+
+    <!-- =========================================== -->
+    <!-- HOME PAGE START                              -->
+    <!-- =========================================== -->
+    <div class="page active" id="page-home">
+
+      <!-- HERO SECTION - Welcome area -->
+      <section class="hero">
+        <div class="hero-content">
+          <h1>🪄 Welcome to ALADDIN CHIRAGH</h1>
+          <p>
+            Discover premium blogs, expert insights, and exclusive content 
+            that will transform your knowledge. Unlock the power of wisdom 
+            with our carefully crafted articles.
+          </p>
+          <div class="hero-buttons">
+            <a class="btn-primary" onclick="showPage('pricing')">
+              <i class="fas fa-crown"></i> View Plans
+            </a>
+            <a class="btn-outline" onclick="document.getElementById('freeBlogs').scrollIntoView({behavior:'smooth'})">
+              <i class="fas fa-book-open"></i> Read Free Blogs
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FREE BLOGS SECTION - 3 Free blogs -->
+      <section id="freeBlogs">
+        <div class="section-title">
+          <h2>⭐ Free Blogs</h2>
+          <p>Yeh 3 blogs bilkul FREE hain - Abhi padho!</p>
+        </div>
+
+        <div class="free-blogs-section">
+                    <div class="free-blogs-grid" id="freeBlogsGrid">
+            <!-- Free blogs JavaScript se load honge -->
+            <!-- Abhi demo cards daal rahe hain -->
+
+            <!-- Free Blog 1 -->
+            <div class="blog-card" onclick="openBlog('free-1')">
+              <div class="blog-card-image">
+                <img src="https://via.placeholder.com/400x200/1A1A2E/FFD700?text=Free+Blog+1" alt="Blog">
+              </div>
+              <div class="blog-card-body">
+                <span class="blog-card-tag tag-free">🆓 FREE</span>
+                <h3>Getting Started Guide</h3>
+                <p>Learn the basics and start your journey with our comprehensive beginner's guide.</p>
+                <div class="blog-card-footer">
+                  <span class="blog-card-date"><i class="far fa-calendar"></i> Jan 15, 2024</span>
+                  <span class="blog-card-price">FREE</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Free Blog 2 -->
+            <div class="blog-card" onclick="openBlog('free-2')">
+              <div class="blog-card-image">
+                <img src="https://via.placeholder.com/400x200/1A1A2E/FFD700?text=Free+Blog+2" alt="Blog">
+              </div>
+              <div class="blog-card-body">
+                <span class="blog-card-tag tag-free">🆓 FREE</span>
+                <h3>Understanding the Market</h3>
+                <p>A complete overview of market trends and analysis for beginners.</p>
+                <div class="blog-card-footer">
+                  <span class="blog-card-date"><i class="far fa-calendar"></i> Jan 20, 2024</span>
+                  <span class="blog-card-price">FREE</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Free Blog 3 -->
+            <div class="blog-card" onclick="openBlog('free-3')">
+              <div class="blog-card-image">
+                <img src="https://via.placeholder.com/400x200/1A1A2E/FFD700?text=Free+Blog+3" alt="Blog">
+              </div>
+              <div class="blog-card-body">
+                <span class="blog-card-tag tag-free">🆓 FREE</span>
+                <h3>Top 10 Tips for Success</h3>
+                <p>Essential tips that every beginner should know before starting.</p>
+                <div class="blog-card-footer">
+                  <span class="blog-card-date"><i class="far fa-calendar"></i> Jan 25, 2024</span>
+                  <span class="blog-card-price">FREE</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- CATEGORIES SECTION - 21 Categories -->
+      <section>
+        <div class="section-title">
+          <h2>📂 Explore Categories</h2>
+          <p>21 categories mein se apni pasand ka topic chunein</p>
+        </div>
+                  <!-- Search Bar - Categories search karne ke liye -->
+          <div class="search-bar">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="categorySearch" placeholder="🔍 Category search karein..." oninput="filterCategories(this.value)">
+          </div>
+
+        <div class="categories-section">
+          <div class="categories-grid" id="categoriesGrid">
+            <!-- Categories JavaScript se load hongi -->
+            <!-- Abhi demo cards daal rahe hain -->
+          </div>
+
+          <!-- Categories ke neeche info section -->
+          <div class="section-info" style="margin-top: 30px;">
+            <h4><i class="fas fa-info-circle"></i> Categories Ke Baare Mein</h4>
+            <p>
+              Hamare paas 21 mukhtalif categories hain jin mein har type ka content 
+              available hai. Har category mein 30 sub-categories hain aur har 
+              sub-category mein 6 premium blogs hain. Apni pasand ka topic chunein 
+              aur seekhna shuru karein!
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    <!-- HOME PAGE END -->
+
+        <!-- =========================================== -->
+    <!-- CATEGORY PAGE - Jab koi category click kare  -->
+    <!-- Yahan 30 sub-categories dikhengi             -->
+    <!-- =========================================== -->
+    <div class="page" id="page-category">
+
+      <!-- Wapas jane ka button -->
+      <button class="back-btn" onclick="showPage('home')">
+        <i class="fas fa-arrow-left"></i> Back to Home
+      </button>
+
+      <!-- Breadcrumb - Path dikhane ke liye -->
+      <div class="breadcrumb" id="categoryBreadcrumb">
+        <a onclick="showPage('home')">Home</a>
+        <span class="separator"><i class="fas fa-chevron-right"></i></span>
+        <span id="categoryBreadcrumbName">Category Name</span>
+      </div>
+
+      <!-- Category Page Header -->
+      <div class="page-header">
+        <h1 id="categoryPageTitle">📂 Category Name</h1>
+        <p id="categoryPageDesc">Explore all sub-categories and find the content you need</p>
+      </div>
+
+      <!-- Sub-Categories Grid -->
+      <div class="subcategories-section">
+        <div class="subcategories-grid" id="subcategoriesGrid">
+          <!-- Sub-categories JavaScript se load hongi -->
+        </div>
+
+        <!-- Sub-Categories ke neeche info -->
+        <div class="section-info" style="margin-top: 30px;" id="categoryInfoBox">
+          <h4><i class="fas fa-info-circle"></i> Is Category Ke Baare Mein</h4>
+          <p id="categoryInfoText">
+            Is category mein 30 sub-categories hain. Har sub-category mein 
+            6 premium blogs hain jo $7 se $12 tak ki qeemat mein available hain.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- CATEGORY PAGE END -->
+
+
+    <!-- =========================================== -->
+    <!-- SUB-CATEGORY PAGE - Jab koi sub-category     -->
+    <!-- click kare. Yahan 6 blogs dikhengi           -->
+    <!-- =========================================== -->
+    <div class="page" id="page-subcategory">
+
+      <!-- Wapas jane ka button -->
+      <button class="back-btn" id="subcatBackBtn" onclick="goBackToCategory()">
+        <i class="fas fa-arrow-left"></i> Back to Category
+      </button>
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb" id="subcatBreadcrumb">
+        <a onclick="showPage('home')">Home</a>
+        <span class="separator"><i class="fas fa-chevron-right"></i></span>
+        <a id="subcatBreadcrumbCat" onclick="goBackToCategory()">Category</a>
+        <span class="separator"><i class="fas fa-chevron-right"></i></span>
+        <span id="subcatBreadcrumbName">Sub-Category Name</span>
+      </div>
+
+      <!-- Sub-Category Page Header -->
+      <div class="page-header">
+        <h1 id="subcatPageTitle">📁 Sub-Category Name</h1>
+        <p id="subcatPageDesc">Browse all blogs in this sub-category</p>
+      </div>
+
+      <!-- Blogs Grid - 6 Blogs -->
+      <div class="blogs-section">
+        <div class="blogs-grid" id="subcatBlogsGrid">
+          <!-- Blogs JavaScript se load honge -->
+        </div>
+
+        <!-- Blogs ke neeche info -->
+        <div class="section-info" style="margin-top: 30px;" id="subcatInfoBox">
+          <h4><i class="fas fa-info-circle"></i> Is Sub-Category Ke Baare Mein</h4>
+          <p id="subcatInfoText">
+            Is sub-category mein 6 premium blogs hain. Har blog ki qeemat 
+            $7 se $12 ke darmiyan hai.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- SUB-CATEGORY PAGE END -->
+
+
+    <!-- =========================================== -->
+    <!-- SINGLE BLOG PAGE - Blog ka full content      -->
+    <!-- Free ya Paid dono ke liye                    -->
+    <!-- =========================================== -->
+    <div class="page" id="page-blog">
+
+      <!-- Wapas jane ka button -->
+      <button class="back-btn" id="blogBackBtn" onclick="goBackToSubCategory()">
+        <i class="fas fa-arrow-left"></i> Back
+      </button>
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb" id="blogBreadcrumb">
+        <a onclick="showPage('home')">Home</a>
+        <span class="separator"><i class="fas fa-chevron-right"></i></span>
+        <a id="blogBreadcrumbCat" onclick="goBackToCategory()">Category</a>
+        <span class="separator"><i class="fas fa-chevron-right"></i></span>
+        <a id="blogBreadcrumbSubcat" onclick="goBackToSubCategory()">Sub-Category</a>
+        <span class="separator"><i class="fas fa-chevron-right"></i></span>
+        <span id="blogBreadcrumbName">Blog Title</span>
+      </div>
+
+      <!-- Blog Content Area -->
+      <div class="blog-content-section">
+
+        <!-- Blog Header - Title, date, category -->
+        <div class="blog-content-header">
+          <h1 id="blogContentTitle">Blog Title Here</h1>
+          <div class="blog-meta">
+            <span class="blog-meta-item">
+              <i class="far fa-calendar"></i>
+              <span id="blogContentDate">Jan 15, 2024</span>
+            </span>
+            <span class="blog-meta-item">
+              <i class="fas fa-folder"></i>
+              <span id="blogContentCategory">Category</span>
+            </span>
+            <span class="blog-meta-item">
+              <i class="fas fa-tag"></i>
+              <span id="blogContentPrice">$10</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Blog Body - Actual content yahan load hoga -->
+        <div class="blog-content-body" id="blogContentBody">
+          <!-- Blog content yahan aayega -->
+          <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Loading blog content...</p>
+          </div>
+        </div>
+
+        <!-- Locked Section - Agar user ne nahi kharida -->
+        <!-- Yeh sirf paid blogs ke liye dikhega -->
+        <div class="blog-locked-section" id="blogLockedSection" style="display: none;">
+          <div class="blog-locked-content">
+            <span class="lock-icon-big">🔒</span>
+            <h3>Premium Content Locked</h3>
+            <p>Yeh blog padhne ke liye khareedein ya subscription plan lein</p>
+            <div class="locked-buttons">
+              <button class="btn-buy-blog" id="btnBuyThisBlog" onclick="buyThisBlog()">
+                <i class="fas fa-shopping-cart"></i> 
+                Buy This Blog <span id="lockedBlogPrice">$10</span>
+              </button>
+              <button class="btn-get-plan" onclick="showPage('pricing')">
+                <i class="fas fa-crown"></i> 
+                Get Subscription Plan
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Blog Info Box - Blog ke baare mein info -->
+      <div class="blog-info-box" id="blogInfoBox">
+        <h4><i class="fas fa-info-circle"></i> Blog Information</h4>
+        <p id="blogInfoText">
+          Yeh blog premium content hai. Is mein detailed information 
+          aur expert insights shamil hain.
+        </p>
+      </div>
+
+    </div>
+    <!-- SINGLE BLOG PAGE END -->
+
+
+    <!-- =========================================== -->
+    <!-- ABOUT US PAGE - GitHub se content load hoga  -->
+    <!-- =========================================== -->
+    <div class="page" id="page-about">
+      <div class="page-header">
+        <h1>ℹ️ About Us</h1>
+        <p>Hamare baare mein janein</p>
+      </div>
+      <div class="content-page-section">
+        <div class="content-page-body" id="aboutContent">
+          <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Loading content...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ABOUT US PAGE END -->
+
+
+    <!-- =========================================== -->
+    <!-- SERVICES PAGE - GitHub se content load hoga  -->
+    <!-- =========================================== -->
+    <div class="page" id="page-services">
+      <div class="page-header">
+        <h1>🛠️ Our Services</h1>
+        <p>Hum kya kya services provide karte hain</p>
+      </div>
+      <div class="content-page-section">
+        <div class="content-page-body" id="servicesContent">
+          <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Loading content...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SERVICES PAGE END -->
+
+
+    <!-- =========================================== -->
+    <!-- PRODUCTS PAGE - GitHub se content load hoga  -->
+    <!-- =========================================== -->
+    <div class="page" id="page-products">
+      <div class="page-header">
+        <h1>📦 Our Products</h1>
+        <p>Hamare products ki list</p>
+      </div>
+      <div class="content-page-section">
+        <div class="content-page-body" id="productsContent">
+          <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Loading content...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- PRODUCTS PAGE END -->
+
+
+     <!-- =========================================== -->
+    <!-- PRICING PAGE - 3 Plans + Single Blog         -->
+    <!-- =========================================== -->
+    <div class="page" id="page-pricing">
+      <div class="page-header">
+        <h1>💰 Pricing Plans</h1>
+        <p>Apne liye behtareen plan chunein aur tamam blogs ka access paayein</p>
+      </div>
+
+      <div class="pricing-section">
+
+        <!-- 3 Pricing Cards -->
+        <div class="pricing-grid">
+
+          <!-- BASIC PLAN -->
+          <div class="pricing-card">
+            <span class="pricing-card-icon">⚡</span>
+            <h3>Basic</h3>
+            <div class="price">$58 <span>/ 15 days</span></div>
+            <div class="duration">15 Din Tak Access</div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check-circle"></i> All blogs access</li>
+              <li><i class="fas fa-check-circle"></i> 21 categories</li>
+              <li><i class="fas fa-check-circle"></i> 630 sub-categories</li>
+              <li><i class="fas fa-check-circle"></i> 3780+ blogs</li>
+              <li><i class="fas fa-check-circle"></i> 15 days validity</li>
+              <li><i class="fas fa-check-circle"></i> Instant access</li>
+            </ul>
+            <button class="btn-primary" onclick="openPaymentModal('Basic', 58, '15 Days')">
+              <i class="fas fa-shopping-cart"></i> Get Basic
+            </button>
+          </div>
+
+          <!-- PRO PLAN - Popular -->
+          <div class="pricing-card popular">
+            <span class="pricing-card-icon">🔥</span>
+            <h3>Pro</h3>
+            <div class="price">$93 <span>/ month</span></div>
+            <div class="duration">1 Month Tak Access</div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check-circle"></i> All blogs access</li>
+              <li><i class="fas fa-check-circle"></i> 21 categories</li>
+              <li><i class="fas fa-check-circle"></i> 630 sub-categories</li>
+              <li><i class="fas fa-check-circle"></i> 3780+ blogs</li>
+              <li><i class="fas fa-check-circle"></i> 30 days validity</li>
+              <li><i class="fas fa-check-circle"></i> Priority support</li>
+            </ul>
+            <button class="btn-primary" onclick="openPaymentModal('Pro', 93, '1 Month')">
+              <i class="fas fa-shopping-cart"></i> Get Pro
+            </button>
+          </div>
+
+          <!-- PREMIUM PLAN -->
+          <div class="pricing-card">
+            <span class="pricing-card-icon">💎</span>
+            <h3>Premium</h3>
+            <div class="price">$120 <span>/ 2 months</span></div>
+            <div class="duration">2 Months Tak Access</div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check-circle"></i> All blogs access</li>
+              <li><i class="fas fa-check-circle"></i> 21 categories</li>
+              <li><i class="fas fa-check-circle"></i> 630 sub-categories</li>
+              <li><i class="fas fa-check-circle"></i> 3780+ blogs</li>
+              <li><i class="fas fa-check-circle"></i> 60 days validity</li>
+              <li><i class="fas fa-check-circle"></i> VIP support</li>
+            </ul>
+            <button class="btn-primary" onclick="openPaymentModal('Premium', 120, '2 Months')">
+              <i class="fas fa-shopping-cart"></i> Get Premium
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Single Blog Purchase Info -->
+        <div class="section-info">
+          <h4><i class="fas fa-info-circle"></i> Single Blog Purchase</h4>
+          <p>
+            Agar aap poora plan nahi lena chahte toh koi bhi individual blog 
+            $7 se $12 mein khareed sakte hain. Har blog page pe "Buy This Blog" 
+            ka button available hai.
+          </p>
+        </div>
+
+      </div>
+    </div>
+    <!-- PRICING PAGE END -->
+
+
+    <!-- =========================================== -->
+    <!-- CONTACT PAGE - GitHub se content load hoga   -->
+    <!-- =========================================== -->
+    <div class="page" id="page-contact">
+      <div class="page-header">
+        <h1>📞 Contact Us</h1>
+        <p>Humse rabta karein</p>
+      </div>
+      <div class="content-page-section">
+        <div class="content-page-body" id="contactContent">
+          <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Loading content...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CONTACT PAGE END -->
+
+
+      <!-- =========================================== -->
+    <!-- AUTH PAGE - Login / Signup System             -->
+    <!-- Google Sheet se connected                    -->
+    <!-- =========================================== -->
+    <div class="page" id="page-auth">
+      <div class="page-header">
+        <h1>🔐 Account</h1>
+        <p>Login karein ya naya account banayein</p>
+      </div>
+
+      <div class="auth-section" id="authFormsSection">
+
+        <!-- Login/Signup Tab Buttons -->
+        <div class="auth-tabs" id="authTabs">
+          <button class="active" onclick="showAuthForm('signup')">Sign Up</button>
+          <button onclick="showAuthForm('login')">Login</button>
+        </div>
+
+        <!-- ======= SIGNUP FORM ======= -->
+        <div class="auth-form active" id="authSignupForm">
+          <h2>📝 Create Account</h2>
+          <form id="signupFormEl" onsubmit="handleSignup(event)">
+
+            <div class="form-group">
+              <label>👤 Full Name</label>
+              <input type="text" id="s_name" placeholder="Apna poora naam likhein" required>
+            </div>
+
+            <div class="form-group">
+              <label>📧 Email Address</label>
+              <input type="email" id="s_email" placeholder="Email address daalen" required>
+            </div>
+
+            <div class="form-group">
+              <label>🔒 Password</label>
+              <div class="password-field">
+                <input type="password" id="s_password" placeholder="Kam az kam 6 characters" required minlength="6">
+                <button type="button" class="password-toggle" onclick="togglePassword('s_password', this)">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <button type="submit" class="auth-submit-btn" id="signupBtn">
+              <i class="fas fa-user-plus"></i> Sign Up
+            </button>
+
+            <p class="auth-message" id="signupMsg"></p>
+          </form>
+        </div>
+
+        <!-- ======= LOGIN FORM ======= -->
+        <div class="auth-form" id="authLoginForm">
+          <h2>🔓 Welcome Back</h2>
+          <form id="loginFormEl" onsubmit="handleLogin(event)">
+
+            <div class="form-group">
+              <label>📧 Email Address</label>
+              <input type="email" id="l_email" placeholder="Apna email daalen" required>
+            </div>
+
+            <div class="form-group">
+              <label>🔒 Password</label>
+              <div class="password-field">
+                <input type="password" id="l_password" placeholder="Apna password daalen" required>
+                <button type="button" class="password-toggle" onclick="togglePassword('l_password', this)">
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <button type="submit" class="auth-submit-btn" id="loginBtn">
+              <i class="fas fa-sign-in-alt"></i> Login
+            </button>
+
+            <p class="auth-message" id="loginMsg"></p>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- ======= USER DASHBOARD ======= -->
+      <!-- Login ke baad yeh dikhega -->
+      <div class="dashboard-section" id="dashboardSection" style="display: none;">
+
+        <!-- Welcome Card -->
+        <div class="dashboard-welcome">
+          <div class="dashboard-welcome-left">
+            <div class="dashboard-avatar" id="dashAvatar">A</div>
+            <div class="dashboard-welcome-info">
+              <h2 id="dashUserName">Welcome User!</h2>
+              <p id="dashUserEmail">user@email.com</p>
+            </div>
+          </div>
+          <button class="btn-logout" onclick="logoutUser()">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+        </div>
+
+        <!-- Subscription Status -->
+        <div class="sub-status-card">
+          <h3><i class="fas fa-crown"></i> Subscription Status</h3>
+          <div class="sub-status-grid">
+            <div class="sub-status-item">
+              <div class="label">Current Plan</div>
+              <div class="value" id="dashPlan">Free</div>
+            </div>
+            <div class="sub-status-item">
+              <div class="label">Status</div>
+              <div class="value" id="dashStatus">No Plan</div>
+            </div>
+            <div class="sub-status-item">
+              <div class="label">Expires On</div>
+              <div class="value" id="dashExpiry">-</div>
+            </div>
+            <div class="sub-status-item">
+              <div class="label">Days Left</div>
+              <div class="value" id="dashDaysLeft">-</div>
+            </div>
+          </div>
+          <div style="text-align: center; margin-top: 20px;" id="dashUpgradeArea">
+            <button class="btn-primary" onclick="showPage('pricing')" style="display: inline-flex;">
+              <i class="fas fa-arrow-up"></i> Upgrade Plan
+            </button>
+          </div>
+        </div>
+
+        <!-- Purchased Blogs -->
+        <div class="purchased-blogs-card">
+          <h3><i class="fas fa-shopping-bag"></i> Purchased Blogs</h3>
+          <div id="dashPurchasedBlogs">
+            <div class="no-purchases">
+              <p>📭 Abhi tak koi blog nahi kharida</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- AUTH PAGE END -->
+  </main>
+  <!-- MAIN CONTENT END -->
+
+  <!-- ============================================= -->
+  <!-- FOOTER START - Website ka bottom section       -->
+  <!-- ============================================= -->
+  <footer class="footer">
+    <div class="footer-grid">
+
+      <!-- Footer Column 1 - About -->
+      <div class="footer-col">
+        <h3>ALADDIN CHIRAGH</h3>
+        <p>
+          Discover premium content, expert insights, and exclusive knowledge 
+          that helps you grow and succeed.
+        </p>
+        <div class="social-links">
+          <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" title="Telegram"><i class="fab fa-telegram"></i></a>
+        </div>
+      </div>
+
+      <!-- Footer Column 2 - Quick Links -->
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a onclick="showPage('home')"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a onclick="showPage('about')"><i class="fas fa-chevron-right"></i> About Us</a></li>
+          <li><a onclick="showPage('services')"><i class="fas fa-chevron-right"></i> Services</a></li>
+          <li><a onclick="showPage('products')"><i class="fas fa-chevron-right"></i> Products</a></li>
+          <li><a onclick="showPage('pricing')"><i class="fas fa-chevron-right"></i> Pricing</a></li>
+        </ul>
+      </div>
+
+      <!-- Footer Column 3 - Support -->
+      <div class="footer-col">
+        <h3>Support</h3>
+        <ul class="footer-links">
+          <li><a onclick="showPage('contact')"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Terms of Service</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Refund Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Footer Column 4 - Contact Info -->
+      <div class="footer-col">
+        <h3>Contact Info</h3>
+        <ul class="footer-links">
+          <li><a href="mailto:aladdinchiragh@gmail.com"><i class="fas fa-envelope"></i> aladdinchiragh@gmail.com</a></li>
+          <li><a href="#"><i class="fas fa-map-marker-alt"></i> Your Location</a></li>
+          <li><a href="#"><i class="fas fa-clock"></i> 24/7 Support</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Footer Bottom - Copyright -->
+    <div class="footer-bottom">
+      <p>
+        © 2024 <a href="#">ALADDIN CHIRAGH</a>. All Rights Reserved. 
+        Made with 💛 by Aladdin Chiragh Team
+      </p>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+  <!-- ============================================= -->
+  <!-- PAYMENT MODAL - Payment popup                  -->
+  <!-- Jab user plan ya blog kharede toh dikhega     -->
+  <!-- ============================================= -->
+  <div class="modal-overlay" id="paymentModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closePaymentModal()">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <h2 id="modalTitle">💳 Select Payment Method</h2>
+      <p class="modal-subtitle" id="modalSubtitle">Choose your preferred payment method</p>
+
+      <!-- Order Summary -->
+      <div class="order-summary">
+        <h4>📋 Order Summary</h4>
+        <div class="order-summary-row">
+          <span class="os-label">Item:</span>
+          <span class="os-value" id="modalItemName">Pro Plan</span>
+        </div>
+        <div class="order-summary-row">
+          <span class="os-label">Duration:</span>
+          <span class="os-value" id="modalItemDuration">1 Month</span>
+        </div>
+        <div class="order-summary-row total">
+          <span class="os-label">Total:</span>
+          <span class="os-value" id="modalItemPrice">$93</span>
+        </div>
+      </div>
+
+      <!-- Payment Methods -->
+      <div class="payment-methods" id="paymentMethods">
+        <div class="payment-method-card" onclick="selectPaymentMethod('binance')">
+          <span class="pm-icon">💰</span>
+          <span class="pm-name">Binance Pay</span>
+        </div>
+        <div class="payment-method-card" onclick="selectPaymentMethod('btc')">
+          <span class="pm-icon">₿</span>
+          <span class="pm-name">BTC Transfer</span>
+        </div>
+        <div class="payment-method-card" onclick="selectPaymentMethod('bank')">
+          <span class="pm-icon">🏦</span>
+          <span class="pm-name">Bank Transfer</span>
+        </div>
+        <div class="payment-method-card" onclick="selectPaymentMethod('lemon')">
+          <span class="pm-icon">🍋</span>
+          <span class="pm-name">Lemon Squeezy</span>
+        </div>
+      </div>
+
+      <!-- Payment Details - Har method ke liye alag -->
+      <!-- BINANCE PAY -->
+      <div class="payment-details-box" id="details-binance">
+        <h4>💰 Binance Pay Details</h4>
+        <div class="payment-detail-row">
+          <span class="pd-label">Binance Pay ID:</span>
+          <span class="pd-value">
+            YAHAN_BINANCE_PAY_ID
+            <button class="copy-btn" onclick="copyText('YAHAN_BINANCE_PAY_ID')">Copy</button>
+          </span>
+        </div>
+        <p style="color: var(--text-muted); font-size: 12px; margin-top: 10px;">
+          Binance app kholein → Pay → Send → Yeh ID daalein → Amount bhejein
+        </p>
+      </div>
+
+      <!-- BTC TRANSFER -->
+      <div class="payment-details-box" id="details-btc">
+        <h4>₿ BTC Wallet Address</h4>
+        <div class="payment-detail-row">
+          <span class="pd-label">BTC Address:</span>
+          <span class="pd-value">
+            YAHAN_BTC_ADDRESS
+            <button class="copy-btn" onclick="copyText('YAHAN_BTC_ADDRESS')">Copy</button>
+          </span>
+        </div>
+        <p style="color: var(--text-muted); font-size: 12px; margin-top: 10px;">
+          Apne crypto wallet se is address pe BTC bhejein
+        </p>
+      </div>
+
+      <!-- BANK TRANSFER -->
+      <div class="payment-details-box" id="details-bank">
+        <h4>🏦 Bank Transfer Details</h4>
+        <div class="payment-detail-row">
+          <span class="pd-label">Bank Name:</span>
+          <span class="pd-value">YAHAN_BANK_NAME</span>
+        </div>
+        <div class="payment-detail-row">
+          <span class="pd-label">Account Title:</span>
+          <span class="pd-value">YAHAN_ACCOUNT_TITLE</span>
+        </div>
+        <div class="payment-detail-row">
+          <span class="pd-label">Account Number:</span>
+          <span class="pd-value">
+            YAHAN_ACCOUNT_NUMBER
+            <button class="copy-btn" onclick="copyText('YAHAN_ACCOUNT_NUMBER')">Copy</button>
+          </span>
+        </div>
+        <div class="payment-detail-row">
+          <span class="pd-label">IBAN:</span>
+          <span class="pd-value">
+            YAHAN_IBAN
+            <button class="copy-btn" onclick="copyText('YAHAN_IBAN')">Copy</button>
+          </span>
+        </div>
+      </div>
+
+      <!-- LEMON SQUEEZY -->
+      <div class="payment-details-box" id="details-lemon">
+        <h4>🍋 Lemon Squeezy</h4>
+        <p style="color: var(--text-light); font-size: 14px; margin-bottom: 15px;">
+          Card payment ke liye Lemon Squeezy ka secure checkout use karein
+        </p>
+        <button class="btn-primary" id="lemonCheckoutBtn" onclick="openLemonCheckout()" style="width: 100%; justify-content: center;">
+          <i class="fas fa-external-link-alt"></i> Pay with Card
+        </button>
+      </div>
+
+      <!-- Payment Confirmation Form -->
+      <!-- User payment ke baad Transaction ID submit karega -->
+      <div class="payment-confirm-form" id="paymentConfirmForm">
+        <h4>📝 Payment Confirmation</h4>
+        <p style="color: var(--text-light); font-size: 13px; margin-bottom: 15px;">
+          Payment ke baad neeche Transaction ID ya reference number daalein
+        </p>
+
+        <div class="form-group">
+          <label>Transaction ID / Reference</label>
+          <input type="text" id="payTxId" placeholder="Transaction ID ya reference number">
+        </div>
+
+        <div class="form-group">
+          <label>Email (Login wala)</label>
+          <input type="email" id="payEmail" placeholder="Apna registered email">
+        </div>
+
+        <button class="auth-submit-btn" id="paySubmitBtn" onclick="submitPayment()">
+          <i class="fas fa-paper-plane"></i> Submit Payment
+        </button>
+
+        <p class="auth-message" id="paymentMsg"></p>
+      </div>
+
+    </div>
+  </div>
+  <!-- PAYMENT MODAL END -->
+  <!-- ============================================= -->
+  <!-- JAVASCRIPT START                               -->
+  <!-- Part 1: Basic Functions + Page Navigation +    -->
+  <!-- Header Scroll + Mobile Menu + Demo Categories  -->
+  <!-- ============================================= -->
+  <script>
+
+    // ============================================= //
+    // PAGE NAVIGATION SYSTEM                         //
+    // Yeh function alag alag pages dikhane ke liye   //
+    // hai. Jab koi link click kare ga toh yeh        //
+    // function call hoga                             //
+    // ============================================= //
+    function showPage(pageName) {
+      // Pehle sab pages chupao
+      var allPages = document.querySelectorAll('.page');
+      allPages.forEach(function(page) {
+        page.classList.remove('active');
+    });
+
+      // Ab sirf selected page dikhao
+      var targetPage = document.getElementById('page-' + pageName);
+      if (targetPage) {
+        targetPage.classList.add('active');
+      }
+
+      // Page ke top pe scroll karo
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Mobile menu band karo agar khula ho
+      document.getElementById('navLinks').classList.remove('active');
+      document.getElementById('menuIcon').className = 'fas fa-bars';
+    }
+
+    // ============================================= //
+    // MOBILE MENU TOGGLE                              //
+    // Yeh function mobile pe menu kholne aur band    //
+    // karne ke liye hai                              //
+    // ============================================= //
+    function toggleMenu() {
+      var navLinks = document.getElementById('navLinks');
+      var menuIcon = document.getElementById('menuIcon');
+
+      navLinks.classList.toggle('active');
+
+      // Icon change karo (bars ↔ times)
+      if (navLinks.classList.contains('active')) {
+        menuIcon.className = 'fas fa-times';
+      } else {
+        menuIcon.className = 'fas fa-bars';
+      }
+    }
+
+    // ============================================= //
+    // HEADER SCROLL EFFECT                            //
+    // Jab user scroll kare toh header ka style       //
+    // change hoga                                    //
+    // ============================================= //
+    window.addEventListener('scroll', function() {
+      var header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // ============================================= //
+    // DEMO CATEGORIES DATA                            //
+    // Yeh 21 categories ka demo data hai. Baad mein  //
+    // GitHub se load hoga (Part 4 mein)              //
+    // ============================================= //
+    var demoCategories = [
+      { id: 'cat-1', icon: '📊', name: 'Trading Basics', desc: 'Learn fundamentals of trading and market analysis' },
+      { id: 'cat-2', icon: '💹', name: 'Forex Trading', desc: 'Currency trading strategies and techniques' },
+      { id: 'cat-3', icon: '₿', name: 'Crypto Trading', desc: 'Cryptocurrency market insights and tips' },
+      { id: 'cat-4', icon: '📈', name: 'Stock Market', desc: 'Stock trading and investment strategies' },
+      { id: 'cat-5', icon: '🤖', name: 'AI & Automation', desc: 'Artificial intelligence in trading' },
+      { id: 'cat-6', icon: '💰', name: 'Investment', desc: 'Smart investment strategies for growth' },
+      { id: 'cat-7', icon: '🏦', name: 'Banking', desc: 'Banking systems and financial services' },
+      { id: 'cat-8', icon: '📱', name: 'Fintech', desc: 'Financial technology innovations' },
+      { id: 'cat-9', icon: '🔐', name: 'Security', desc: 'Cybersecurity and data protection' },
+      { id: 'cat-10', icon: '📉', name: 'Risk Management', desc: 'Managing financial risks effectively' },
+      { id: 'cat-11', icon: '🌍', name: 'Global Markets', desc: 'International market analysis' },
+      { id: 'cat-12', icon: '💎', name: 'Commodities', desc: 'Gold, silver, oil trading insights' },
+      { id: 'cat-13', icon: '🏠', name: 'Real Estate', desc: 'Property investment and market trends' },
+      { id: 'cat-14', icon: '📋', name: 'Tax Planning', desc: 'Tax strategies and financial planning' },
+      { id: 'cat-15', icon: '🎓', name: 'Education', desc: 'Financial literacy and learning resources' },
+      { id: 'cat-16', icon: '⚡', name: 'Day Trading', desc: 'Short-term trading techniques' },
+      { id: 'cat-17', icon: '🔄', name: 'Swing Trading', desc: 'Medium-term trading strategies' },
+      { id: 'cat-18', icon: '📊', name: 'Technical Analysis', desc: 'Chart patterns and indicators' },
+      { id: 'cat-19', icon: '📰', name: 'Market News', desc: 'Latest financial news and updates' },
+      { id: 'cat-20', icon: '💼', name: 'Business', desc: 'Business strategies and entrepreneurship' },
+      { id: 'cat-21', icon: '🚀', name: 'Startup', desc: 'Startup funding and growth strategies' }
+    ];
+
+    // ============================================= //
+    // CATEGORIES RENDER                               //
+    // Yeh function categories ko HTML mein convert    //
+    // karke page pe dikhata hai                      //
+    // ============================================= //
+    function renderCategories() {
+      var grid = document.getElementById('categoriesGrid');
+      var html = '';
+
+      demoCategories.forEach(function(cat) {
+        html += `
+          <div class="category-card" onclick="openCategory('${cat.id}')">
+            <span class="category-icon">${cat.icon}</span>
+            <h3>${cat.name}</h3>
+            <p>${cat.desc}</p>
+            <span class="category-count">30 Sub-Categories</span>
+          </div>
+        `;
+      });
+
+      grid.innerHTML = html;
+    }
+
+    // ============================================= //
+    // PLACEHOLDER FUNCTIONS                           //
+    // Yeh functions Part 2 mein complete honge        //
+    // Abhi sirf console mein message dikhayenge      //
+    // ============================================= //
+
+    // Jab koi category pe click kare (Part 2 mein banega)
+    function openCategory(catId) {
+      console.log('Category clicked: ' + catId);
+      // Part 2 mein yahan sub-categories load hongi
+      alert('Category page Part 2 mein banega! Category: ' + catId);
+    }
+
+    // Jab koi blog pe click kare (Part 2 mein banega)
+    function openBlog(blogId) {
+      console.log('Blog clicked: ' + blogId);
+      // Part 2 mein yahan blog content load hoga
+      alert('Blog page Part 2 mein banega! Blog: ' + blogId);
+    }
+
+    // ============================================= //
+    // PAGE LOAD HONE PE YEH FUNCTIONS CHALENGE       //
+    // ============================================= //
+    window.addEventListener('DOMContentLoaded', function() {
+      // Categories render karo
+      renderCategories();
+    });
+
+        // ============================================= //
+    // PART 2 JAVASCRIPT START                        //
+    // ============================================= //
+
+    // ============================================= //
+    // CURRENT NAVIGATION STATE                        //
+    // Yeh variables track karte hain ke user abhi    //
+    // kis category/subcategory mein hai              //
+    // ============================================= //
+    var currentCategoryId = '';
+    var currentCategoryName = '';
+    var currentSubcatId = '';
+    var currentSubcatName = '';
+    var currentBlogId = '';
+    var currentBlogData = null;
+
+    // ============================================= //
+    // DEMO SUB-CATEGORIES DATA                        //
+    // Har category ke liye 30 sub-categories hain    //
+    // Baad mein GitHub se load hongi (Part 4)        //
+    // ============================================= //
+    function generateSubCategories(categoryId) {
+      // Yeh function kisi bhi category ke liye
+      // 30 demo sub-categories banata hai
+      var subCats = [];
+      var subCatNames = [
+        'Introduction & Basics', 'Advanced Concepts', 'Strategies & Techniques',
+        'Tools & Software', 'Case Studies', 'Expert Analysis',
+        'Beginner Guide', 'Pro Tips', 'Market Trends',
+        'Risk Assessment', 'Portfolio Building', 'Technical Setup',
+        'Fundamental Analysis', 'Chart Patterns', 'Indicators Guide',
+        'Money Management', 'Psychology & Mindset', 'News Impact',
+        'Global Perspective', 'Local Markets', 'Digital Assets',
+        'Automation Tools', 'Data Analysis', 'Performance Tracking',
+        'Community Insights', 'Research Papers', 'Video Tutorials',
+        'Practice Sessions', 'Real Examples', 'Future Predictions'
+      ];
+
+      var subCatIcons = [
+        '📘', '🎯', '⚔️', '🔧', '📋', '🔍',
+        '📗', '💡', '📈', '⚠️', '🏗️', '⚙️',
+        '📊', '📉', '📐', '💵', '🧠', '📰',
+        '🌍', '🏛️', '💎', '🤖', '📊', '📱',
+        '👥', '📝', '🎬', '🎮', '✅', '🔮'
+      ];
+
+      for (var i = 0; i < 30; i++) {
+        subCats.push({
+          id: categoryId + '-sub-' + (i + 1),
+          icon: subCatIcons[i],
+          name: subCatNames[i],
+          desc: 'Explore detailed blogs about ' + subCatNames[i].toLowerCase(),
+          blogsCount: 6
+        });
+      }
+
+      return subCats;
+    }
+
+    // ============================================= //
+    // DEMO BLOGS DATA                                 //
+    // Har sub-category ke liye 6 blogs hain          //
+    // Baad mein GitHub se load honge (Part 4)        //
+    // ============================================= //
+    function generateBlogs(subcatId) {
+      // Yeh function kisi bhi sub-category ke liye
+      // 6 demo blogs banata hai
+      var blogs = [];
+      var prices = [7, 8, 9, 10, 11, 12];
+      var blogTitles = [
+        'Complete Beginner\'s Guide',
+        'Step by Step Tutorial',
+        'Advanced Strategies Revealed',
+        'Expert Tips & Tricks',
+        'Deep Dive Analysis',
+        'Master Class Guide'
+      ];
+
+      var blogDescs = [
+        'A comprehensive guide for beginners to get started with confidence.',
+        'Follow along step by step and master the fundamentals.',
+        'Advanced strategies that professionals use for maximum results.',
+        'Expert tips and tricks that will boost your performance.',
+        'An in-depth analysis covering every important aspect.',
+        'The ultimate master class for serious learners.'
+      ];
+
+      for (var i = 0; i < 6; i++) {
+        blogs.push({
+          id: subcatId + '-blog-' + (i + 1),
+          title: blogTitles[i],
+          desc: blogDescs[i],
+          price: prices[i],
+          date: 'Jan ' + (15 + i) + ', 2024',
+          type: 'paid',
+          image: 'https://via.placeholder.com/400x200/1A1A2E/FFD700?text=Blog+' + (i + 1),
+          file: subcatId + '-blog-' + (i + 1) + '.md'
+        });
+      }
+
+      return blogs;
+    }
+
+    // ============================================= //
+    // OPEN CATEGORY FUNCTION                          //
+    // Jab user kisi category pe click kare toh       //
+    // yeh function call hoga                         //
+    // ============================================= //
+    function openCategory(catId) {
+      // Current category save karo
+      currentCategoryId = catId;
+
+      // Category ka data dhundho
+      var category = demoCategories.find(function(c) {
+        return c.id === catId;
+      });
+
+      if (!category) return;
+
+      currentCategoryName = category.name;
+
+      // Page title aur breadcrumb update karo
+      document.getElementById('categoryPageTitle').textContent = category.icon + ' ' + category.name;
+      document.getElementById('categoryPageDesc').textContent = category.desc;
+      document.getElementById('categoryBreadcrumbName').textContent = category.name;
+      document.getElementById('categoryInfoText').textContent =
+        category.name + ' category mein 30 sub-categories hain. Har sub-category mein 6 premium blogs hain jo $7 se $12 tak ki qeemat mein available hain. Apni pasand ki sub-category choose karein.';
+
+      // Sub-categories generate aur render karo
+      var subCats = generateSubCategories(catId);
+      renderSubCategories(subCats);
+
+      // Category page dikhao
+      showPage('category');
+    }
+
+    // ============================================= //
+    // RENDER SUB-CATEGORIES                           //
+    // Sub-categories ko HTML cards mein convert      //
+    // karke page pe dikhata hai                      //
+    // ============================================= //
+    function renderSubCategories(subCats) {
+      var grid = document.getElementById('subcategoriesGrid');
+      var html = '';
+
+      subCats.forEach(function(sub, index) {
+        html += `
+          <div class="subcat-card" onclick="openSubCategory('${sub.id}', '${sub.name.replace(/'/g, "\\'")}')">
+            <span class="subcat-card-number">#${index + 1}</span>
+            <span class="subcat-card-icon">${sub.icon}</span>
+            <h3>${sub.name}</h3>
+            <p>${sub.desc}</p>
+            <span class="subcat-card-blogs-count">📝 ${sub.blogsCount} Blogs</span>
+          </div>
+        `;
+      });
+
+      grid.innerHTML = html;
+    }
+
+    // ============================================= //
+    // OPEN SUB-CATEGORY FUNCTION                      //
+    // Jab user kisi sub-category pe click kare toh   //
+    // yeh function call hoga                         //
+    // ============================================= //
+    function openSubCategory(subcatId, subcatName) {
+      // Current sub-category save karo
+      currentSubcatId = subcatId;
+      currentSubcatName = subcatName;
+
+      // Page title aur breadcrumb update karo
+      document.getElementById('subcatPageTitle').textContent = '📁 ' + subcatName;
+      document.getElementById('subcatPageDesc').textContent = 'Browse all 6 premium blogs in ' + subcatName;
+      document.getElementById('subcatBreadcrumbCat').textContent = currentCategoryName;
+      document.getElementById('subcatBreadcrumbName').textContent = subcatName;
+      document.getElementById('subcatInfoText').textContent =
+        subcatName + ' sub-category mein 6 premium blogs hain. Pehla blog $7 ka hai aur aakhri blog $12 ka. Har blog mein detailed information aur expert insights hain.';
+
+      // Blogs generate aur render karo
+      var blogs = generateBlogs(subcatId);
+      renderBlogs(blogs);
+
+      // Sub-category page dikhao
+      showPage('subcategory');
+    }
+
+    // ============================================= //
+    // RENDER BLOGS                                    //
+    // 6 blogs ko HTML cards mein convert karke       //
+    // page pe dikhata hai                            //
+    // ============================================= //
+    function renderBlogs(blogs) {
+      var grid = document.getElementById('subcatBlogsGrid');
+      var html = '';
+
+      blogs.forEach(function(blog) {
+        html += `
+          <div class="blog-card" onclick="openBlog('${blog.id}', ${JSON.stringify(blog).replace(/"/g, '&quot;')})">
+            <div class="blog-card-image">
+              <img src="${blog.image}" alt="${blog.title}">
+              <span class="lock-overlay"><i class="fas fa-lock"></i></span>
+              <span class="blog-card-price-badge">$${blog.price}</span>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-tag tag-paid">💰 PREMIUM</span>
+              <h3>${blog.title}</h3>
+              <p>${blog.desc}</p>
+              <div class="blog-card-footer">
+                <span class="blog-card-date"><i class="far fa-calendar"></i> ${blog.date}</span>
+                <span class="blog-card-price paid">$${blog.price}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      grid.innerHTML = html;
+    }
+
+    // ============================================= //
+    // OPEN BLOG FUNCTION                              //
+    // Jab user kisi blog pe click kare toh yeh       //
+    // function call hoga                             //
+    // ============================================= //
+    function openBlog(blogId, blogData) {
+      // Agar blogData string hai toh parse karo
+      if (typeof blogData === 'string') {
+        blogData = JSON.parse(blogData);
+      }
+
+      currentBlogId = blogId;
+      currentBlogData = blogData;
+
+      // Breadcrumb update karo
+      document.getElementById('blogBreadcrumbCat').textContent = currentCategoryName;
+      document.getElementById('blogBreadcrumbSubcat').textContent = currentSubcatName;
+      document.getElementById('blogBreadcrumbName').textContent = blogData.title || 'Blog';
+
+      // Blog header update karo
+      document.getElementById('blogContentTitle').textContent = blogData.title || 'Blog Title';
+      document.getElementById('blogContentDate').textContent = blogData.date || 'Date';
+      document.getElementById('blogContentCategory').textContent = currentCategoryName || 'Category';
+      document.getElementById('blogContentPrice').textContent = blogData.price ? '$' + blogData.price : 'FREE';
+
+      // Blog info box update karo
+      document.getElementById('blogInfoText').textContent =
+        'Yeh blog "' + (currentSubcatName || '') + '" sub-category ka hissa hai jo "' +
+        (currentCategoryName || '') + '" category mein aata hai. Is blog ki qeemat $' +
+        (blogData.price || 0) + ' hai.';
+
+      // Check karo blog free hai ya paid
+      if (blogData.type === 'free') {
+        // FREE BLOG - Poora content dikhao
+        showBlogContent(blogId, true);
+      } else {
+        // PAID BLOG - Preview dikhao aur lock lagao
+        // Part 3/4 mein user access check hoga
+        // Abhi demo ke liye locked dikhayenge
+        showBlogContent(blogId, false);
+      }
+
+      // Blog page dikhao
+      showPage('blog');
+    }
+
+    // ============================================= //
+    // SHOW BLOG CONTENT                               //
+    // Blog ka content load karke dikhata hai          //
+    // fullAccess = true toh poora, false toh preview  //
+    // ============================================= //
+    function showBlogContent(blogId, fullAccess) {
+      var contentDiv = document.getElementById('blogContentBody');
+      var lockedSection = document.getElementById('blogLockedSection');
+
+      // Demo content (baad mein GitHub se load hoga - Part 4)
+      var demoContent = `
+        <h2>Introduction</h2>
+        <p>Welcome to this comprehensive guide. In this blog, we will cover everything you need to know about this topic. Whether you are a beginner or an experienced professional, you will find valuable insights here.</p>
+        
+        <h2>Key Concepts</h2>
+        <p>Before we dive deep, let's understand some fundamental concepts that form the foundation of this subject.</p>
+        
+        <ul>
+          <li><strong>Concept 1:</strong> Understanding the basics is crucial for building a strong foundation.</li>
+          <li><strong>Concept 2:</strong> Practice and consistency are the keys to mastery.</li>
+          <li><strong>Concept 3:</strong> Always stay updated with the latest trends and developments.</li>
+        </ul>
+
+        <blockquote>
+          "The best investment you can make is in yourself. The more you learn, the more you earn." - Warren Buffett
+        </blockquote>
+
+        <h2>Detailed Analysis</h2>
+        <p>Now let's get into the detailed analysis. This section contains the core content that will help you understand the practical applications.</p>
+        <p>Our research shows that following a structured approach yields the best results. Here are the steps you should follow...</p>
+      `;
+
+      if (fullAccess) {
+        // FULL ACCESS - Poora content dikhao
+        contentDiv.innerHTML = demoContent + `
+          <h2>Advanced Strategies</h2>
+          <p>These advanced strategies are reserved for our premium readers. By implementing these techniques, you can achieve remarkable results.</p>
+          
+          <h3>Strategy 1: The Golden Rule</h3>
+          <p>This strategy involves a systematic approach that has been proven to work across different market conditions...</p>
+          
+          <h3>Strategy 2: Risk Optimization</h3>
+          <p>Managing risk is just as important as maximizing returns. Here's how the experts do it...</p>
+          
+          <h2>Conclusion</h2>
+          <p>We hope this guide has provided you with valuable insights. Remember, consistent learning and practice are the keys to success.</p>
+        `;
+        lockedSection.style.display = 'none';
+      } else {
+        // PREVIEW ONLY - Thoda content dikhao phir lock
+        contentDiv.innerHTML = demoContent;
+        lockedSection.style.display = 'block';
+
+        // Locked section mein price update karo
+        if (currentBlogData) {
+          document.getElementById('lockedBlogPrice').textContent = '$' + currentBlogData.price;
+        }
+      }
+    }
+
+    // ============================================= //
+    // BUY THIS BLOG - Abhi alert dikhayega           //
+    // Part 3 mein proper payment system banega       //
+    // ============================================= //
+    function buyThisBlog() {
+      if (currentBlogData) {
+        alert('💳 Buy Blog: ' + currentBlogData.title + '\n💰 Price: $' + currentBlogData.price + '\n\nPayment system Part 3 mein complete hoga!');
+      }
+    }
+
+    // ============================================= //
+    // NAVIGATION BACK BUTTONS                         //
+    // Wapas jane ke liye functions                   //
+    // ============================================= //
+
+    // Category se wapas Home pe
+    function goBackToCategory() {
+      if (currentCategoryId) {
+        openCategory(currentCategoryId);
+      } else {
+        showPage('home');
+      }
+    }
+
+    // Sub-Category se wapas Category pe
+    function goBackToSubCategory() {
+      if (currentSubcatId) {
+        openSubCategory(currentSubcatId, currentSubcatName);
+      } else {
+        goBackToCategory();
+      }
+    }
+
+    // ============================================= //
+    // LOAD GITHUB CONTENT PAGES                       //
+    // About, Services, Products, Contact pages       //
+    // ka content GitHub se load hoga                 //
+    // ============================================= //
+
+    // ============================================= //
+    // GITHUB REPOSITORY URL                           //
+    // Yahan apni GitHub repository ka URL dalo        //
+    // Jahan about.md, services.md wagera hain        //
+    // ============================================= //
+    var GITHUB_REPO_URL = 'https://raw.githubusercontent.com/usaid3/aladdin-chiragh-blogs/main/';
+
+    // Markdown ko HTML mein convert karne ka simple function
+    function simpleMarkdownToHtml(md) {
+      var html = md;
+
+      // Headings convert karo
+      html = html.replace(/^### (.*$)/gm, '<h3>$1</h3>');
+      html = html.replace(/^## (.*$)/gm, '<h2>$1</h2>');
+      html = html.replace(/^# (.*$)/gm, '<h1>$1</h1>');
+
+      // Bold aur Italic
+      html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+      // Links
+      html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>');
+
+      // Images
+      html = html.replace(/!\[(.*?)\]\((.*?)\)/g, '<img src="$2" alt="$1">');
+
+      // Blockquotes
+      html = html.replace(/^> (.*$)/gm, '<blockquote>$1</blockquote>');
+
+      // Unordered lists
+      html = html.replace(/^- (.*$)/gm, '<li>$1</li>');
+      html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
+
+      // Code blocks
+      html = html.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+
+      // Inline code
+      html = html.replace(/`(.*?)`/g, '<code>$1</code>');
+
+      // Paragraphs - Empty lines ko <p> mein wrap karo
+      html = html.replace(/\n\n/g, '</p><p>');
+      html = '<p>' + html + '</p>';
+
+      // Clean up
+      html = html.replace(/<p><h/g, '<h');
+      html = html.replace(/<\/h([1-6])><\/p>/g, '</h$1>');
+      html = html.replace(/<p><ul>/g, '<ul>');
+      html = html.replace(/<\/ul><\/p>/g, '</ul>');
+      html = html.replace(/<p><blockquote>/g, '<blockquote>');
+      html = html.replace(/<\/blockquote><\/p>/g, '</blockquote>');
+      html = html.replace(/<p><pre>/g, '<pre>');
+      html = html.replace(/<\/pre><\/p>/g, '</pre>');
+      html = html.replace(/<p><\/p>/g, '');
+
+      return html;
+    }
+
+    // GitHub se page content load karne ka function
+    function loadGitHubContent(fileName, elementId) {
+      var url = GITHUB_REPO_URL + fileName;
+
+      fetch(url)
+        .then(function(response) {
+          if (!response.ok) {
+            throw new Error('File nahi mili');
+          }
+          return response.text();
+        })
+        .then(function(content) {
+          // Markdown ko HTML mein convert karo
+          var htmlContent = simpleMarkdownToHtml(content);
+          document.getElementById(elementId).innerHTML = htmlContent;
+        })
+        .catch(function(error) {
+          document.getElementById(elementId).innerHTML = `
+            <div style="text-align:center; padding:40px;">
+              <p style="font-size:40px;">📄</p>
+              <h3 style="color: var(--text-white); margin: 15px 0;">Content Coming Soon</h3>
+              <p style="color: var(--text-light);">
+                Yeh page abhi tayyar ho raha hai. Jald hi content available hoga.
+                <br><br>
+                <strong>GitHub file:</strong> ${fileName}
+                <br>
+                <small>Apni GitHub repository mein "${fileName}" file bana ke content daalein.</small>
+              </p>
+            </div>
+          `;
+        });
+    }
+
+    // ============================================= //
+    // SHOWPAGE FUNCTION UPDATE                        //
+    // Page dikhane ke saath content bhi load karo    //
+    // ============================================= //
+    var originalShowPage = showPage;
+    showPage = function(pageName) {
+      // Pehle original function chalao
+      originalShowPage(pageName);
+
+      // Content pages ke liye GitHub se load karo
+      if (pageName === 'about') {
+        loadGitHubContent('about.md', 'aboutContent');
+      } else if (pageName === 'services') {
+        loadGitHubContent('services.md', 'servicesContent');
+      } else if (pageName === 'products') {
+        loadGitHubContent('products.md', 'productsContent');
+      } else if (pageName === 'contact') {
+        loadGitHubContent('contact.md', 'contactContent');
+      }
+    };
+
+    // ============================================= //
+    // PART 2 JAVASCRIPT END                          //
+    // ============================================= //
+
+      // ============================================= //
+    // PART 3 JAVASCRIPT START                        //
+    // ============================================= //
+
+    // ============================================= //
+    // GOOGLE APPS SCRIPT URL                          //
+    // Yeh URL Google Sheet se connect karta hai       //
+    // Apna Google Apps Script URL yahan paste karo   //
+    // ============================================= //
+    var SCRIPT_URL = 'YAHAN_APNA_GOOGLE_APPS_SCRIPT_URL_PASTE_KARO';
+
+    // ============================================= //
+    // ADMIN CREDENTIALS                               //
+    // Yeh admin ka email aur password hai             //
+    // Is account se sab kuch access hoga             //
+    // ============================================= //
+    var ADMIN_EMAIL = 'aladdinchiragh@gmail.com';
+    var ADMIN_PASSWORD = 'aladdinchiraghUSAIDS333';
+
+    // ============================================= //
+    // CURRENT USER DATA                               //
+    // Login hone ke baad user ki info yahan save      //
+    // hogi                                           //
+    // ============================================= //
+    var currentUser = null;
+
+    // ============================================= //
+    // LEMON SQUEEZY CHECKOUT LINKS                    //
+    // Har plan ke liye alag checkout link             //
+    // ============================================= //
+    var LEMON_LINKS = {
+      'Basic': 'YAHAN_LEMON_BASIC_LINK',
+      'Pro': 'YAHAN_LEMON_PRO_LINK',
+      'Premium': 'YAHAN_LEMON_PREMIUM_LINK'
+    };
+
+    // ============================================= //
+    // AUTH FORM TOGGLE                                //
+    // Login aur Signup form switch karne ke liye     //
+    // ============================================= //
+    function showAuthForm(type) {
+      // Forms toggle karo
+      document.getElementById('authSignupForm').classList.remove('active');
+      document.getElementById('authLoginForm').classList.remove('active');
+
+      // Tab buttons toggle karo
+      var tabs = document.querySelectorAll('#authTabs button');
+      tabs[0].classList.remove('active');
+      tabs[1].classList.remove('active');
+
+      if (type === 'signup') {
+        document.getElementById('authSignupForm').classList.add('active');
+        tabs[0].classList.add('active');
+      } else {
+        document.getElementById('authLoginForm').classList.add('active');
+        tabs[1].classList.add('active');
+      }
+
+      // Messages saaf karo
+      document.getElementById('signupMsg').textContent = '';
+      document.getElementById('loginMsg').textContent = '';
+    }
+
+    // ============================================= //
+    // PASSWORD TOGGLE                                 //
+    // Password show/hide karne ke liye               //
+    // ============================================= //
+    function togglePassword(inputId, btnEl) {
+      var input = document.getElementById(inputId);
+      var icon = btnEl.querySelector('i');
+
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.className = 'far fa-eye-slash';
+      } else {
+        input.type = 'password';
+        icon.className = 'far fa-eye';
+      }
+    }
+
+    // ============================================= //
+    // SIGNUP HANDLER                                  //
+    // Jab user signup form submit kare               //
+    // ============================================= //
+    function handleSignup(e) {
+      e.preventDefault();
+
+      var name = document.getElementById('s_name').value.trim();
+      var email = document.getElementById('s_email').value.trim();
+      var password = document.getElementById('s_password').value;
+
+      var msg = document.getElementById('signupMsg');
+      var btn = document.getElementById('signupBtn');
+
+      msg.textContent = '⏳ Account bana rahe hain...';
+      msg.className = 'auth-message loading';
+      btn.disabled = true;
+
+      // Google Sheet ko data bhejo
+      var formData = new FormData();
+      formData.append('action', 'signup');
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('password', password);
+
+      fetch(SCRIPT_URL, { method: 'POST', body: formData })
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          btn.disabled = false;
+
+          if (data.status === 'success') {
+            msg.textContent = '✅ Account ban gaya! Ab login karein';
+            msg.className = 'auth-message success';
+            document.getElementById('signupFormEl').reset();
+            // 2 second baad login form dikhao
+            setTimeout(function() { showAuthForm('login'); }, 2000);
+          } else if (data.status === 'exists') {
+            msg.textContent = '⚠️ Yeh email pehle se registered hai!';
+            msg.className = 'auth-message error';
+          }
+        })
+        .catch(function(err) {
+          btn.disabled = false;
+          msg.textContent = '❌ Error! Dobara try karein';
+          msg.className = 'auth-message error';
+        });
+    }
+
+    // ============================================= //
+    // LOGIN HANDLER                                   //
+    // Jab user login form submit kare                //
+    // ============================================= //
+    function handleLogin(e) {
+      e.preventDefault();
+
+      var email = document.getElementById('l_email').value.trim();
+      var password = document.getElementById('l_password').value;
+
+      var msg = document.getElementById('loginMsg');
+      var btn = document.getElementById('loginBtn');
+
+      // ADMIN CHECK - Pehle check karo admin hai ya nahi
+      if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+        loginAsAdmin();
+        return;
+      }
+
+      msg.textContent = '⏳ Login ho rahe hain...';
+      msg.className = 'auth-message loading';
+      btn.disabled = true;
+
+      // Google Sheet se verify karo
+      var formData = new FormData();
+      formData.append('action', 'login');
+      formData.append('email', email);
+      formData.append('password', password);
+
+      fetch(SCRIPT_URL, { method: 'POST', body: formData })
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          btn.disabled = false;
+
+          if (data.status === 'login_success') {
+            msg.textContent = '✅ Login successful!';
+            msg.className = 'auth-message success';
+
+            // User data save karo
+            currentUser = {
+              name: data.name,
+              email: email,
+              plan: data.plan || 'free',
+              isActive: data.isActive || false,
+              endDate: data.endDate || '',
+              purchasedBlogs: data.purchasedBlogs || [],
+              isAdmin: false
+            };
+
+            // LocalStorage mein save karo
+            localStorage.setItem('aladdinUser', JSON.stringify(currentUser));
+
+            // Dashboard dikhao
+            setTimeout(function() { showDashboard(); }, 1000);
+
+          } else {
+            msg.textContent = '❌ Email ya password galat hai!';
+            msg.className = 'auth-message error';
+          }
+        })
+        .catch(function(err) {
+          btn.disabled = false;
+          msg.textContent = '❌ Error! Dobara try karein';
+          msg.className = 'auth-message error';
+        });
+    }
+
+    // ============================================= //
+    // ADMIN LOGIN                                     //
+    // Admin ke liye special login - sab access       //
+    // ============================================= //
+    function loginAsAdmin() {
+      currentUser = {
+        name: 'Admin',
+        email: ADMIN_EMAIL,
+        plan: 'Premium',
+        isActive: true,
+        endDate: 'Unlimited',
+        purchasedBlogs: ['all'],
+        isAdmin: true
+      };
+
+      localStorage.setItem('aladdinUser', JSON.stringify(currentUser));
+
+      document.getElementById('loginMsg').textContent = '✅ Admin Login Successful!';
+      document.getElementById('loginMsg').className = 'auth-message success';
+
+      setTimeout(function() { showDashboard(); }, 1000);
+    }
+
+    // ============================================= //
+    // SHOW DASHBOARD                                  //
+    // Login ke baad user dashboard dikhao            //
+    // ============================================= //
+    function showDashboard() {
+      // Auth forms chupao, dashboard dikhao
+      document.getElementById('authFormsSection').style.display = 'none';
+      document.getElementById('dashboardSection').style.display = 'block';
+
+      // Header mein login button update karo
+      var authBtn = document.getElementById('authBtn');
+      authBtn.innerHTML = '<i class="fas fa-user-check"></i> Dashboard';
+
+      // Dashboard data fill karo
+      if (currentUser) {
+        // Avatar - Naam ka pehla letter
+        document.getElementById('dashAvatar').textContent =
+          currentUser.name.charAt(0).toUpperCase();
+
+        // Welcome info
+        document.getElementById('dashUserName').textContent =
+          '👋 Welcome, ' + currentUser.name + '!';
+        document.getElementById('dashUserEmail').textContent = currentUser.email;
+
+        // Subscription status
+        document.getElementById('dashPlan').textContent =
+          currentUser.plan.charAt(0).toUpperCase() + currentUser.plan.slice(1);
+
+        if (currentUser.isAdmin) {
+          document.getElementById('dashStatus').textContent = 'Admin ✅';
+          document.getElementById('dashStatus').className = 'value active';
+          document.getElementById('dashExpiry').textContent = 'Unlimited';
+          document.getElementById('dashDaysLeft').textContent = '∞';
+          document.getElementById('dashUpgradeArea').style.display = 'none';
+        } else if (currentUser.isActive) {
+          document.getElementById('dashStatus').textContent = 'Active ✅';
+          document.getElementById('dashStatus').className = 'value active';
+
+          if (currentUser.endDate && currentUser.endDate !== '') {
+            var end = new Date(currentUser.endDate);
+            var today = new Date();
+            var daysLeft = Math.ceil((end - today) / (1000 * 60 * 60 * 24));
+
+            document.getElementById('dashExpiry').textContent =
+              end.toLocaleDateString();
+            document.getElementById('dashDaysLeft').textContent =
+              daysLeft > 0 ? daysLeft + ' days' : 'Expiring';
+          }
+          document.getElementById('dashUpgradeArea').style.display = 'none';
+        } else {
+          document.getElementById('dashStatus').textContent = 'No Plan';
+          document.getElementById('dashStatus').className = 'value free';
+          document.getElementById('dashExpiry').textContent = '-';
+          document.getElementById('dashDaysLeft').textContent = '-';
+          document.getElementById('dashUpgradeArea').style.display = 'block';
+        }
+
+        // Purchased blogs
+        if (currentUser.purchasedBlogs && currentUser.purchasedBlogs.length > 0
+            && currentUser.purchasedBlogs[0] !== 'all') {
+          var blogsHtml = '';
+          currentUser.purchasedBlogs.forEach(function(blogId) {
+            blogsHtml += `
+              <div class="purchased-blog-item">
+                <span>📝 ${blogId}</span>
+                <span class="price-tag">Purchased ✅</span>
+              </div>
+            `;
+          });
+          document.getElementById('dashPurchasedBlogs').innerHTML = blogsHtml;
+        } else if (currentUser.isAdmin || (currentUser.purchasedBlogs &&
+            currentUser.purchasedBlogs[0] === 'all')) {
+          document.getElementById('dashPurchasedBlogs').innerHTML =
+            '<div class="no-purchases"><p>👑 All blogs access (Admin/Subscriber)</p></div>';
+        }
+      }
+    }
+
+    // ============================================= //
+    // LOGOUT                                          //
+    // User ko logout karo                            //
+    // ============================================= //
+    function logoutUser() {
+      currentUser = null;
+      localStorage.removeItem('aladdinUser');
+
+      // Dashboard chupao, forms dikhao
+      document.getElementById('authFormsSection').style.display = 'block';
+      document.getElementById('dashboardSection').style.display = 'none';
+
+      // Header button reset karo
+      var authBtn = document.getElementById('authBtn');
+      authBtn.innerHTML = '<i class="fas fa-user"></i> Login';
+
+      // Forms reset karo
+      document.getElementById('loginFormEl').reset();
+      document.getElementById('signupFormEl').reset();
+      showAuthForm('login');
+
+      // Home page pe bhejo
+      showPage('home');
+    }
+
+    // ============================================= //
+    // PAYMENT MODAL SYSTEM                            //
+    // Plan ya blog khareedne ka popup                //
+    // ============================================= //
+    var currentPaymentItem = null;
+
+    // Payment modal kholne ka function
+    function openPaymentModal(itemName, price, duration) {
+      // Check karo user login hai ya nahi
+      if (!currentUser) {
+        alert('⚠️ Pehle login karein!');
+        showPage('auth');
+        return;
+      }
+
+      // Payment info save karo
+      currentPaymentItem = {
+        name: itemName,
+        price: price,
+        duration: duration,
+        type: 'plan'
+      };
+
+      // Modal mein info fill karo
+      document.getElementById('modalItemName').textContent = itemName + ' Plan';
+      document.getElementById('modalItemDuration').textContent = duration;
+      document.getElementById('modalItemPrice').textContent = '$' + price;
+
+      // Email auto-fill karo
+      document.getElementById('payEmail').value = currentUser.email;
+
+      // Reset modal state
+      resetPaymentModal();
+
+      // Modal dikhao
+      document.getElementById('paymentModal').classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Single blog khareedne ka function
+    function openBlogPaymentModal(blogId, blogTitle, price) {
+      // Check karo user login hai ya nahi
+      if (!currentUser) {
+        alert('⚠️ Pehle login karein!');
+        showPage('auth');
+        return;
+      }
+
+      currentPaymentItem = {
+        name: blogTitle,
+        price: price,
+        duration: 'Lifetime',
+        type: 'blog',
+        blogId: blogId
+      };
+
+      document.getElementById('modalItemName').textContent = blogTitle;
+      document.getElementById('modalItemDuration').textContent = 'Single Blog (Lifetime)';
+      document.getElementById('modalItemPrice').textContent = '$' + price;
+      document.getElementById('payEmail').value = currentUser.email;
+
+      resetPaymentModal();
+      document.getElementById('paymentModal').classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Modal band karo
+    function closePaymentModal() {
+      document.getElementById('paymentModal').classList.remove('show');
+      document.body.style.overflow = 'auto';
+      currentPaymentItem = null;
+    }
+
+    // Modal reset karo
+    function resetPaymentModal() {
+      // Sab payment details chupao
+      var allDetails = document.querySelectorAll('.payment-details-box');
+      allDetails.forEach(function(el) { el.classList.remove('show'); });
+
+      // Sab method cards ka selection hatao
+      var allCards = document.querySelectorAll('.payment-method-card');
+      allCards.forEach(function(el) { el.classList.remove('selected'); });
+
+      // Confirmation form chupao
+      document.getElementById('paymentConfirmForm').classList.remove('show');
+
+      // Message saaf karo
+      document.getElementById('paymentMsg').textContent = '';
+
+      // Transaction ID saaf karo
+      document.getElementById('payTxId').value = '';
+    }
+
+    // ============================================= //
+    // SELECT PAYMENT METHOD                           //
+    // User jab koi payment method choose kare        //
+    // ============================================= //
+    var selectedPaymentMethod = '';
+
+    function selectPaymentMethod(method) {
+      selectedPaymentMethod = method;
+
+      // Sab cards ka selection hatao
+      var allCards = document.querySelectorAll('.payment-method-card');
+      allCards.forEach(function(el) { el.classList.remove('selected'); });
+
+      // Selected card highlight karo
+      event.currentTarget.classList.add('selected');
+
+      // Sab details chupao
+      var allDetails = document.querySelectorAll('.payment-details-box');
+      allDetails.forEach(function(el) { el.classList.remove('show'); });
+
+      // Selected method ki details dikhao
+      var detailsBox = document.getElementById('details-' + method);
+      if (detailsBox) {
+        detailsBox.classList.add('show');
+      }
+
+      // Lemon Squeezy ke liye confirm form nahi dikhana
+      // Baaki methods ke liye confirm form dikhao
+      if (method !== 'lemon') {
+        document.getElementById('paymentConfirmForm').classList.add('show');
+      } else {
+        document.getElementById('paymentConfirmForm').classList.remove('show');
+      }
+    }
+
+    // ============================================= //
+    // COPY TEXT - Clipboard mein copy karo            //
+    // ============================================= //
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(function() {
+        alert('✅ Copied: ' + text);
+      }).catch(function() {
+        // Fallback - purane browsers ke liye
+        var textArea = document.createElement('textarea');
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        alert('✅ Copied: ' + text);
+      });
+    }
+
+    // ============================================= //
+    // LEMON SQUEEZY CHECKOUT                          //
+    // Card payment ke liye Lemon Squeezy open karo   //
+    // ============================================= //
+    function openLemonCheckout() {
+      if (currentPaymentItem && LEMON_LINKS[currentPaymentItem.name]) {
+        window.open(LEMON_LINKS[currentPaymentItem.name], '_blank');
+      } else {
+        alert('⚠️ Checkout link available nahi hai. Admin se contact karein.');
+      }
+    }
+
+    // ============================================= //
+    // SUBMIT PAYMENT                                  //
+    // Payment confirmation Google Sheet mein save     //
+    // ============================================= //
+    function submitPayment() {
+      var txId = document.getElementById('payTxId').value.trim();
+      var email = document.getElementById('payEmail').value.trim();
+
+      var msg = document.getElementById('paymentMsg');
+      var btn = document.getElementById('paySubmitBtn');
+
+      // Validation
+      if (!txId) {
+        msg.textContent = '⚠️ Transaction ID daalein!';
+        msg.className = 'auth-message error';
+        return;
+      }
+
+      if (!email) {
+        msg.textContent = '⚠️ Email daalein!';
+        msg.className = 'auth-message error';
+        return;
+      }
+
+      if (!selectedPaymentMethod) {
+        msg.textContent = '⚠️ Payment method select karein!';
+        msg.className = 'auth-message error';
+        return;
+      }
+
+      msg.textContent = '⏳ Submitting...';
+      msg.className = 'auth-message loading';
+      btn.disabled = true;
+
+      // Google Sheet ko data bhejo
+      var formData = new FormData();
+
+      if (currentPaymentItem.type === 'plan') {
+        formData.append('action', 'buy_plan');
+        formData.append('email', email);
+        formData.append('plan', currentPaymentItem.name);
+        formData.append('price', currentPaymentItem.price);
+        formData.append('method', selectedPaymentMethod);
+        formData.append('txId', txId);
+      } else {
+        formData.append('action', 'buy_blog');
+        formData.append('email', email);
+        formData.append('blogId', currentPaymentItem.blogId);
+        formData.append('blogTitle', currentPaymentItem.name);
+        formData.append('price', currentPaymentItem.price);
+        formData.append('method', selectedPaymentMethod);
+        formData.append('txId', txId);
+      }
+
+      fetch(SCRIPT_URL, { method: 'POST', body: formData })
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          btn.disabled = false;
+
+          if (data.status === 'payment_submitted' || data.status === 'blog_payment_submitted') {
+            msg.textContent = '✅ Payment submitted! Admin verify karega. Jald hi access milega.';
+            msg.className = 'auth-message success';
+
+            // 3 second baad modal band karo
+            setTimeout(function() {
+              closePaymentModal();
+            }, 3000);
+          } else {
+            msg.textContent = '❌ Error! Dobara try karein';
+            msg.className = 'auth-message error';
+          }
+        })
+        .catch(function(err) {
+          btn.disabled = false;
+          msg.textContent = '❌ Network error! Dobara try karein';
+          msg.className = 'auth-message error';
+        });
+    }
+
+    // ============================================= //
+    // BUY THIS BLOG - Blog page se khareedne ka      //
+    // function update karo                           //
+    // ============================================= //
+    function buyThisBlog() {
+      if (currentBlogData) {
+        openBlogPaymentModal(
+          currentBlogData.id,
+          currentBlogData.title,
+          currentBlogData.price
+        );
+      }
+    }
+
+    // ============================================= //
+    // AUTO LOGIN CHECK                                //
+    // Page load hone pe check karo user pehle se     //
+    // login tha ya nahi (LocalStorage se)            //
+    // ============================================= //
+    function checkAutoLogin() {
+      var savedUser = localStorage.getItem('aladdinUser');
+      if (savedUser) {
+        currentUser = JSON.parse(savedUser);
+
+        // Header button update karo
+        var authBtn = document.getElementById('authBtn');
+        authBtn.innerHTML = '<i class="fas fa-user-check"></i> Dashboard';
+      }
+    }
+
+    // ============================================= //
+    // SHOWPAGE UPDATE - Auth page ke liye special     //
+    // Agar user login hai toh dashboard dikhao       //
+    // ============================================= //
+    var prevShowPage = showPage;
+    showPage = function(pageName) {
+      prevShowPage(pageName);
+
+      // Agar auth page pe jaye aur user login hai
+      if (pageName === 'auth' && currentUser) {
+        document.getElementById('authFormsSection').style.display = 'none';
+        document.getElementById('dashboardSection').style.display = 'block';
+        showDashboard();
+      } else if (pageName === 'auth') {
+        document.getElementById('authFormsSection').style.display = 'block';
+        document.getElementById('dashboardSection').style.display = 'none';
+      }
+    };
+
+    // ============================================= //
+    // PAGE LOAD PE AUTO LOGIN CHECK                   //
+    // ============================================= //
+    window.addEventListener('DOMContentLoaded', function() {
+      checkAutoLogin();
+    });
+
+    // ============================================= //
+    // MODAL CLOSE ON OUTSIDE CLICK                    //
+    // Modal ke bahar click kare toh band ho          //
+    // ============================================= //
+    document.getElementById('paymentModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closePaymentModal();
+      }
+    });
+
+    // ============================================= //
+    // PART 3 JAVASCRIPT END                          //
+    // ============================================= //
+    // ============================================= //
+    // PART 4 JAVASCRIPT START (FINAL)                //
+    // ============================================= //
+
+    // ============================================= //
+    // GITHUB REPOSITORY SETTINGS                      //
+    // Yahan apni GitHub repository ki details dalo   //
+    // Jahan categories.json aur blogs hain           //
+    // ============================================= //
+    var GITHUB_USERNAME = 'usaid3';
+    var GITHUB_REPO = 'aladdin-chiragh-blogs';
+    var GITHUB_BRANCH = 'main';
+    var GITHUB_RAW_BASE = 'https://raw.githubusercontent.com/' +
+      GITHUB_USERNAME + '/' + GITHUB_REPO + '/' + GITHUB_BRANCH + '/';
+
+    // ============================================= //
+    // TOAST NOTIFICATION SYSTEM                       //
+    // Screen pe messages dikhane ke liye             //
+    // type: 'success', 'error', 'info'              //
+    // ============================================= //
+    function showToast(message, type) {
+      var container = document.getElementById('toastContainer');
+      var icons = {
+        success: '✅',
+        error: '❌',
+        info: 'ℹ️'
+      };
+
+      // Toast element banao
+      var toast = document.createElement('div');
+      toast.className = 'toast ' + type;
+      toast.innerHTML = `
+        <span class="toast-icon">${icons[type] || 'ℹ️'}</span>
+        <span class="toast-text">${message}</span>
+        <button class="toast-close" onclick="this.parentElement.remove()">
+          <i class="fas fa-times"></i>
+        </button>
+      `;
+
+      container.appendChild(toast);
+
+      // 4 second baad auto remove
+      setTimeout(function() {
+        if (toast.parentElement) {
+          toast.style.animation = 'slideOut 0.3s ease';
+          setTimeout(function() {
+            if (toast.parentElement) {
+              toast.remove();
+            }
+          }, 300);
+        }
+      }, 4000);
+    }
+
+    // ============================================= //
+    // BLOG ACCESS CHECKER                             //
+    // Yeh function check karta hai ke user ko kisi   //
+    // blog ka access hai ya nahi                     //
+    //                                                //
+    // Access levels:                                 //
+    // 1. Admin → Sab kuch access                    //
+    // 2. Active Subscriber → Sab blogs access       //
+    // 3. Single Purchase → Sirf woh blog            //
+    // 4. Free Blog → Sab ko access                  //
+    // 5. Koi access nahi → Preview + Lock           //
+    // ============================================= //
+    function checkBlogAccess(blogData) {
+      // Agar blog FREE hai toh sab ko access do
+      if (blogData.type === 'free') {
+        return {
+          hasAccess: true,
+          reason: 'free',
+          message: '🆓 Free Blog - Everyone can read'
+        };
+      }
+
+      // Agar user login nahi hai
+      if (!currentUser) {
+        return {
+          hasAccess: false,
+          reason: 'not_logged_in',
+          message: '🔒 Login karein is blog ko padhne ke liye'
+        };
+      }
+
+      // ADMIN CHECK - Admin ko sab access hai
+      if (currentUser.isAdmin) {
+        return {
+          hasAccess: true,
+          reason: 'admin',
+          message: '👑 Admin Access - Full Access to Everything'
+        };
+      }
+
+      // SUBSCRIBER CHECK - Active subscriber ko sab blogs access
+      if (currentUser.isActive) {
+        return {
+          hasAccess: true,
+          reason: 'subscriber',
+          message: '⭐ Subscriber Access - ' + currentUser.plan + ' Plan'
+        };
+      }
+
+      // SINGLE PURCHASE CHECK - Kya yeh blog kharida hai
+      if (currentUser.purchasedBlogs &&
+          currentUser.purchasedBlogs.includes(blogData.id)) {
+        return {
+          hasAccess: true,
+          reason: 'purchased',
+          message: '💰 Purchased - You own this blog'
+        };
+      }
+
+      // KOI ACCESS NAHI
+      return {
+        hasAccess: false,
+        reason: 'no_access',
+        message: '🔒 Premium Content - Buy this blog or get a plan'
+      };
+    }
+
+    // ============================================= //
+    // UPDATED OPEN BLOG FUNCTION                      //
+    // Pehle wale openBlog function ko replace karo   //
+    // Ab access check bhi hoga                       //
+    // ============================================= //
+    var _originalOpenBlog = openBlog;
+    openBlog = function(blogId, blogData) {
+      // Agar blogData string hai toh parse karo
+      if (typeof blogData === 'string') {
+        try {
+          blogData = JSON.parse(blogData);
+        } catch(e) {
+          blogData = { id: blogId, title: 'Blog', type: 'free', price: 0 };
+        }
+      }
+
+      // Agar blogData nahi hai toh default banao
+      if (!blogData) {
+        blogData = { id: blogId, title: 'Blog', type: 'free', price: 0 };
+      }
+
+      currentBlogId = blogId;
+      currentBlogData = blogData;
+
+      // Breadcrumb update karo
+      document.getElementById('blogBreadcrumbCat').textContent =
+        currentCategoryName || 'Home';
+      document.getElementById('blogBreadcrumbSubcat').textContent =
+        currentSubcatName || 'Blogs';
+      document.getElementById('blogBreadcrumbName').textContent =
+        blogData.title || 'Blog';
+
+      // Blog header update karo
+      document.getElementById('blogContentTitle').textContent =
+        blogData.title || 'Blog Title';
+      document.getElementById('blogContentDate').textContent =
+        blogData.date || 'Date';
+      document.getElementById('blogContentCategory').textContent =
+        currentCategoryName || 'Category';
+      document.getElementById('blogContentPrice').textContent =
+        blogData.type === 'free' ? 'FREE' : '$' + (blogData.price || 0);
+
+      // Blog info box update karo
+      document.getElementById('blogInfoText').textContent =
+        'Yeh blog "' + (currentSubcatName || 'General') +
+        '" sub-category ka hissa hai jo "' +
+        (currentCategoryName || 'Main') +
+        '" category mein aata hai. ' +
+        (blogData.type === 'free' ?
+          'Yeh ek FREE blog hai - sab ke liye available hai.' :
+          'Is blog ki qeemat $' + (blogData.price || 0) + ' hai.');
+
+      // ACCESS CHECK - User ka access check karo
+      var access = checkBlogAccess(blogData);
+
+      // ACCESS BADGE add karo header mein
+      var badgeHtml = '';
+      if (access.hasAccess) {
+        if (access.reason === 'free') {
+          badgeHtml = '<span class="access-badge free-access"><i class="fas fa-unlock"></i> Free Blog</span>';
+        } else if (access.reason === 'admin') {
+          badgeHtml = '<span class="access-badge granted"><i class="fas fa-crown"></i> Admin Access</span>';
+        } else if (access.reason === 'subscriber') {
+          badgeHtml = '<span class="access-badge granted"><i class="fas fa-star"></i> Subscriber Access</span>';
+        } else if (access.reason === 'purchased') {
+          badgeHtml = '<span class="access-badge granted"><i class="fas fa-check"></i> Purchased</span>';
+        }
+      } else {
+        badgeHtml = '<span class="access-badge locked"><i class="fas fa-lock"></i> Locked</span>';
+      }
+
+      // Badge ko blog header mein add karo
+      var metaDiv = document.querySelector('#page-blog .blog-meta');
+      // Pehle se koi badge ho toh hatao
+      var oldBadge = metaDiv.querySelector('.access-badge');
+      if (oldBadge) oldBadge.remove();
+      metaDiv.insertAdjacentHTML('beforeend', badgeHtml);
+
+      // Blog content load karo
+      loadBlogContent(blogData, access.hasAccess);
+
+      // Blog page dikhao
+      showPage('blog');
+    };
+
+    // ============================================= //
+    // LOAD BLOG CONTENT                               //
+    // GitHub se blog ka .md file load karo            //
+    // ============================================= //
+    function loadBlogContent(blogData, hasFullAccess) {
+      var contentDiv = document.getElementById('blogContentBody');
+      var lockedSection = document.getElementById('blogLockedSection');
+
+      // Loading dikhao
+      contentDiv.innerHTML = `
+        <div class="loading-spinner">
+          <div class="spinner"></div>
+          <p>Loading blog content...</p>
+        </div>
+      `;
+      lockedSection.style.display = 'none';
+
+      // GitHub se blog file ka URL banao
+      var blogFileUrl = GITHUB_RAW_BASE;
+
+      // Agar blog file path hai toh use karo
+      if (blogData.file) {
+        blogFileUrl += blogData.file;
+      } else {
+        // Default path: category/subcategory/blog-id.md
+        blogFileUrl += 'blogs/' + blogData.id + '.md';
+      }
+
+      // GitHub se fetch karo
+      fetch(blogFileUrl)
+        .then(function(response) {
+          if (!response.ok) {
+            throw new Error('Blog file nahi mili');
+          }
+          return response.text();
+        })
+        .then(function(mdContent) {
+          // Markdown ko HTML mein convert karo
+          var htmlContent = simpleMarkdownToHtml(mdContent);
+
+          if (hasFullAccess) {
+            // FULL ACCESS - Poora content dikhao
+            contentDiv.innerHTML = htmlContent;
+            contentDiv.classList.remove('blog-content-blur');
+            lockedSection.style.display = 'none';
+          } else {
+            // PREVIEW - Sirf thoda content dikhao phir blur
+            // Content ko chhota karo (pehle 30% dikhao)
+            var previewLength = Math.floor(htmlContent.length * 0.3);
+            var previewContent = htmlContent.substring(0, previewLength);
+
+            // Last tag complete karo
+            var lastTagIndex = previewContent.lastIndexOf('<');
+            if (lastTagIndex > 0) {
+              previewContent = previewContent.substring(0, lastTagIndex);
+            }
+
+            contentDiv.innerHTML = previewContent;
+            contentDiv.classList.add('blog-content-blur');
+
+            // Locked section dikhao
+            lockedSection.style.display = 'block';
+            if (blogData.price) {
+              document.getElementById('lockedBlogPrice').textContent =
+                '$' + blogData.price;
+            }
+          }
+        })
+        .catch(function(error) {
+          // Agar GitHub se file nahi mili toh demo content dikhao
+          showDemoBlogContent(contentDiv, lockedSection, blogData, hasFullAccess);
+        });
+    }
+
+    // ============================================= //
+    // DEMO BLOG CONTENT                               //
+    // Jab tak GitHub pe files nahi hain tab tak      //
+    // yeh demo content dikhega                       //
+    // ============================================= //
+    function showDemoBlogContent(contentDiv, lockedSection, blogData, hasFullAccess) {
+      var demoFull = `
+        <h2>📘 Introduction</h2>
+        <p>Welcome to this comprehensive guide on <strong>${blogData.title || 'this topic'}</strong>. 
+        This blog covers everything you need to know, from basics to advanced concepts.</p>
+
+        <h2>🎯 Key Points</h2>
+        <ul>
+          <li><strong>Point 1:</strong> Understanding the fundamentals is essential for building a strong foundation in this field.</li>
+          <li><strong>Point 2:</strong> Practical application of these concepts will accelerate your learning journey significantly.</li>
+          <li><strong>Point 3:</strong> Staying updated with the latest trends ensures you remain competitive and informed.</li>
+          <li><strong>Point 4:</strong> Networking with other professionals can open up new opportunities for growth.</li>
+        </ul>
+
+        <blockquote>
+          "The expert in anything was once a beginner. Keep learning, keep growing." - Helen Hayes
+        </blockquote>
+
+        <h2>📊 Detailed Analysis</h2>
+        <p>In this section, we dive deep into the core concepts. Our research and analysis provide 
+        actionable insights that you can immediately apply to your work.</p>
+
+        <p>The data shows that professionals who follow a structured approach achieve 
+        <strong>3x better results</strong> compared to those who don't have a systematic method.</p>
+
+        <h2>⚡ Advanced Strategies</h2>
+        <p>These premium strategies have been developed after extensive research and real-world testing. 
+        They are designed to give you a competitive edge.</p>
+
+        <h3>Strategy 1: The Foundation Method</h3>
+        <p>This approach focuses on building a solid base before moving to advanced techniques. 
+        Start with the basics, master them, then progress systematically.</p>
+
+        <h3>Strategy 2: The Optimization Framework</h3>
+        <p>Once you have the foundation, use this framework to optimize your performance. 
+        It involves continuous testing, measuring, and improving your approach.</p>
+
+        <h3>Strategy 3: The Scaling System</h3>
+        <p>After optimization, it's time to scale. This system helps you multiply your results 
+        while maintaining quality and consistency.</p>
+
+        <h2>💡 Pro Tips</h2>
+        <ul>
+          <li>Always document your progress and learnings</li>
+          <li>Set clear, measurable goals for each phase</li>
+          <li>Review and adjust your strategy regularly</li>
+          <li>Learn from both successes and failures</li>
+          <li>Stay connected with the community for latest updates</li>
+        </ul>
+
+        <h2>📝 Conclusion</h2>
+        <p>This guide has covered all the essential aspects you need to succeed. 
+        Remember, consistent effort and continuous learning are the keys to mastery. 
+        Apply these strategies, track your progress, and keep improving.</p>
+
+        <p><em>Thank you for reading! If you found this valuable, consider exploring our other premium blogs.</em></p>
+      `;
+
+      if (hasFullAccess) {
+        contentDiv.innerHTML = demoFull;
+        contentDiv.classList.remove('blog-content-blur');
+        lockedSection.style.display = 'none';
+      } else {
+        // Preview - Sirf pehle 2 sections dikhao
+        var previewContent = `
+          <h2>📘 Introduction</h2>
+          <p>Welcome to this comprehensive guide on <strong>${blogData.title || 'this topic'}</strong>. 
+          This blog covers everything you need to know, from basics to advanced concepts.</p>
+
+          <h2>🎯 Key Points</h2>
+          <ul>
+            <li><strong>Point 1:</strong> Understanding the fundamentals is essential for building a strong foundation.</li>
+            <li><strong>Point 2:</strong> Practical application of these concepts will accelerate your learning.</li>
+            <li><strong>Point 3:</strong> Staying updated with the latest trends ensures you remain competitive.</li>
+          </ul>
+
+          <blockquote>
+            "The expert in anything was once a beginner." - Helen Hayes
+          </blockquote>
+
+          <p>Continue reading to discover advanced strategies, pro tips, and detailed analysis...</p>
+        `;
+
+        contentDiv.innerHTML = previewContent;
+        contentDiv.classList.add('blog-content-blur');
+        lockedSection.style.display = 'block';
+
+        if (blogData.price) {
+          document.getElementById('lockedBlogPrice').textContent =
+            '$' + blogData.price;
+        }
+      }
+    }
+
+    // ============================================= //
+    // UPDATED RENDER BLOGS                            //
+    // Blog cards pe lock/unlock icon update karo     //
+    // based on user access                           //
+    // ============================================= //
+    var _originalRenderBlogs = renderBlogs;
+    renderBlogs = function(blogs) {
+      var grid = document.getElementById('subcatBlogsGrid');
+      var html = '';
+
+      blogs.forEach(function(blog) {
+        // Har blog ka access check karo
+        var access = checkBlogAccess(blog);
+        var lockIcon = '';
+        var lockClass = '';
+
+        if (access.hasAccess) {
+          lockIcon = '<i class="fas fa-unlock"></i>';
+          lockClass = 'lock-overlay unlocked';
+        } else {
+          lockIcon = '<i class="fas fa-lock"></i>';
+          lockClass = 'lock-overlay';
+        }
+
+        // Blog data ko safe string mein convert karo
+        var blogDataStr = JSON.stringify(blog)
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+
+        html += `
+          <div class="blog-card" onclick='openBlog("${blog.id}", ${JSON.stringify(blog).replace(/'/g, "&#39;")})'>
+            <div class="blog-card-image">
+              <img src="${blog.image}" alt="${blog.title}">
+              <span class="${lockClass}">${lockIcon}</span>
+              <span class="blog-card-price-badge">${blog.type === 'free' ? 'FREE' : '$' + blog.price}</span>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-tag ${blog.type === 'free' ? 'tag-free' : 'tag-paid'}">
+                ${blog.type === 'free' ? '🆓 FREE' : '💰 PREMIUM'}
+              </span>
+              <h3>${blog.title}</h3>
+              <p>${blog.desc}</p>
+              <div class="blog-card-footer">
+                <span class="blog-card-date"><i class="far fa-calendar"></i> ${blog.date}</span>
+                <span class="blog-card-price ${blog.type === 'free' ? '' : 'paid'}">
+                  ${blog.type === 'free' ? 'FREE' : '$' + blog.price}
+                </span>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      grid.innerHTML = html;
+    };
+
+    // ============================================= //
+    // LOAD CATEGORIES FROM GITHUB                     //
+    // GitHub pe categories.json file se categories   //
+    // load hongi. Agar file nahi mili toh demo       //
+    // categories use hongi                           //
+    // ============================================= //
+    function loadCategoriesFromGitHub() {
+      var url = GITHUB_RAW_BASE + 'categories.json';
+
+      fetch(url)
+        .then(function(response) {
+          if (!response.ok) {
+            throw new Error('Categories file nahi mili');
+          }
+          return response.json();
+        })
+        .then(function(data) {
+          if (data.categories && data.categories.length > 0) {
+            // GitHub se categories mil gayi
+            demoCategories = data.categories;
+            renderCategories();
+            showToast('Categories loaded from GitHub!', 'success');
+          }
+        })
+        .catch(function(error) {
+          // GitHub se nahi mili, demo categories use karo
+          console.log('Using demo categories (GitHub file not found)');
+          renderCategories();
+        });
+    }
+
+    // ============================================= //
+    // LOAD SUB-CATEGORIES FROM GITHUB                 //
+    // Har category ke liye GitHub se sub-categories  //
+    // load hongi                                     //
+    // ============================================= //
+    function loadSubCategoriesFromGitHub(categoryId, callback) {
+      var url = GITHUB_RAW_BASE + categoryId + '/subcategories.json';
+
+      fetch(url)
+        .then(function(response) {
+          if (!response.ok) {
+            throw new Error('Sub-categories file nahi mili');
+          }
+          return response.json();
+        })
+        .then(function(data) {
+          if (data.subcategories && data.subcategories.length > 0) {
+            callback(data.subcategories);
+          } else {
+            // Demo sub-categories use karo
+            callback(generateSubCategories(categoryId));
+          }
+        })
+        .catch(function(error) {
+          // Demo sub-categories use karo
+          callback(generateSubCategories(categoryId));
+        });
+    }
+
+    // ============================================= //
+    // LOAD BLOGS FROM GITHUB                          //
+    // Har sub-category ke liye GitHub se blogs       //
+    // load honge                                     //
+    // ============================================= //
+    function loadBlogsFromGitHub(categoryId, subcatId, callback) {
+      // URL path banao
+      var url = GITHUB_RAW_BASE + categoryId + '/' + subcatId + '/blogs.json';
+
+      fetch(url)
+        .then(function(response) {
+          if (!response.ok) {
+            throw new Error('Blogs file nahi mili');
+          }
+          return response.json();
+        })
+        .then(function(data) {
+          if (data.blogs && data.blogs.length > 0) {
+            callback(data.blogs);
+          } else {
+            callback(generateBlogs(subcatId));
+          }
+        })
+        .catch(function(error) {
+          callback(generateBlogs(subcatId));
+        });
+    }
+
+    // ============================================= //
+    // UPDATED OPEN CATEGORY - GitHub se load karo    //
+    // ============================================= //
+    var _prevOpenCategory = openCategory;
+    openCategory = function(catId) {
+      currentCategoryId = catId;
+
+      var category = demoCategories.find(function(c) {
+        return c.id === catId;
+      });
+
+      if (!category) return;
+
+      currentCategoryName = category.name;
+
+      document.getElementById('categoryPageTitle').textContent =
+        category.icon + ' ' + category.name;
+      document.getElementById('categoryPageDesc').textContent =
+        category.desc;
+      document.getElementById('categoryBreadcrumbName').textContent =
+        category.name;
+      document.getElementById('categoryInfoText').textContent =
+        category.name + ' category mein 30 sub-categories hain. Har sub-category mein 6 premium blogs hain jo $7 se $12 tak ki qeemat mein available hain.';
+
+      // Loading dikhao
+      document.getElementById('subcategoriesGrid').innerHTML = `
+        <div class="loading-spinner" style="grid-column: 1/-1;">
+          <div class="spinner"></div>
+          <p>Loading sub-categories...</p>
+        </div>
+      `;
+
+      showPage('category');
+
+      // GitHub se load karne ki koshish karo
+      loadSubCategoriesFromGitHub(catId, function(subCats) {
+        renderSubCategories(subCats);
+      });
+    };
+
+    // ============================================= //
+    // UPDATED OPEN SUB-CATEGORY - GitHub se load     //
+    // ============================================= //
+    var _prevOpenSubCategory = openSubCategory;
+    openSubCategory = function(subcatId, subcatName) {
+      currentSubcatId = subcatId;
+      currentSubcatName = subcatName;
+
+      document.getElementById('subcatPageTitle').textContent =
+        '📁 ' + subcatName;
+      document.getElementById('subcatPageDesc').textContent =
+        'Browse all 6 premium blogs in ' + subcatName;
+      document.getElementById('subcatBreadcrumbCat').textContent =
+        currentCategoryName;
+      document.getElementById('subcatBreadcrumbName').textContent =
+        subcatName;
+      document.getElementById('subcatInfoText').textContent =
+        subcatName + ' sub-category mein 6 premium blogs hain. Pehla blog $7 ka hai aur aakhri blog $12 ka.';
+
+      // Loading dikhao
+      document.getElementById('subcatBlogsGrid').innerHTML = `
+        <div class="loading-spinner" style="grid-column: 1/-1;">
+          <div class="spinner"></div>
+          <p>Loading blogs...</p>
+        </div>
+      `;
+
+      showPage('subcategory');
+
+      // GitHub se load karne ki koshish karo
+      loadBlogsFromGitHub(currentCategoryId, subcatId, function(blogs) {
+        renderBlogs(blogs);
+      });
+        };
+
+    // ============================================= //
+    // FILTER CATEGORIES - Search function            //
+    // User jab search kare toh categories filter     //
+    // hongi                                          //
+    // ============================================= //
+    function filterCategories(searchText) {
+      searchText = searchText.toLowerCase().trim();
+
+      if (searchText === '') {
+        // Agar search empty hai toh sab dikhao
+        renderCategories();
+        return;
+      }
+
+      // Categories filter karo
+      var filtered = demoCategories.filter(function(cat) {
+        return cat.name.toLowerCase().includes(searchText) ||
+               cat.desc.toLowerCase().includes(searchText);
+      });
+
+      var grid = document.getElementById('categoriesGrid');
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="empty-state" style="grid-column: 1/-1;">
+            <span class="empty-icon">🔍</span>
+            <h3>Koi category nahi mili</h3>
+            <p>"${searchText}" se match karne wali koi category nahi hai</p>
+          </div>
+        `;
+        return;
+      }
+
+      var html = '';
+      filtered.forEach(function(cat) {
+        html += `
+          <div class="category-card" onclick="openCategory('${cat.id}')">
+            <span class="category-icon">${cat.icon}</span>
+            <h3>${cat.name}</h3>
+            <p>${cat.desc}</p>
+            <span class="category-count">30 Sub-Categories</span>
+          </div>
+        `;
+      });
+
+      grid.innerHTML = html;
+    }
+
+    // ============================================= //
+    // FREE BLOGS HANDLER                              //
+    // Home page ke 3 free blogs ko properly handle   //
+    // karo                                           //
+    // ============================================= //
+    function setupFreeBlogs() {
+      var freeBlogsData = [
+        {
+          id: 'free-1',
+          title: 'Getting Started Guide',
+          desc: 'Learn the basics and start your journey with our comprehensive beginner guide.',
+          price: 0,
+          date: 'Jan 15, 2024',
+          type: 'free',
+          image: 'https://via.placeholder.com/400x200/1A1A2E/27AE60?text=FREE+Blog+1',
+          file: 'blogs/free-1.md'
+        },
+        {
+          id: 'free-2',
+          title: 'Understanding the Market',
+          desc: 'A complete overview of market trends and analysis for beginners.',
+          price: 0,
+          date: 'Jan 20, 2024',
+          type: 'free',
+          image: 'https://via.placeholder.com/400x200/1A1A2E/27AE60?text=FREE+Blog+2',
+          file: 'blogs/free-2.md'
+        },
+        {
+          id: 'free-3',
+          title: 'Top 10 Tips for Success',
+          desc: 'Essential tips that every beginner should know before starting.',
+          price: 0,
+          date: 'Jan 25, 2024',
+          type: 'free',
+          image: 'https://via.placeholder.com/400x200/1A1A2E/27AE60?text=FREE+Blog+3',
+          file: 'blogs/free-3.md'
+        }
+      ];
+
+      var grid = document.getElementById('freeBlogsGrid');
+      var html = '';
+
+      freeBlogsData.forEach(function(blog) {
+        var blogStr = JSON.stringify(blog).replace(/'/g, "&#39;");
+
+        html += `
+          <div class="blog-card" onclick='openFreeBlog(${blogStr})'>
+            <div class="blog-card-image">
+              <img src="${blog.image}" alt="${blog.title}">
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-card-tag tag-free">🆓 FREE</span>
+              <h3>${blog.title}</h3>
+              <p>${blog.desc}</p>
+              <div class="blog-card-footer">
+                <span class="blog-card-date"><i class="far fa-calendar"></i> ${blog.date}</span>
+                <span class="blog-card-price">FREE</span>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      grid.innerHTML = html;
+    }
+
+    // Free blog kholne ka function
+    function openFreeBlog(blogData) {
+      // Free blog ke liye category/subcategory set karo
+      currentCategoryName = 'Free Content';
+      currentSubcatName = 'Free Blogs';
+
+      // Blog open karo
+      openBlog(blogData.id, blogData);
+    }
+
+    // ============================================= //
+    // LIVE SUBSCRIPTION CHECK                         //
+    // Har baar blog open karne se pehle Google       //
+    // Sheet se fresh data check karo                 //
+    // (Sirf jab user login ho)                       //
+    // ============================================= //
+    function refreshUserData(callback) {
+      if (!currentUser || currentUser.isAdmin) {
+        if (callback) callback();
+        return;
+      }
+
+      var formData = new FormData();
+      formData.append('action', 'login');
+      formData.append('email', currentUser.email);
+      formData.append('password', '');
+
+      // Note: Yeh simplified check hai
+      // Real mein alag endpoint use karo
+      // Abhi ke liye LocalStorage ka data use karo
+      if (callback) callback();
+      }
+
+    // ============================================= //
+    // GITHUB REPOSITORY STRUCTURE GUIDE               //
+    // Yeh guide hai ke GitHub pe files kaise         //
+    // arrange karni hain                             //
+    // ============================================= //
+    /*
+    GitHub Repository Structure:
+    ================================
+
+    📁 aladdin-chiragh-blogs/
+    │
+    ├── 📄 categories.json          ← Master categories list
+    ├── 📄 about.md                 ← About Us page content
+    ├── 📄 services.md              ← Services page content
+    ├── 📄 products.md              ← Products page content
+    ├── 📄 contact.md               ← Contact page content
+    │
+    ├── 📁 blogs/                   ← Free blogs folder
+    │   ├── 📄 free-1.md
+    │   ├── 📄 free-2.md
+    │   └── 📄 free-3.md
+    │
+    ├── 📁 cat-1/                   ← Category 1
+    │   ├── 📄 subcategories.json   ← Sub-categories list
+    │   ├── 📁 cat-1-sub-1/         ← Sub-category 1
+    │   │   ├── 📄 blogs.json       ← Blogs list
+    │   │   ├── 📄 cat-1-sub-1-blog-1.md
+    │   │   ├── 📄 cat-1-sub-1-blog-2.md
+    │   │   └── ... (6 blogs)
+    │   ├── 📁 cat-1-sub-2/
+    │   │   └── ... (6 blogs)
+    │   └── ... (30 sub-categories)
+    │
+    ├── 📁 cat-2/
+    │   └── ... (same structure)
+    │
+    └── ... (21 categories)
+
+    ================================
+    categories.json Example:
+    ================================
+    {
+      "categories": [
+        {
+          "id": "cat-1",
+          "icon": "📊",
+          "name": "Trading Basics",
+          "desc": "Learn fundamentals of trading"
+        },
+        ...
+      ]
+    }
+
+    ================================
+    subcategories.json Example:
+    ================================
+    {
+      "subcategories": [
+        {
+          "id": "cat-1-sub-1",
+          "icon": "📘",
+          "name": "Introduction & Basics",
+          "desc": "Learn the fundamentals",
+          "blogsCount": 6
+        },
+        ...
+      ]
+    }
+
+    ================================
+    blogs.json Example:
+    ================================
+    {
+      "blogs": [
+        {
+          "id": "cat-1-sub-1-blog-1",
+          "title": "Complete Beginner's Guide",
+          "desc": "A comprehensive guide for beginners",
+          "price": 7,
+          "date": "Jan 15, 2024",
+          "type": "paid",
+          "image": "image-url.jpg",
+          "file": "cat-1/cat-1-sub-1/cat-1-sub-1-blog-1.md"
+        },
+        ...
+      ]
+    }
+    */
+
+    // ============================================= //
+    // INITIALIZATION - Page load hone pe sab         //
+    // setup karo                                     //
+    // ============================================= //
+    window.addEventListener('DOMContentLoaded', function() {
+      // Categories load karo (GitHub se ya demo)
+      loadCategoriesFromGitHub();
+
+      // Free blogs setup karo
+      setupFreeBlogs();
+
+      // Auto login check karo
+      checkAutoLogin();
+
+      // Agar user login hai toh toast dikhao
+      if (currentUser) {
+        showToast('Welcome back, ' + currentUser.name + '!', 'success');
+
+        // Agar admin hai toh admin badge dikhao
+        if (currentUser.isAdmin) {
+          var authBtn = document.getElementById('authBtn');
+          authBtn.innerHTML = '<i class="fas fa-crown"></i> Admin <span class="admin-badge">ADMIN</span>';
+        }
+      }
+    });
+
+    // ============================================= //
+    // KEYBOARD SHORTCUTS                              //
+    // ESC = Modal band karo                          //
+    // ============================================= //
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closePaymentModal();
+      }
+    });
+
+    // ============================================= //
+    // PART 4 JAVASCRIPT END                          //
+    // WEBSITE COMPLETE! 🎉                           //
+    // ============================================= //
+  
+  </script>
+
+</body>
+</html>
