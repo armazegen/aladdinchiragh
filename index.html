@@ -6278,6 +6278,157 @@
     /* ============================================= */
     /* CATEGORY BUNDLE CSS END                         */
     /* ============================================= */
+
+      /* ============================================= */
+    /* FREE WISH BLOG STYLES - Sub-category mein     */
+    /* 1st blog ka special design                     */
+    /* ============================================= */
+
+    /* Free wish card - special styling */
+    .free-wish-card {
+      position: relative;
+      border: 2px solid var(--primary) !important;
+      background: linear-gradient(135deg,
+        var(--bg-card),
+        rgba(255, 215, 0, 0.05)
+      );
+    }
+
+    body:not(.dark-mode) .free-wish-card {
+      background: linear-gradient(135deg,
+        var(--bg-card),
+        rgba(9, 31, 92, 0.05)
+      );
+    }
+
+    .free-wish-card:hover {
+      box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3) !important;
+    }
+
+    body:not(.dark-mode) .free-wish-card:hover {
+      box-shadow: 0 15px 40px rgba(9, 31, 92, 0.25) !important;
+    }
+
+    /* Free wish badge on image */
+    .blog-card-price-badge.free-badge {
+      background: linear-gradient(135deg, #27AE60, #2ECC71) !important;
+      color: white !important;
+      font-family: 'Literata', Georgia, serif;
+      letter-spacing: 0.5px;
+      box-shadow: 0 3px 12px rgba(39, 174, 96, 0.4);
+      animation: freeBadgePulse 2s ease-in-out infinite;
+    }
+
+    @keyframes freeBadgePulse {
+      0%, 100% {
+        box-shadow: 0 3px 12px rgba(39, 174, 96, 0.4);
+      }
+      50% {
+        box-shadow: 0 3px 20px rgba(39, 174, 96, 0.7);
+      }
+    }
+
+    /* Free wish lock overlay (gift icon) */
+    .lock-overlay.free-wish {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light)) !important;
+      border-color: var(--primary) !important;
+      color: white !important;
+      animation: giftWiggle 2s ease-in-out infinite;
+    }
+
+    body.dark-mode .lock-overlay.free-wish {
+      background: linear-gradient(135deg, var(--primary), #FFA500) !important;
+      color: #0A0A0A !important;
+    }
+
+    @keyframes giftWiggle {
+      0%, 100% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(-10deg);
+      }
+      75% {
+        transform: rotate(10deg);
+      }
+    }
+
+    /* Free wish tag */
+    .blog-card-tag.tag-free-wish {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light)) !important;
+      color: white !important;
+      border: none !important;
+      font-family: 'Literata', Georgia, serif;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    body.dark-mode .blog-card-tag.tag-free-wish {
+      background: linear-gradient(135deg, var(--primary), #FFA500) !important;
+      color: #0A0A0A !important;
+    }
+
+    /* Free price in footer */
+    .blog-card-price.free {
+      color: #27AE60 !important;
+      font-weight: 800;
+      font-family: 'Literata', Georgia, serif;
+    }
+
+    /* Sparkles on free wish image */
+    .free-wish-sparkles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .free-wish-sparkles span {
+      position: absolute;
+      font-size: 18px;
+      opacity: 0;
+      animation: freeWishSparkleFloat 2.5s infinite ease-in-out;
+    }
+
+    .free-wish-card:hover .free-wish-sparkles span {
+      opacity: 1;
+    }
+
+    .free-wish-sparkles span:nth-child(1) {
+      top: 20%;
+      left: 15%;
+      animation-delay: 0s;
+    }
+
+    .free-wish-sparkles span:nth-child(2) {
+      top: 50%;
+      right: 20%;
+      animation-delay: 0.5s;
+    }
+
+    .free-wish-sparkles span:nth-child(3) {
+      bottom: 30%;
+      left: 40%;
+      animation-delay: 1s;
+    }
+
+    @keyframes freeWishSparkleFloat {
+      0%, 100% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0;
+      }
+      50% {
+        transform: translateY(-15px) scale(1.2);
+        opacity: 1;
+      }
+    }
+
+    /* ============================================= */
+    /* FREE WISH CSS END                              */
+    /* ============================================= */
   </style>
 </head>
 <body>
@@ -8139,18 +8290,20 @@
       return subCats;
     }
 
-    // ============================================= //
-    // DEMO BLOGS DATA                                 //
-    // Har sub-category ke liye 6 blogs hain          //
-    // Baad mein GitHub se load honge (Part 4)        //
+        // ============================================= //
+    // DEMO BLOGS DATA - NEW PRICING                  //
+    // Blog #1 = FREE WISH                            //
+    // Blog #2-6 = $3, $4, $5, $6, $7                 //
     // ============================================= //
     function generateBlogs(subcatId) {
-      // Yeh function kisi bhi sub-category ke liye
-      // 6 demo blogs banata hai
+      // New pricing structure:
+      // 1st blog FREE, baki 5 blogs $3-$7
       var blogs = [];
-      var prices = [7, 8, 9, 10, 11, 12];
+      var prices = [0, 3, 4, 5, 6, 7];  // 0 = FREE
+      var types = ['free', 'paid', 'paid', 'paid', 'paid', 'paid'];
+
       var blogTitles = [
-        'Complete Beginner\'s Guide',
+        'Free Wish: Beginner\'s Guide',
         'Step by Step Tutorial',
         'Advanced Strategies Revealed',
         'Expert Tips & Tricks',
@@ -8159,12 +8312,12 @@
       ];
 
       var blogDescs = [
-        'A comprehensive guide for beginners to get started with confidence.',
-        'Follow along step by step and master the fundamentals.',
-        'Advanced strategies that professionals use for maximum results.',
-        'Expert tips and tricks that will boost your performance.',
-        'An in-depth analysis covering every important aspect.',
-        'The ultimate master class for serious learners.'
+        '🎁 Your FREE WISH! A comprehensive beginner guide - no payment required. Start your magical journey here!',
+        'Follow along step by step and master the fundamentals with this affordable guide.',
+        'Advanced strategies that professionals use for maximum results in their field.',
+        'Expert tips and tricks that will boost your performance significantly.',
+        'An in-depth analysis covering every important aspect you need to know.',
+        'The ultimate master class for serious learners who want to excel.'
       ];
 
       for (var i = 0; i < 6; i++) {
@@ -8174,15 +8327,15 @@
           desc: blogDescs[i],
           price: prices[i],
           date: 'Jan ' + (15 + i) + ', 2024',
-          type: 'paid',
-          image: 'https://via.placeholder.com/400x200/1A1A2E/FFD700?text=Blog+' + (i + 1),
+          type: types[i],
+          image: 'https://via.placeholder.com/400x220/091F5C/FFD700?text=' +
+                 (i === 0 ? 'FREE+WISH' : 'Blog+' + (i + 1)),
           file: subcatId + '-blog-' + (i + 1) + '.md'
         });
       }
 
       return blogs;
     }
-
     // ============================================= //
     // OPEN CATEGORY FUNCTION                          //
     // Jab user kisi category pe click kare toh       //
@@ -8252,11 +8405,11 @@
 
       // Page title aur breadcrumb update karo
       document.getElementById('subcatPageTitle').textContent = '📁 ' + subcatName;
-      document.getElementById('subcatPageDesc').textContent = 'Browse all 6 premium blogs in ' + subcatName;
+            document.getElementById('subcatPageDesc').textContent ='Browse 1 FREE WISH 🎁 + 5 affordable blogs ($3-$7) in ' + subcatName;
       document.getElementById('subcatBreadcrumbCat').textContent = currentCategoryName;
       document.getElementById('subcatBreadcrumbName').textContent = subcatName;
-      document.getElementById('subcatInfoText').textContent =
-        subcatName + ' sub-category mein 6 premium blogs hain. Pehla blog $7 ka hai aur aakhri blog $12 ka. Har blog mein detailed information aur expert insights hain.';
+            document.getElementById('subcatInfoText').textContent =
+        subcatName + ' sub-category mein 6 blogs hain. Pehla blog FREE WISH 🎁 hai aur baki 5 blogs $3 se $7 tak ki affordable price pe available hain. Apna pasandeeda blog chunein!';
 
       // Blogs generate aur render karo
       var blogs = generateBlogs(subcatId);
@@ -9565,10 +9718,10 @@
       }
     }
 
-    // ============================================= //
-    // UPDATED RENDER BLOGS                            //
-    // Blog cards pe lock/unlock icon update karo     //
-    // based on user access                           //
+      // ============================================= //
+    // UPDATED RENDER BLOGS - NEW PRICING DESIGN     //
+    // Free blogs ko special design                   //
+    // Free wish badge with sparkles                  //
     // ============================================= //
     var _originalRenderBlogs = renderBlogs;
     renderBlogs = function(blogs) {
@@ -9581,37 +9734,74 @@
         var lockIcon = '';
         var lockClass = '';
 
-        if (access.hasAccess) {
-          lockIcon = '<i class="fas fa-unlock"></i>';
-          lockClass = 'lock-overlay unlocked';
+        // FREE BLOG ya already access hai
+        if (blog.type === 'free' || access.hasAccess) {
+          if (blog.type === 'free') {
+            // Free blogs pe gift icon
+            lockIcon = '<i class="fas fa-gift"></i>';
+            lockClass = 'lock-overlay free-wish';
+          } else {
+            // Purchased / Subscribed blogs pe unlock
+            lockIcon = '<i class="fas fa-unlock"></i>';
+            lockClass = 'lock-overlay unlocked';
+          }
         } else {
+          // Locked paid blog
           lockIcon = '<i class="fas fa-lock"></i>';
           lockClass = 'lock-overlay';
         }
 
-        // Blog data ko safe string mein convert karo
-        var blogDataStr = JSON.stringify(blog)
-          .replace(/"/g, '&quot;')
-          .replace(/'/g, '&#39;');
+        // Blog data string
+        var blogDataStr = JSON.stringify(blog).replace(/'/g, "&#39;");
+
+        // Special card class for free blog
+        var cardClass = blog.type === 'free' ? 'blog-card free-wish-card' : 'blog-card';
+
+        // Price badge
+        var priceBadge = '';
+        if (blog.type === 'free') {
+          priceBadge = '<span class="blog-card-price-badge free-badge">🎁 FREE WISH</span>';
+        } else {
+          priceBadge = '<span class="blog-card-price-badge">$' + blog.price + '</span>';
+        }
+
+        // Tag badge
+        var tagBadge = '';
+        if (blog.type === 'free') {
+          tagBadge = '<span class="blog-card-tag tag-free-wish">✨ FREE WISH</span>';
+        } else {
+          tagBadge = '<span class="blog-card-tag tag-paid">💰 $' + blog.price + ' BLOG</span>';
+        }
+
+        // Footer price
+        var footerPrice = '';
+        if (blog.type === 'free') {
+          footerPrice = '<span class="blog-card-price free">FREE 🎁</span>';
+        } else {
+          footerPrice = '<span class="blog-card-price paid">$' + blog.price + '</span>';
+        }
 
         html += `
-          <div class="blog-card" onclick='openBlog("${blog.id}", ${JSON.stringify(blog).replace(/'/g, "&#39;")})'>
+          <div class="${cardClass}" onclick='openBlog("${blog.id}", ${blogDataStr})'>
             <div class="blog-card-image">
               <img src="${blog.image}" alt="${blog.title}">
               <span class="${lockClass}">${lockIcon}</span>
-              <span class="blog-card-price-badge">${blog.type === 'free' ? 'FREE' : '$' + blog.price}</span>
+              ${priceBadge}
+              ${blog.type === 'free' ? `
+                <div class="free-wish-sparkles">
+                  <span>✨</span>
+                  <span>⭐</span>
+                  <span>💫</span>
+                </div>
+              ` : ''}
             </div>
             <div class="blog-card-body">
-              <span class="blog-card-tag ${blog.type === 'free' ? 'tag-free' : 'tag-paid'}">
-                ${blog.type === 'free' ? '🆓 FREE' : '💰 PREMIUM'}
-              </span>
+              ${tagBadge}
               <h3>${blog.title}</h3>
               <p>${blog.desc}</p>
               <div class="blog-card-footer">
                 <span class="blog-card-date"><i class="far fa-calendar"></i> ${blog.date}</span>
-                <span class="blog-card-price ${blog.type === 'free' ? '' : 'paid'}">
-                  ${blog.type === 'free' ? 'FREE' : '$' + blog.price}
-                </span>
+                ${footerPrice}
               </div>
             </div>
           </div>
