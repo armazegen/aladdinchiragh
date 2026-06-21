@@ -33,23 +33,27 @@
     /* ROOT VARIABLES - Poore website ke colors aur   */
     /* sizes yahan se control honge                   */
     /* ============================================= */
-    :root {
+        :root {
       /* Primary Colors - Website ke main rang */
       --primary: #FFD700;
       --primary-dark: #B8960C;
       --primary-light: #FFF3B0;
 
-      /* Background Colors - Website ka background */
-      --bg-dark: #0A0A0A;
-      --bg-card: #1A1A2E;
-      --bg-card-hover: #252542;
-      --bg-header: rgba(10, 10, 10, 0.95);
+      /* ============================================= */
+      /* LIGHT MODE COLORS - Default light theme         */
+      /* Background light blue (D0E4FE) hoga             */
+      /* Cards thode dark blue (E8F2FE) honge            */
+      /* ============================================= */
+      --bg-dark: #D0E4FE;
+      --bg-card: #E8F2FE;
+      --bg-card-hover: #DDE9FB;
+      --bg-header: rgba(208, 228, 254, 0.95);
 
-      /* Text Colors - Likhawat ke rang */
-      --text-white: #FFFFFF;
-      --text-light: #B0B0B0;
-      --text-gold: #FFD700;
-      --text-muted: #666666;
+      /* Text Colors - Light mode ke liye dark text */
+      --text-white: #1A1A2E;
+      --text-light: #4A5568;
+      --text-gold: #B8860B;
+      --text-muted: #888888;
 
       /* Accent Colors - Special highlights ke liye */
       --accent-blue: #4A90D9;
@@ -186,14 +190,24 @@
       width: 100%;
     }
 
-    /* Login/Signup Button */
+        /* ============================================= */
+    /* LOGIN/SIGNUP BUTTON - Fixed alignment          */
+    /* Ab button properly center mein aayega          */
+    /* ============================================= */
     .nav-auth-btn {
       background: linear-gradient(135deg, var(--primary), #FFA500);
-      color: var(--bg-dark) !important;
+      color: #0A0A0A !important;
       padding: 8px 20px;
       border-radius: 25px;
       font-weight: 600;
-      -webkit-text-fill-color: var(--bg-dark) !important;
+      -webkit-text-fill-color: #0A0A0A !important;
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      line-height: 1 !important;
+      white-space: nowrap;
+      height: auto;
     }
 
     .nav-auth-btn:hover {
@@ -203,6 +217,23 @@
 
     .nav-auth-btn::after {
       display: none !important;
+    }
+
+    /* ============================================= */
+    /* NAV LINKS - Items ko properly align karne ke   */
+    /* liye height aur alignment fix                  */
+    /* ============================================= */
+    .nav-links li {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      line-height: 1;
+      white-space: nowrap;
     }
 
     /* Mobile Menu Button - Sirf mobile pe dikhega */
@@ -742,6 +773,19 @@
         border-bottom: 1px solid var(--border-color);
         transform: translateY(-150%);
         transition: var(--transition);
+      }
+
+            /* Mobile pe theme toggle ko properly show karo */
+      .theme-toggle {
+        width: 100%;
+        height: 45px;
+        border-radius: 25px;
+      }
+
+      .theme-toggle::after {
+        content: ' Toggle Theme';
+        font-size: 14px;
+        font-weight: 600;
       }
 
       /* Menu open hone pe links dikhayen ge */
@@ -2412,7 +2456,54 @@
     /* ============================================= */
     /* PART 4 CSS END                                 */
     /* ============================================= */
-  
+
+    /* ============================================= */
+    /* DARK / LIGHT MODE TOGGLE BUTTON                 */
+    /* Header mein theme switch karne ke liye         */
+    /* ============================================= */
+    .theme-toggle {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      transition: var(--transition);
+      margin-right: 10px;
+    }
+
+    .theme-toggle:hover {
+      background: var(--primary);
+      color: var(--bg-dark);
+      transform: rotate(360deg);
+    }
+
+    /* ============================================= */
+    /* DARK MODE THEME - Jab dark mode active ho     */
+    /* sab colors badal jayenge                       */
+    /* ============================================= */
+    body.dark-mode {
+      --bg-dark: #0A0A0A;
+      --bg-card: #1A1A2E;
+      --bg-card-hover: #252542;
+      --bg-header: rgba(10, 10, 10, 0.95);
+
+      --text-white: #FFFFFF;
+      --text-light: #B0B0B0;
+      --text-gold: #FFD700;
+      --text-muted: #666666;
+    }
+
+    /* Dark mode mein scrollbar */
+    body.dark-mode ::-webkit-scrollbar-track {
+      background: var(--bg-dark);
+    }
+    
   </style>
 </head>
 <body>
@@ -2432,7 +2523,7 @@
       <span class="logo-text">ALADDIN CHIRAGH</span>
     </a>
 
-    <!-- Navigation Links - Pages ke buttons -->
+        <!-- Navigation Links - Pages ke buttons -->
     <ul class="nav-links" id="navLinks">
       <li><a onclick="showPage('home')"><i class="fas fa-home"></i> Home</a></li>
       <li><a onclick="showPage('about')"><i class="fas fa-info-circle"></i> About Us</a></li>
@@ -2440,10 +2531,17 @@
       <li><a onclick="showPage('products')"><i class="fas fa-box"></i> Products</a></li>
       <li><a onclick="showPage('pricing')"><i class="fas fa-tags"></i> Pricing</a></li>
       <li><a onclick="showPage('contact')"><i class="fas fa-envelope"></i> Contact</a></li>
-      <!-- Login/Signup button - Baad mein Part 3 mein functional banega -->
+      
+      <!-- Theme Toggle Button - Dark/Light mode switch -->
+      <li>
+        <button class="theme-toggle" onclick="toggleTheme()" id="themeToggleBtn" title="Switch Theme">
+          <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
+      </li>
+
+      <!-- Login/Signup button -->
       <li><a class="nav-auth-btn" onclick="showPage('auth')" id="authBtn"><i class="fas fa-user"></i> Login</a></li>
     </ul>
-
     <!-- Mobile Menu Button - Sirf mobile pe dikhega -->
     <button class="menu-toggle" onclick="toggleMenu()">
       <i class="fas fa-bars" id="menuIcon"></i>
@@ -5408,7 +5506,57 @@
     // PART 4 JAVASCRIPT END                          //
     // WEBSITE COMPLETE! 🎉                           //
     // ============================================= //
-  
+
+    // ============================================= //
+    // THEME TOGGLE - Dark/Light Mode Switch           //
+    // User ke choice ko LocalStorage mein save       //
+    // karta hai, taake page reload pe yaad rahe      //
+    // ============================================= //
+    function toggleTheme() {
+      var body = document.body;
+      var icon = document.getElementById('themeIcon');
+
+      // Toggle dark mode class
+      body.classList.toggle('dark-mode');
+
+      // Icon change karo
+      if (body.classList.contains('dark-mode')) {
+        // Dark mode active hai
+        icon.className = 'fas fa-sun';
+        localStorage.setItem('theme', 'dark');
+        showToast('🌙 Dark mode activated', 'info');
+      } else {
+        // Light mode active hai
+        icon.className = 'fas fa-moon';
+        localStorage.setItem('theme', 'light');
+        showToast('☀️ Light mode activated', 'info');
+      }
+    }
+
+    // ============================================= //
+    // LOAD SAVED THEME                                //
+    // Page load hone pe saved theme apply karo       //
+    // ============================================= //
+    function loadSavedTheme() {
+      var savedTheme = localStorage.getItem('theme');
+      var body = document.body;
+      var icon = document.getElementById('themeIcon');
+
+      if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        if (icon) icon.className = 'fas fa-sun';
+      } else {
+        // Default: Light mode
+        body.classList.remove('dark-mode');
+        if (icon) icon.className = 'fas fa-moon';
+      }
+    }
+
+    // Page load hote hi theme apply karo
+    window.addEventListener('DOMContentLoaded', function() {
+      loadSavedTheme();
+    });
+    
   </script>
 
 </body>
