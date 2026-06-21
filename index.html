@@ -1975,12 +1975,42 @@
       margin: 0 auto;
     }
 
+        /* ============================================= */
+    /* PRICING GRID - Now supports 3 plans            */
+    /* Lifetime alag section mein                     */
+    /* ============================================= */
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 25px;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
     }
+
+    /* New price badge - showing discount */
+    .pricing-card {
+      position: relative;
+    }
+
+    .price-old {
+      text-decoration: line-through;
+      color: var(--text-muted);
+      font-size: 18px;
+      margin-right: 8px;
+      font-weight: 400;
+    }
+
+    .price-badge-save {
+      display: inline-block;
+      background: linear-gradient(135deg, #27AE60, #2ECC71);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 15px;
+      font-family: 'Literata', Georgia, serif;
+      font-size: 11px;
+      font-weight: 700;
+      margin-top: 8px;
+      letter-spacing: 0.5px;
+  }
 
     .pricing-card {
       background: var(--bg-card);
@@ -5217,6 +5247,8 @@
     /* ============================================= */
     /* COMPARE PLANS TABLE CSS END                     */
     /* ============================================= */
+
+
     
   </style>
 </head>
@@ -5776,24 +5808,30 @@
 
       <div class="pricing-section">
 
-        <!-- 3 Pricing Cards -->
+        <!-- ============================================= -->
+        <!-- 3 PRICING CARDS (New Affordable Prices)      -->
+        <!-- ============================================= -->
         <div class="pricing-grid">
 
           <!-- BASIC PLAN -->
           <div class="pricing-card">
             <span class="pricing-card-icon">⚡</span>
             <h3>Basic</h3>
-            <div class="price">$58 <span>/ 15 days</span></div>
-            <div class="duration">15 Din Tak Access</div>
-            <ul class="pricing-features">
-              <li><i class="fas fa-check-circle"></i> All blogs access</li>
+            <div class="price">
+              <span class="price-old">$58</span>
+              $25 <span>/ 15 days</span>
+            </div>
+            <div class="duration">15 Days Full Access</div>
+            <span class="price-badge-save">SAVE 57%</span>
+            <ul class="pricing-features" style="margin-top: 15px;">
+              <li><i class="fas fa-check-circle"></i> All 3780+ blogs access</li>
               <li><i class="fas fa-check-circle"></i> 21 categories</li>
               <li><i class="fas fa-check-circle"></i> 630 sub-categories</li>
-              <li><i class="fas fa-check-circle"></i> 3780+ blogs</li>
               <li><i class="fas fa-check-circle"></i> 15 days validity</li>
               <li><i class="fas fa-check-circle"></i> Instant access</li>
+              <li><i class="fas fa-check-circle"></i> Email support</li>
             </ul>
-            <button class="btn-primary" onclick="openPaymentModal('Basic', 58, '15 Days')">
+            <button class="btn-primary" onclick="openPaymentModal('Basic', 25, '15 Days')">
               <i class="fas fa-shopping-cart"></i> Get Basic
             </button>
           </div>
@@ -5802,17 +5840,21 @@
           <div class="pricing-card popular">
             <span class="pricing-card-icon">🔥</span>
             <h3>Pro</h3>
-            <div class="price">$93 <span>/ month</span></div>
-            <div class="duration">1 Month Tak Access</div>
-            <ul class="pricing-features">
-              <li><i class="fas fa-check-circle"></i> All blogs access</li>
+            <div class="price">
+              <span class="price-old">$93</span>
+              $45 <span>/ month</span>
+            </div>
+            <div class="duration">1 Month Full Access</div>
+            <span class="price-badge-save">SAVE 52%</span>
+            <ul class="pricing-features" style="margin-top: 15px;">
+              <li><i class="fas fa-check-circle"></i> All 3780+ blogs access</li>
               <li><i class="fas fa-check-circle"></i> 21 categories</li>
               <li><i class="fas fa-check-circle"></i> 630 sub-categories</li>
-              <li><i class="fas fa-check-circle"></i> 3780+ blogs</li>
               <li><i class="fas fa-check-circle"></i> 30 days validity</li>
-              <li><i class="fas fa-check-circle"></i> Priority support</li>
+              <li><i class="fas fa-check-circle"></i> Bookmark feature</li>
+              <li><i class="fas fa-check-circle"></i> Priority support (12hr)</li>
             </ul>
-            <button class="btn-primary" onclick="openPaymentModal('Pro', 93, '1 Month')">
+            <button class="btn-primary" onclick="openPaymentModal('Pro', 45, '1 Month')">
               <i class="fas fa-shopping-cart"></i> Get Pro
             </button>
           </div>
@@ -5821,21 +5863,50 @@
           <div class="pricing-card">
             <span class="pricing-card-icon">💎</span>
             <h3>Premium</h3>
-            <div class="price">$120 <span>/ 2 months</span></div>
-            <div class="duration">2 Months Tak Access</div>
-            <ul class="pricing-features">
-              <li><i class="fas fa-check-circle"></i> All blogs access</li>
+            <div class="price">
+              <span class="price-old">$120</span>
+              $80 <span>/ 2 months</span>
+            </div>
+            <div class="duration">2 Months Full Access</div>
+            <span class="price-badge-save">SAVE 33%</span>
+            <ul class="pricing-features" style="margin-top: 15px;">
+              <li><i class="fas fa-check-circle"></i> All 3780+ blogs access</li>
               <li><i class="fas fa-check-circle"></i> 21 categories</li>
               <li><i class="fas fa-check-circle"></i> 630 sub-categories</li>
-              <li><i class="fas fa-check-circle"></i> 3780+ blogs</li>
               <li><i class="fas fa-check-circle"></i> 60 days validity</li>
-              <li><i class="fas fa-check-circle"></i> VIP support</li>
+              <li><i class="fas fa-check-circle"></i> Offline reading</li>
+              <li><i class="fas fa-check-circle"></i> VIP support (2hr)</li>
             </ul>
-            <button class="btn-primary" onclick="openPaymentModal('Premium', 120, '2 Months')">
+            <button class="btn-primary" onclick="openPaymentModal('Premium', 80, '2 Months')">
               <i class="fas fa-shopping-cart"></i> Get Premium
             </button>
           </div>
 
+        </div>
+
+        <!-- ============================================= -->
+        <!-- SINGLE BLOG INFO SECTION                       -->
+        <!-- ============================================= -->
+        <div class="section-info">
+          <h4><i class="fas fa-info-circle"></i> 💵 Single Blog Purchase</h4>
+          <p>
+            Don't want a full plan? You can buy individual blogs starting from
+            <strong>just $3</strong>! Each sub-category has <strong>1 FREE blog</strong>
+            and 5 paid blogs ($3, $4, $5, $6, $7). Try before you buy!
+          </p>
+        </div>
+
+        <!-- ============================================= -->
+        <!-- 633 FREE BLOGS INFO BOX                        -->
+        <!-- ============================================= -->
+        <div class="section-info" style="border-left-color: #27AE60; margin-top: 20px;">
+          <h4 style="color: #27AE60;"><i class="fas fa-gift"></i> 🎁 633 FREE Blogs Available!</h4>
+          <p>
+            <strong>3 Free Wishes</strong> on home page +
+            <strong>630 FREE blogs</strong> across all sub-categories
+            (1 free blog per sub-category). Total <strong>633 FREE blogs</strong>
+            for everyone! Start reading now - no payment required! ✨
+          </p>
         </div>
 
                 <!-- ============================================= -->
@@ -5863,12 +5934,11 @@
                 <thead>
                   <tr>
                     <th>Features</th>
-
                     <!-- Basic Plan -->
                     <th class="compare-plan-header">
                       <span class="compare-plan-icon">⚡</span>
                       <div class="compare-plan-name">Basic</div>
-                      <div class="compare-plan-price">$58</div>
+                      <div class="compare-plan-price">$25</div>
                       <div class="compare-plan-duration">15 Days</div>
                     </th>
 
@@ -5877,7 +5947,7 @@
                       <div class="popular-ribbon">⭐ POPULAR</div>
                       <span class="compare-plan-icon">🔥</span>
                       <div class="compare-plan-name">Pro</div>
-                      <div class="compare-plan-price">$93</div>
+                      <div class="compare-plan-price">$45</div>
                       <div class="compare-plan-duration">1 Month</div>
                     </th>
 
@@ -5885,7 +5955,7 @@
                     <th class="compare-plan-header">
                       <span class="compare-plan-icon">💎</span>
                       <div class="compare-plan-name">Premium</div>
-                      <div class="compare-plan-price">$120</div>
+                      <div class="compare-plan-price">$80</div>
                       <div class="compare-plan-duration">2 Months</div>
                     </th>
                   </tr>
@@ -5948,9 +6018,9 @@
 
                   <tr>
                     <td>Cost Per Day</td>
-                    <td><span class="compare-value">~$3.86</span></td>
-                    <td class="popular-col"><span class="compare-value">~$3.10</span></td>
-                    <td><span class="compare-value">~$2.00</span></td>
+                    <td><span class="compare-value">~$1.67</span></td>
+                    <td class="popular-col"><span class="compare-value">~$1.50</span></td>
+                    <td><span class="compare-value">~$1.33</span></td>
                   </tr>
 
                   <tr>
@@ -6075,22 +6145,22 @@
 
                 </tbody>
 
-                <!-- ===== TABLE FOOTER - Action Buttons ===== -->
+                                <!-- ===== TABLE FOOTER - Action Buttons ===== -->
                 <tfoot>
                   <tr>
                     <td><strong style="color: var(--primary); font-family: 'Literata', serif;">Get Started:</strong></td>
                     <td>
-                      <button class="compare-action-btn" onclick="openPaymentModal('Basic', 58, '15 Days')">
+                      <button class="compare-action-btn" onclick="openPaymentModal('Basic', 25, '15 Days')">
                         <i class="fas fa-shopping-cart"></i> Get Basic
                       </button>
                     </td>
                     <td class="popular-col">
-                      <button class="compare-action-btn popular" onclick="openPaymentModal('Pro', 93, '1 Month')">
+                      <button class="compare-action-btn popular" onclick="openPaymentModal('Pro', 45, '1 Month')">
                         <i class="fas fa-fire"></i> Get Pro
                       </button>
                     </td>
                     <td>
-                      <button class="compare-action-btn" onclick="openPaymentModal('Premium', 120, '2 Months')">
+                      <button class="compare-action-btn" onclick="openPaymentModal('Premium', 80, '2 Months')">
                         <i class="fas fa-crown"></i> Get Premium
                       </button>
                     </td>
@@ -6111,16 +6181,6 @@
           </div>
         </div>
         <!-- COMPARE PLANS TABLE END -->
-
-        <!-- Single Blog Purchase Info -->
-        <div class="section-info">
-          <h4><i class="fas fa-info-circle"></i> Single Blog Purchase</h4>
-          <p>
-            Agar aap poora plan nahi lena chahte toh koi bhi individual blog 
-            $7 se $12 mein khareed sakte hain. Har blog page pe "Buy This Blog" 
-            ka button available hai.
-          </p>
-        </div>
 
       </div>
     </div>
