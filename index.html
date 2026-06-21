@@ -6429,6 +6429,235 @@
     /* ============================================= */
     /* FREE WISH CSS END                              */
     /* ============================================= */
+  
+      /* ============================================= */
+    /* ALL PRICING OPTIONS - Comparison Strip         */
+    /* ============================================= */
+
+    .all-options-section {
+      max-width: 1200px;
+      margin: 50px auto 30px;
+      padding: 0 40px;
+    }
+
+    .all-options-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .all-options-title h3 {
+      font-family: 'Literata', Georgia, serif;
+      font-size: 30px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+    }
+
+    body.dark-mode .all-options-title h3 {
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .all-options-title p {
+      font-family: 'Gentium Plus', Georgia, serif;
+      color: var(--text-light);
+      font-size: 15px;
+      font-style: italic;
+    }
+
+    /* Options Grid */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+
+    /* Individual Option Card */
+    .option-card {
+      background: var(--bg-card);
+      border: 2px solid var(--border-color);
+      border-radius: 15px;
+      padding: 20px 15px;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.5, 0, 0, 1);
+      position: relative;
+    }
+
+    .option-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--primary);
+      box-shadow: 0 15px 35px rgba(255, 215, 0, 0.2);
+    }
+
+    body:not(.dark-mode) .option-card:hover {
+      box-shadow: 0 15px 35px rgba(9, 31, 92, 0.2);
+    }
+
+    /* Special borders for each option */
+    .option-card.option-free {
+      border-color: #27AE60;
+    }
+
+    .option-card.option-single {
+      border-color: #3498DB;
+    }
+
+    .option-card.option-bundle {
+      border-color: #9B59B6;
+    }
+
+    .option-card.option-plan {
+      border-color: var(--primary);
+    }
+
+    .option-card.option-lifetime {
+      border-color: #E74C3C;
+      background: linear-gradient(135deg,
+        var(--bg-card),
+        rgba(231, 76, 60, 0.05)
+      );
+    }
+
+    /* Option Icon */
+    .option-icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    /* Option Title */
+    .option-card h4 {
+      font-family: 'Literata', Georgia, serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 8px;
+    }
+
+    /* Option Price */
+    .option-price {
+      font-family: 'Literata', Georgia, serif;
+      font-size: 24px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 5px;
+    }
+
+    body.dark-mode .option-price {
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .option-card.option-free .option-price {
+      background: linear-gradient(135deg, #27AE60, #2ECC71);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .option-card.option-lifetime .option-price {
+      background: linear-gradient(135deg, #E74C3C, #FF6B6B);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Option Description */
+    .option-desc {
+      font-family: 'Gentium Plus', Georgia, serif;
+      font-size: 12px;
+      color: var(--text-light);
+      margin-bottom: 15px;
+      font-style: italic;
+    }
+
+    /* Option Features */
+    .option-features {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 15px;
+      padding-left: 0;
+    }
+
+    .option-features li {
+      font-family: 'Gentium Plus', Georgia, serif;
+      font-size: 12px;
+      color: var(--text-light);
+      padding: 4px 0;
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.4;
+    }
+
+    .option-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #27AE60;
+      font-weight: 700;
+    }
+
+    /* Best For Label */
+    .option-best {
+      display: inline-block;
+      background: var(--bg-card-hover);
+      border-radius: 15px;
+      padding: 5px 12px;
+      font-family: 'Literata', Georgia, serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.3px;
+    }
+
+    body.dark-mode .option-best {
+      color: var(--primary);
+    }
+
+    /* ============================================= */
+    /* RESPONSIVE                                      */
+    /* ============================================= */
+    @media (max-width: 1024px) {
+      .options-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .all-options-section {
+        padding: 0 15px;
+      }
+
+      .all-options-title h3 {
+        font-size: 22px;
+      }
+
+      .options-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ============================================= */
+    /* ALL OPTIONS CSS END                             */
+    /* ============================================= */
+  
   </style>
 </head>
 <body>
@@ -7140,8 +7369,20 @@
                   </tr>
                 </thead>
 
-                <!-- ===== TABLE BODY ===== -->
+                                <!-- ===== TABLE BODY (UPDATED) ===== -->
                 <tbody>
+
+                  <!-- ===== BEST FOR CATEGORY ===== -->
+                  <tr class="compare-category-row">
+                    <td colspan="4">🎯 Best For</td>
+                  </tr>
+
+                  <tr>
+                    <td>Recommended For</td>
+                    <td><span style="font-size: 12px; color: var(--text-light);">Quick Try</span></td>
+                    <td class="popular-col"><span style="font-size: 12px; color: var(--primary); font-weight: 700;">Most Users</span></td>
+                    <td><span style="font-size: 12px; color: var(--text-light);">Power Users</span></td>
+                  </tr>
 
                   <!-- ===== ACCESS CATEGORY ===== -->
                   <tr class="compare-category-row">
@@ -7149,7 +7390,7 @@
                   </tr>
 
                   <tr>
-                    <td>All Blogs Access</td>
+                    <td>All 3780+ Blogs Access</td>
                     <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
                     <td class="popular-col"><span class="compare-check"><i class="fas fa-check"></i></span></td>
                     <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
@@ -7170,22 +7411,22 @@
                   </tr>
 
                   <tr>
-                    <td>3780+ Premium Blogs</td>
+                    <td>633 Free Blogs Included 🎁</td>
                     <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
                     <td class="popular-col"><span class="compare-check"><i class="fas fa-check"></i></span></td>
                     <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                  </tr>
+
+                  <!-- ===== PRICING CATEGORY ===== -->
+                  <tr class="compare-category-row">
+                    <td colspan="4">💰 Pricing & Value</td>
                   </tr>
 
                   <tr>
-                    <td>3 Free Wishes (Blogs)</td>
-                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
-                    <td class="popular-col"><span class="compare-check"><i class="fas fa-check"></i></span></td>
-                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
-                  </tr>
-
-                  <!-- ===== DURATION CATEGORY ===== -->
-                  <tr class="compare-category-row">
-                    <td colspan="4">⏱️ Subscription Duration</td>
+                    <td>Total Price</td>
+                    <td><span class="compare-value">$25</span></td>
+                    <td class="popular-col"><span class="compare-value">$45</span></td>
+                    <td><span class="compare-value">$80</span></td>
                   </tr>
 
                   <tr>
@@ -7200,6 +7441,13 @@
                     <td><span class="compare-value">~$1.67</span></td>
                     <td class="popular-col"><span class="compare-value">~$1.50</span></td>
                     <td><span class="compare-value">~$1.33</span></td>
+                  </tr>
+
+                  <tr>
+                    <td>Cost Per Blog</td>
+                    <td><span class="compare-value">~$0.007</span></td>
+                    <td class="popular-col"><span class="compare-value">~$0.012</span></td>
+                    <td><span class="compare-value">~$0.021</span></td>
                   </tr>
 
                   <tr>
@@ -7256,6 +7504,13 @@
                     <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
                   </tr>
 
+                  <tr>
+                    <td>Reading History</td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td class="popular-col"><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                  </tr>
+
                   <!-- ===== SUPPORT CATEGORY ===== -->
                   <tr class="compare-category-row">
                     <td colspan="4">🎯 Support</td>
@@ -7276,7 +7531,7 @@
                   </tr>
 
                   <tr>
-                    <td>VIP Support (24/7)</td>
+                    <td>VIP Support</td>
                     <td><span class="compare-cross"><i class="fas fa-times"></i></span></td>
                     <td class="popular-col"><span class="compare-cross"><i class="fas fa-times"></i></span></td>
                     <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
@@ -7316,14 +7571,13 @@
                   </tr>
 
                   <tr>
-                    <td>Free Lifetime Updates</td>
+                    <td>Special Discount Coupons</td>
                     <td><span class="compare-cross"><i class="fas fa-times"></i></span></td>
                     <td class="popular-col"><span class="compare-check"><i class="fas fa-check"></i></span></td>
                     <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
                   </tr>
 
-                </tbody>
-
+  </tbody>
                                 <!-- ===== TABLE FOOTER - Action Buttons ===== -->
                 <tfoot>
                   <tr>
@@ -7360,6 +7614,98 @@
           </div>
         </div>
         <!-- COMPARE PLANS TABLE END -->
+
+                <!-- ============================================= -->
+        <!-- ALL PRICING OPTIONS COMPARISON                 -->
+        <!-- ============================================= -->
+        <div class="all-options-section">
+
+          <div class="all-options-title">
+            <h3>🎯 All Your Options at a Glance</h3>
+            <p>Choose the perfect option for your needs</p>
+          </div>
+
+          <div class="options-grid">
+
+            <!-- Option 1: Free -->
+            <div class="option-card option-free">
+              <div class="option-icon">🆓</div>
+              <h4>Free Tier</h4>
+              <div class="option-price">$0</div>
+              <p class="option-desc">633 free blogs</p>
+              <ul class="option-features">
+                <li>3 home free wishes</li>
+                <li>1 free blog per sub-category</li>
+                <li>30% preview of all blogs</li>
+                <li>No payment required</li>
+              </ul>
+              <span class="option-best">Best for: Trying out</span>
+            </div>
+
+            <!-- Option 2: Single Blog -->
+            <div class="option-card option-single">
+              <div class="option-icon">📝</div>
+              <h4>Single Blog</h4>
+              <div class="option-price">$3-$7</div>
+              <p class="option-desc">Per blog purchase</p>
+              <ul class="option-features">
+                <li>Pay for specific blog only</li>
+                <li>Affordable pricing</li>
+                <li>Lifetime access to that blog</li>
+                <li>No subscription needed</li>
+              </ul>
+              <span class="option-best">Best for: Specific topics</span>
+            </div>
+
+            <!-- Option 3: Category Bundle -->
+            <div class="option-card option-bundle">
+              <div class="option-icon">📦</div>
+              <h4>Category Bundle</h4>
+              <div class="option-price">$15-$50</div>
+              <p class="option-desc">1-5 categories</p>
+              <ul class="option-features">
+                <li>Pick favorite categories</li>
+                <li>Monthly subscription</li>
+                <li>180-900 blogs access</li>
+                <li>Focused learning</li>
+              </ul>
+              <span class="option-best">Best for: Specialists</span>
+            </div>
+
+            <!-- Option 4: Full Plans -->
+            <div class="option-card option-plan">
+              <div class="option-icon">⚡</div>
+              <h4>Subscription Plans</h4>
+              <div class="option-price">$25-$80</div>
+              <p class="option-desc">15-60 days access</p>
+              <ul class="option-features">
+                <li>All 3780+ blogs</li>
+                <li>Multiple duration options</li>
+                <li>Premium features</li>
+                <li>Priority support</li>
+              </ul>
+              <span class="option-best">Best for: Active learners</span>
+            </div>
+
+            <!-- Option 5: Lifetime -->
+            <div class="option-card option-lifetime">
+              <div class="option-icon">👑</div>
+              <h4>Lifetime Access</h4>
+              <div class="option-price">$299</div>
+              <p class="option-desc">One-time payment</p>
+              <ul class="option-features">
+                <li>Forever access</li>
+                <li>All current + future blogs</li>
+                <li>VIP 24/7 support</li>
+                <li>Best long-term value</li>
+              </ul>
+              <span class="option-best">Best for: Lifetime learners</span>
+            </div>
+
+          </div>
+
+        </div>
+        <!-- ALL PRICING OPTIONS END -->
 
                 <!-- ============================================= -->
         <!-- LIFETIME PLAN - Special Premium Section       -->
