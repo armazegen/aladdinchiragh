@@ -111,7 +111,7 @@
       --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
     
-    /* ============================================= */
+        /* ============================================= */
     /* BODY - Poore page ka base style                */
     /* Gentium Plus = Body text (paragraphs)          */
     /* ============================================= */
@@ -122,7 +122,15 @@
       line-height: 1.7;
       overflow-x: hidden;
       font-size: 16px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
+
+    /* Main content takes available space */
+    .main-content {
+      flex: 1;
+        }
 
     /* ============================================= */
     /* HEADINGS - Literata font for all headings      */
@@ -154,6 +162,9 @@
     /* HEADER / NAVBAR - Website ka upar wala hissa   */
     /* Logo + Navigation Links                        */
     /* ============================================= */
+    /* ============================================= */
+    /* HEADER - Optimized for all screens             */
+    /* ============================================= */
     .header {
       position: fixed;
       top: 0;
@@ -166,9 +177,10 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 40px;
+      padding: 0 25px;
       z-index: 1000;
       transition: var(--transition);
+      gap: 15px;
     }
 
     /* Header scroll hone pe thoda change hoga */
@@ -178,37 +190,35 @@
     }
 
     /* Logo Section - Website ka naam/logo */
+    /* ============================================= */
+    /* LOGO - Optimized for better space              */
+    /* ============================================= */
     .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       text-decoration: none;
       cursor: pointer;
+      flex-shrink: 0;
     }
 
     .logo img {
-      width: 45px;
-      height: 45px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       border: 2px solid var(--primary);
     }
 
-        /* ============================================= */
-    /* LOGO TEXT - Light mode mein navy gradient,    */
-    /* dark mode mein gold gradient                   */
-    /* ============================================= */
-        /* ============================================= */
-    /* LOGO TEXT - Literata font for premium look     */
-    /* ============================================= */
     .logo-text {
       font-family: 'Literata', Georgia, serif;
-      font-size: 22px;
+      font-size: 18px;
       font-weight: 900;
       background: linear-gradient(135deg, var(--primary), var(--primary-light));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
     }
 
     /* Dark mode mein gold gradient */
@@ -219,29 +229,26 @@
       background-clip: text;
     }
 
-    /* Dark mode mein gold gradient 
-    body.dark-mode .logo-text {
-      background: linear-gradient(135deg, var(--primary), #FFA500);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }*/
 
-    /* Navigation Links - Pages ke links */
+        /* ============================================= */
+    /* NAVIGATION LINKS - Better fit on all screens   */
+    /* ============================================= */
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 30px;
+      gap: 18px;
       list-style: none;
-    }
+      flex-wrap: nowrap;
+        }
 
     .nav-links a {
       text-decoration: none;
       color: var(--text-light);
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 500;
       transition: var(--transition);
       position: relative;
+      white-space: nowrap;
     }
 
     /* Hover pe gold color aayega */
@@ -272,20 +279,25 @@
         /* ============================================= */
     /* LOGIN BUTTON - Light/Dark dono modes ke liye   */
     /* ============================================= */
+    /* ============================================= */
+    /* LOGIN BUTTON - Compact size for all screens   */
+    /* ============================================= */
     .nav-auth-btn {
       background: linear-gradient(135deg, var(--primary), var(--primary-light));
       color: #FFFFFF !important;
-      padding: 8px 20px;
+      padding: 8px 18px;
       border-radius: 25px;
       font-weight: 600;
+      font-size: 13px;
       -webkit-text-fill-color: #FFFFFF !important;
       display: inline-flex !important;
       align-items: center;
       justify-content: center;
-      gap: 6px;
+      gap: 5px;
       line-height: 1 !important;
       white-space: nowrap;
       height: auto;
+      flex-shrink: 0;
     }
 
     /* Dark mode mein gold button with dark text */
@@ -738,10 +750,30 @@
     /* FOOTER - Light mode mein navy blue ka          */
     /* slight dark version dikhega                    */
     /* ============================================= */
+        /* ============================================= */
+    /* FOOTER - Fixed bottom alignment                */
+    /* ============================================= */
     .footer {
       background: var(--bg-card-hover);
       border-top: 2px solid var(--primary);
       padding: 60px 40px 20px;
+      margin-top: 0;
+    }
+
+    /* Body and html height fix */
+    html, body {
+      min-height: 100vh;
+    }
+
+    /* Main content should push footer down */
+    .main-content {
+      min-height: calc(100vh - var(--header-height) - 400px);
+    }
+
+    /* Dark mode mein footer original color */
+    body.dark-mode .footer {
+      background: #050510;
+      border-top: 1px solid var(--border-color);
     }
 
     /* Dark mode mein footer original color */
@@ -3010,17 +3042,22 @@
     /* ============================================= */
     /* THEME TOGGLE - Smooth rotation                  */
     /* ============================================= */
-    .theme-toggle {
-      transition: all 0.5s cubic-bezier(0.5, 0, 0, 1);
-    }
-
-    .theme-toggle i {
-      transition: all 0.5s cubic-bezier(0.5, 0, 0, 1);
-    }
-
-    .theme-toggle:hover i {
-      transform: rotate(360deg) scale(1.2);
-    }
+        .theme-toggle {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      transition: var(--transition);
+      margin-right: 0;
+      flex-shrink: 0;
+  }
 
     /* ============================================= */
     /* SECTION TITLES - Bounce effect                  */
@@ -4100,16 +4137,17 @@
       background: transparent;
       border: 2px solid var(--primary);
       color: var(--primary);
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px;
+      font-size: 14px;
       transition: var(--transition);
-      margin-right: 8px;
+      margin-right: 0;
+      flex-shrink: 0;
     }
 
     .cursor-toggle:hover {
@@ -6657,7 +6695,108 @@
     /* ============================================= */
     /* ALL OPTIONS CSS END                             */
     /* ============================================= */
-  
+      /* ============================================= */
+    /* PAGE BOTTOM SPACING FIX                        */
+    /* Har page ke bottom mein proper spacing         */
+    /* ============================================= */
+
+    /* Sare pages ka bottom padding fix */
+    .page {
+      padding-bottom: 40px;
+    }
+
+    /* About, Services, Products, Contact pages */
+    .content-page-section {
+      min-height: 400px;
+    }
+
+    /* Empty content state - jab content load nahi hua */
+    .content-page-body {
+      min-height: 300px;
+    }
+
+    /* Footer ko stick to bottom */
+    .footer {
+      flex-shrink: 0;
+    }
+
+    /* Mobile mein extra space remove */
+    @media (max-width: 768px) {
+      .page {
+        padding-bottom: 20px;
+      }
+    }
+ 
+    /* ============================================= */
+    /* HEADER RESPONSIVE - Tablet & Small Desktop     */
+    /* Login button ko hamesha visible rakho          */
+    /* ============================================= */
+
+    /* Medium screens - tablet aur small laptop */
+    @media (max-width: 1100px) and (min-width: 769px) {
+
+      .header {
+        padding: 0 15px;
+        gap: 10px;
+      }
+
+      .logo-text {
+        font-size: 16px;
+      }
+
+      .logo img {
+        width: 36px;
+        height: 36px;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 13px;
+      }
+
+      /* Icon ke text ko hide karo */
+      .nav-links a span,
+      .nav-links a:not(.nav-auth-btn) i + * {
+        font-size: 12px;
+      }
+
+      .nav-auth-btn {
+        padding: 7px 14px;
+        font-size: 12px;
+      }
+    }
+
+    /* Smaller desktop - 900px se chhota */
+    @media (max-width: 950px) and (min-width: 769px) {
+
+      .nav-links {
+        gap: 8px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+        padding: 5px 8px;
+      }
+
+      .nav-auth-btn {
+        padding: 6px 12px;
+        font-size: 11px;
+      }
+
+      .logo-text {
+        font-size: 14px;
+      }
+
+      .theme-toggle,
+      .cursor-toggle {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 12px !important;
+      }
+    }
   </style>
 </head>
 <body>
