@@ -33,38 +33,39 @@
     /* ROOT VARIABLES - Poore website ke colors aur   */
     /* sizes yahan se control honge                   */
     /* ============================================= */
-        :root {
-      /* Primary Colors - Website ke main rang */
-      --primary: #FFD700;
-      --primary-dark: #B8960C;
-      --primary-light: #FFF3B0;
+           :root {
+      /* ============================================= */
+      /* LIGHT MODE COLORS (DEFAULT)                     */
+      /* Navy blue + Light blue theme                    */
+      /* ============================================= */
 
-      /* ============================================= */
-      /* LIGHT MODE COLORS - Default light theme         */
-      /* Background light blue (D0E4FE) hoga             */
-      /* Cards thode dark blue (E8F2FE) honge            */
-      /* ============================================= */
-      --bg-dark: #D0E4FE;
+      /* Primary Colors - Navy Blue (Light Mode) */
+      --primary: #091F5C;
+      --primary-dark: #050F2E;
+      --primary-light: #1A3A8A;
+
+      /* Background Colors - Light Blue shades */
+      --bg-dark: #F9FBFF;
       --bg-card: #E8F2FE;
-      --bg-card-hover: #DDE9FB;
-      --bg-header: rgba(208, 228, 254, 0.95);
+      --bg-card-hover: #D0E4FE;
+      --bg-header: rgba(249, 251, 255, 0.95);
 
-      /* Text Colors - Light mode ke liye dark text */
-      --text-white: #1A1A2E;
-      --text-light: #4A5568;
-      --text-gold: #B8860B;
-      --text-muted: #888888;
+      /* Text Colors - Navy blue for light mode */
+      --text-white: #091F5C;
+      --text-light: #2D4373;
+      --text-gold: #091F5C;
+      --text-muted: #6B7A99;
 
-      /* Accent Colors - Special highlights ke liye */
-      --accent-blue: #4A90D9;
-      --accent-green: #27AE60;
-      --accent-red: #E74C3C;
-      --accent-purple: #9B59B6;
+      /* Accent Colors - Light mode ke liye adjust */
+      --accent-blue: #2563EB;
+      --accent-green: #059669;
+      --accent-red: #DC2626;
+      --accent-purple: #7C3AED;
 
-      /* Border & Shadow */
-      --border-color: #2A2A3E;
-      --shadow-gold: 0 0 20px rgba(255, 215, 0, 0.3);
-      --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
+      /* Border & Shadow - Light mode */
+      --border-color: #C7D9F0;
+      --shadow-gold: 0 0 20px rgba(9, 31, 92, 0.15);
+      --shadow-card: 0 10px 30px rgba(9, 31, 92, 0.1);
 
       /* Sizes */
       --header-height: 70px;
@@ -72,6 +73,39 @@
       --transition: 0.3s ease;
     }
 
+    /* ============================================= */
+    /* DARK MODE COLORS - Original dark theme         */
+    /* Gold + Black colors (jab dark mode on ho)      */
+    /* ============================================= */
+    body.dark-mode {
+      /* Primary Colors - Gold/Mustard (Dark Mode) */
+      --primary: #FFD700;
+      --primary-dark: #B8960C;
+      --primary-light: #FFF3B0;
+
+      /* Background Colors - Dark theme */
+      --bg-dark: #0A0A0A;
+      --bg-card: #1A1A2E;
+      --bg-card-hover: #252542;
+      --bg-header: rgba(10, 10, 10, 0.95);
+
+      /* Text Colors - White/Light for dark mode */
+      --text-white: #FFFFFF;
+      --text-light: #B0B0B0;
+      --text-gold: #FFD700;
+      --text-muted: #666666;
+
+      /* Accent Colors - Dark mode */
+      --accent-blue: #4A90D9;
+      --accent-green: #27AE60;
+      --accent-red: #E74C3C;
+      --accent-purple: #9B59B6;
+
+      /* Border & Shadow - Dark mode */
+      --border-color: #2A2A3E;
+      --shadow-gold: 0 0 20px rgba(255, 215, 0, 0.3);
+      --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
     /* ============================================= */
     /* BODY - Poore page ka base style                */
     /* ============================================= */
@@ -142,14 +176,26 @@
       border: 2px solid var(--primary);
     }
 
+        /* ============================================= */
+    /* LOGO TEXT - Light mode mein navy gradient,    */
+    /* dark mode mein gold gradient                   */
+    /* ============================================= */
     .logo-text {
       font-size: 22px;
       font-weight: 800;
-      background: linear-gradient(135deg, var(--primary), #FFA500);
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       letter-spacing: 1px;
+    }
+
+    /* Dark mode mein gold gradient */
+    body.dark-mode .logo-text {
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     /* Navigation Links - Pages ke links */
@@ -194,13 +240,16 @@
     /* LOGIN/SIGNUP BUTTON - Fixed alignment          */
     /* Ab button properly center mein aayega          */
     /* ============================================= */
+        /* ============================================= */
+    /* LOGIN BUTTON - Light/Dark dono modes ke liye   */
+    /* ============================================= */
     .nav-auth-btn {
-      background: linear-gradient(135deg, var(--primary), #FFA500);
-      color: #0A0A0A !important;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #FFFFFF !important;
       padding: 8px 20px;
       border-radius: 25px;
       font-weight: 600;
-      -webkit-text-fill-color: #0A0A0A !important;
+      -webkit-text-fill-color: #FFFFFF !important;
       display: inline-flex !important;
       align-items: center;
       justify-content: center;
@@ -210,6 +259,12 @@
       height: auto;
     }
 
+    /* Dark mode mein gold button with dark text */
+    body.dark-mode .nav-auth-btn {
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      color: #0A0A0A !important;
+      -webkit-text-fill-color: #0A0A0A !important;
+    }
     .nav-auth-btn:hover {
       box-shadow: var(--shadow-gold);
       transform: translateY(-2px);
@@ -257,6 +312,9 @@
     /* HERO SECTION - Home page ka pehla bada section */
     /* Yahan welcome message aur info hogi            */
     /* ============================================= */
+        /* ============================================= */
+    /* HERO SECTION - Light/Dark dono modes ke liye   */
+    /* ============================================= */
     .hero {
       position: relative;
       min-height: 500px;
@@ -265,9 +323,14 @@
       justify-content: center;
       text-align: center;
       padding: 80px 20px;
-      background: linear-gradient(135deg, #0A0A0A 0%, #1A1A2E 50%, #0A0A0A 100%);
+      background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-hover) 50%, var(--bg-card) 100%);
       overflow: hidden;
     }
+
+    /* Dark mode mein original gradient */
+    body.dark-mode .hero {
+      background: linear-gradient(135deg, #0A0A0A 0%, #1A1A2E 50%, #0A0A0A 100%);
+             }
 
     /* Hero ke peeche glow effect */
     .hero::before {
@@ -288,15 +351,26 @@
       max-width: 800px;
     }
 
+        /* ============================================= */
+    /* HERO HEADING - Light/Dark dono modes           */
+    /* ============================================= */
     .hero-content h1 {
       font-size: 48px;
       font-weight: 900;
       margin-bottom: 15px;
-      background: linear-gradient(135deg, var(--primary), #FFA500, var(--primary));
+      background: linear-gradient(135deg, var(--primary), var(--primary-light), var(--primary));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       line-height: 1.2;
+    }
+
+    /* Dark mode mein gold heading */
+    body.dark-mode .hero-content h1 {
+      background: linear-gradient(135deg, var(--primary), #FFA500, var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .hero-content p {
@@ -316,9 +390,13 @@
     /* ============================================= */
     /* BUTTONS - Website ke sab buttons ka style      */
     /* ============================================= */
+        /* ============================================= */
+    /* PRIMARY BUTTON - Light mode mein navy,         */
+    /* dark mode mein gold                            */
+    /* ============================================= */
     .btn-primary {
-      background: linear-gradient(135deg, var(--primary), #FFA500);
-      color: var(--bg-dark);
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #FFFFFF;
       padding: 14px 35px;
       border: none;
       border-radius: 30px;
@@ -330,6 +408,12 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+    }
+
+    /* Dark mode mein gold button */
+    body.dark-mode .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      color: var(--bg-dark);
     }
 
     .btn-primary:hover {
@@ -367,10 +451,21 @@
       padding: 50px 20px 30px;
     }
 
+        /* ============================================= */
+    /* SECTION TITLE - Light/Dark dono modes          */
+    /* ============================================= */
     .section-title h2 {
       font-size: 36px;
       font-weight: 800;
       margin-bottom: 10px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Dark mode mein gold gradient */
+    body.dark-mode .section-title h2 {
       background: linear-gradient(135deg, var(--primary), #FFA500);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -610,11 +705,21 @@
     /* FOOTER - Website ka neeche wala hissa          */
     /* Links, copyright, social media                 */
     /* ============================================= */
+        /* ============================================= */
+    /* FOOTER - Light mode mein navy blue ka          */
+    /* slight dark version dikhega                    */
+    /* ============================================= */
     .footer {
-      background: #050510;
-      border-top: 1px solid var(--border-color);
+      background: var(--bg-card-hover);
+      border-top: 2px solid var(--primary);
       padding: 60px 40px 20px;
     }
+
+    /* Dark mode mein footer original color */
+    body.dark-mode .footer {
+      background: #050510;
+      border-top: 1px solid var(--border-color);
+      }
 
     .footer-grid {
       display: grid;
@@ -882,14 +987,21 @@
     /* PAGE HEADER - Har page ka top heading area     */
     /* Category / Sub-Category page ke upar dikhega   */
     /* ============================================= */
+        /* ============================================= */
+    /* PAGE HEADER - Light/Dark dono modes ke liye    */
+    /* ============================================= */
     .page-header {
       padding: 40px 40px 20px;
       text-align: center;
-      background: linear-gradient(135deg, #0A0A0A 0%, #1A1A2E 50%, #0A0A0A 100%);
+      background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-hover) 50%, var(--bg-card) 100%);
       position: relative;
       overflow: hidden;
     }
 
+    /* Dark mode mein original gradient */
+    body.dark-mode .page-header {
+      background: linear-gradient(135deg, #0A0A0A 0%, #1A1A2E 50%, #0A0A0A 100%);
+    }
     .page-header::before {
       content: '';
       position: absolute;
@@ -902,10 +1014,13 @@
       border-radius: 50%;
     }
 
+        /* ============================================= */
+    /* PAGE HEADER HEADING - Light/Dark dono modes    */
+    /* ============================================= */
     .page-header h1 {
       font-size: 36px;
       font-weight: 800;
-      background: linear-gradient(135deg, var(--primary), #FFA500);
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -913,6 +1028,14 @@
       position: relative;
       z-index: 2;
     }
+
+    /* Dark mode mein gold heading */
+    body.dark-mode .page-header h1 {
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      }
 
     .page-header p {
       color: var(--text-light);
@@ -2481,27 +2604,6 @@
       background: var(--primary);
       color: var(--bg-dark);
       transform: rotate(360deg);
-    }
-
-    /* ============================================= */
-    /* DARK MODE THEME - Jab dark mode active ho     */
-    /* sab colors badal jayenge                       */
-    /* ============================================= */
-    body.dark-mode {
-      --bg-dark: #0A0A0A;
-      --bg-card: #1A1A2E;
-      --bg-card-hover: #252542;
-      --bg-header: rgba(10, 10, 10, 0.95);
-
-      --text-white: #FFFFFF;
-      --text-light: #B0B0B0;
-      --text-gold: #FFD700;
-      --text-muted: #666666;
-    }
-
-    /* Dark mode mein scrollbar */
-    body.dark-mode ::-webkit-scrollbar-track {
-      background: var(--bg-dark);
     }
     
   </style>
