@@ -5248,8 +5248,1036 @@
     /* COMPARE PLANS TABLE CSS END                     */
     /* ============================================= */
 
+    /* ============================================= */
+    /* LIFETIME PLAN - Special Premium Section        */
+    /* ============================================= */
 
-    
+    /* Lifetime section container */
+    .lifetime-section {
+      max-width: 1200px;
+      margin: 50px auto 30px;
+      padding: 0 40px;
+    }
+
+    /* Section Title */
+    .lifetime-section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .lifetime-section-title h2 {
+      font-family: 'Literata', Georgia, serif;
+      font-size: 36px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #FFD700, #FFA500, #FFD700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .lifetime-section-title p {
+      font-family: 'Gentium Plus', Georgia, serif;
+      color: var(--text-light);
+      font-size: 16px;
+      font-style: italic;
+    }
+
+    /* ============================================= */
+    /* LIFETIME CARD - Main attraction                */
+    /* ============================================= */
+    .lifetime-card {
+      background: linear-gradient(135deg,
+        var(--bg-card) 0%,
+        var(--bg-card-hover) 50%,
+        var(--bg-card) 100%
+      );
+      border-radius: 25px;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      border: 3px solid transparent;
+      background-clip: padding-box;
+      box-shadow: 0 20px 60px rgba(255, 215, 0, 0.15),
+                  0 0 0 1px rgba(255, 215, 0, 0.2);
+      animation: lifetimeGlow 3s ease-in-out infinite;
+    }
+
+    body:not(.dark-mode) .lifetime-card {
+      box-shadow: 0 20px 60px rgba(9, 31, 92, 0.15),
+                  0 0 0 1px rgba(9, 31, 92, 0.2);
+    }
+
+    /* Animated glow effect */
+    @keyframes lifetimeGlow {
+      0%, 100% {
+        box-shadow: 0 20px 60px rgba(255, 215, 0, 0.15),
+                    0 0 0 1px rgba(255, 215, 0, 0.2);
+      }
+      50% {
+        box-shadow: 0 20px 80px rgba(255, 215, 0, 0.4),
+                    0 0 0 1px rgba(255, 215, 0, 0.4);
+      }
+    }
+
+    body:not(.dark-mode) .lifetime-card {
+      animation: lifetimeGlowLight 3s ease-in-out infinite;
+    }
+
+    @keyframes lifetimeGlowLight {
+      0%, 100% {
+        box-shadow: 0 20px 60px rgba(9, 31, 92, 0.15);
+      }
+      50% {
+        box-shadow: 0 20px 80px rgba(9, 31, 92, 0.3);
+      }
+    }
+
+    /* Animated gradient border */
+    .lifetime-card::before {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      background: linear-gradient(45deg,
+        #FFD700, #FFA500, #FFD700, #FFA500, #FFD700
+      );
+      background-size: 200% 200%;
+      border-radius: 25px;
+      z-index: -1;
+      animation: borderRotate 3s linear infinite;
+    }
+
+    @keyframes borderRotate {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* ============================================= */
+    /* LIFETIME BADGE - Top corner                    */
+    /* ============================================= */
+    .lifetime-badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      color: #0A0A0A;
+      padding: 8px 30px;
+      font-family: 'Literata', Georgia, serif;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      border-bottom-left-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      z-index: 5;
+    }
+
+    /* Crown decoration */
+    .lifetime-crown {
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 50px;
+      filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
+      animation: crownFloat 2s ease-in-out infinite;
+      z-index: 5;
+    }
+
+    @keyframes crownFloat {
+      0%, 100% {
+        transform: translateX(-50%) translateY(0) rotate(-5deg);
+      }
+      50% {
+        transform: translateX(-50%) translateY(-8px) rotate(5deg);
+      }
+    }
+
+    /* ============================================= */
+    /* LIFETIME CONTENT - Inner layout                */
+    /* ============================================= */
+    .lifetime-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 50px 40px 40px;
+      align-items: center;
+    }
+
+    /* Left side - Info */
+    .lifetime-left {
+      text-align: left;
+    }
+
+    .lifetime-tagline {
+      display: inline-block;
+      background: linear-gradient(135deg,
+        rgba(255, 215, 0, 0.15),
+        rgba(255, 165, 0, 0.05)
+      );
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      padding: 6px 18px;
+      border-radius: 25px;
+      font-family: 'Literata', Georgia, serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .lifetime-title {
+      font-family: 'Literata', Georgia, serif;
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--text-white);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .lifetime-title .gold-text {
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .lifetime-subtitle {
+      font-family: 'Gentium Plus', Georgia, serif;
+      font-size: 16px;
+      color: var(--text-light);
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    /* Features list */
+    .lifetime-features {
+      list-style: none;
+      margin-bottom: 30px;
+    }
+
+    .lifetime-features li {
+      font-family: 'Gentium Plus', Georgia, serif;
+      font-size: 15px;
+      color: var(--text-light);
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .lifetime-features li:last-child {
+      border-bottom: none;
+    }
+
+    .lifetime-features li i {
+      color: #27AE60;
+      font-size: 18px;
+      background: rgba(39, 174, 96, 0.15);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lifetime-features li strong {
+      color: var(--primary);
+    }
+
+    /* ============================================= */
+    /* RIGHT SIDE - Price & CTA                       */
+    /* ============================================= */
+    .lifetime-right {
+      text-align: center;
+      padding: 30px;
+      background: linear-gradient(135deg,
+        rgba(255, 215, 0, 0.05),
+        rgba(255, 165, 0, 0.02)
+      );
+      border-radius: 20px;
+      border: 1px solid var(--border-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decoration sparkles */
+    .lifetime-right::before {
+      content: '✨';
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      font-size: 20px;
+      opacity: 0.5;
+      animation: sparkleSpin 4s linear infinite;
+    }
+
+    .lifetime-right::after {
+      content: '✨';
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      font-size: 20px;
+      opacity: 0.5;
+      animation: sparkleSpin 4s linear infinite reverse;
+    }
+
+    @keyframes sparkleSpin {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.3); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+
+    .lifetime-price-label {
+      font-family: 'Literata', Georgia, serif;
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .lifetime-price-old {
+      font-family: 'Literata', Georgia, serif;
+      font-size: 22px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      margin-bottom: 5px;
+    }
+
+    .lifetime-price-main {
+      font-family: 'Literata', Georgia, serif;
+      font-size: 64px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
+    .lifetime-price-period {
+      font-family: 'Gentium Plus', Georgia, serif;
+      font-size: 14px;
+      color: var(--text-light);
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .lifetime-savings {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #27AE60, #2ECC71);
+      color: white;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-family: 'Literata', Georgia, serif;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+    }
+
+    .lifetime-cta-btn {
+      width: 100%;
+      padding: 16px 30px;
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      color: #0A0A0A;
+      border: none;
+      border-radius: 30px;
+      font-family: 'Literata', Georgia, serif;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.5, 0, 0, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+    }
+
+    .lifetime-cta-btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(255, 215, 0, 0.6);
+    }
+
+    .lifetime-guarantee {
+      margin-top: 15px;
+      font-family: 'Gentium Plus', Georgia, serif;
+      font-size: 12px;
+      color: var(--text-muted);
+      font-style: italic;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .lifetime-guarantee i {
+      color: #27AE60;
+    }
+
+    /* ============================================= */
+    /* LIFETIME BENEFITS STRIP - Below card           */
+    /* ============================================= */
+    .lifetime-benefits {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .lifetime-benefit-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .lifetime-benefit-item:hover {
+      border-color: var(--primary);
+      transform: translateY(-5px);
+    }
+
+    .lifetime-benefit-item .benefit-icon {
+      font-size: 36px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .lifetime-benefit-item h4 {
+      font-family: 'Literata', Georgia, serif;
+      font-size: 16px;
+      color: var(--text-white);
+      margin-bottom: 5px;
+    }
+
+    .lifetime-benefit-item p {
+      font-family: 'Gentium Plus', Georgia, serif;
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    /* ============================================= */
+    /* MOBILE RESPONSIVE                              */
+    /* ============================================= */
+    @media (max-width: 768px) {
+      .lifetime-section {
+        padding: 0 15px;
+      }
+
+      .lifetime-section-title h2 {
+        font-size: 26px;
+      }
+
+      .lifetime-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 50px 25px 30px;
+      }
+
+      .lifetime-title {
+        font-size: 28px;
+      }
+
+      .lifetime-price-main {
+        font-size: 50px;
+      }
+
+      .lifetime-crown {
+        font-size: 40px;
+        top: -20px;
+      }
+
+      .lifetime-benefits {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .lifetime-badge {
+        padding: 6px 20px;
+        font-size: 10px;
+      }
+    }
+
+    /* ============================================= */
+    /* LIFETIME PLAN CSS END                           */
+    /* ============================================= */
+        /* ============================================= */
+    /* CATEGORY BUNDLE SYSTEM                          */
+    /* ============================================= */
+
+    /* Bundle Section Container */
+    .bundle-section {
+      max-width: 1200px;
+      margin: 50px auto 30px;
+      padding: 0 40px;
+    }
+
+    /* Section Title */
+    .bundle-section-title {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .bundle-section-title h2 {
+      font-family: 'Literata', Georgia, serif;
+      font-size: 36px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    body.dark-mode .bundle-section-title h2 {
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .bundle-section-title p {
+      font-family: 'Gentium Plus', Georgia, serif;
+      color: var(--text-light);
+      font-size: 16px;
+      max-width: 700px;
+      margin: 0 auto;
+      font-style: italic;
+    }
+
+    /* ============================================= */
+    /* BUNDLE CARDS GRID                              */
+    /* ============================================= */
+    .bundle-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+
+    /* Individual Bundle Card */
+    .bundle-card {
+      background: var(--bg-card);
+      border: 2px solid var(--border-color);
+      border-radius: 20px;
+      padding: 30px 25px;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.5, 0, 0, 1);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .bundle-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--primary);
+      box-shadow: 0 20px 50px rgba(255, 215, 0, 0.2);
+    }
+
+    body:not(.dark-mode) .bundle-card:hover {
+      box-shadow: 0 20px 50px rgba(9, 31, 92, 0.2);
+    }
+
+    /* Featured bundle highlight */
+    .bundle-card.featured {
+      border-color: var(--primary);
+      background: linear-gradient(135deg,
+        var(--bg-card),
+        rgba(255, 215, 0, 0.05)
+      );
+    }
+
+    body:not(.dark-mode) .bundle-card.featured {
+      background: linear-gradient(135deg,
+        var(--bg-card),
+        rgba(9, 31, 92, 0.04)
+      );
+    }
+
+    /* Bundle ribbon */
+    .bundle-ribbon {
+      position: absolute;
+      top: 15px;
+      right: -30px;
+      background: linear-gradient(135deg, #27AE60, #2ECC71);
+      color: white;
+      padding: 5px 40px;
+      font-family: 'Literata', Georgia, serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      transform: rotate(45deg);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Bundle Icon */
+    .bundle-icon-wrapper {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg,
+        rgba(255, 215, 0, 0.1),
+        rgba(255, 165, 0, 0.05)
+      );
+      border: 2px solid var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      transition: all 0.4s ease;
+    }
+
+    .bundle-card:hover .bundle-icon-wrapper {
+      transform: scale(1.1) rotate(10deg);
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    }
+
+    .bundle-card:hover .bundle-icon-wrapper .bundle-icon {
+      color: white !important;
+    }
+
+    body.dark-mode .bundle-card:hover .bundle-icon-wrapper {
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+    }
+
+    body.dark-mode .bundle-card:hover .bundle-icon-wrapper .bundle-icon {
+      color: #0A0A0A !important;
+    }
+
+    .bundle-icon {
+      font-size: 38px;
+      transition: all 0.3s ease;
+    }
+
+    /* Bundle Title */
+    .bundle-card h3 {
+      font-family: 'Literata', Georgia, serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-white);
+      margin-bottom: 8px;
+    }
+
+    .bundle-card .bundle-tagline {
+      font-family: 'Gentium Plus', Georgia, serif;
+      font-size: 13px;
+      color: var(--text-light);
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    /* Bundle Price */
+    .bundle-price {
+      font-family: 'Literata', Georgia, serif;
+      font-size: 38px;
+      font-weight: 900;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
+    .bundle-price-period {
+      font-family: 'Gentium Plus', Georgia, serif;
+      font-size: 14px;
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+
+    /* Bundle Features */
+    .bundle-features {
+      list-style: none;
+      margin-bottom: 25px;
+      text-align: left;
+    }
+
+    .bundle-features li {
+      font-family: 'Gentium Plus', Georgia, serif;
+      font-size: 14px;
+      color: var(--text-light);
+      padding: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px dashed var(--border-color);
+    }
+
+    .bundle-features li:last-child {
+      border-bottom: none;
+    }
+
+    .bundle-features li i {
+      color: #27AE60;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .bundle-features li strong {
+      color: var(--primary);
+    }
+
+    /* Bundle CTA Button */
+    .bundle-cta-btn {
+      width: 100%;
+      padding: 13px 20px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #FFFFFF;
+      border: none;
+      border-radius: 25px;
+      font-family: 'Literata', Georgia, serif;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    body.dark-mode .bundle-cta-btn {
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      color: #0A0A0A;
+    }
+
+    .bundle-cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+    }
+
+    /* ============================================= */
+    /* BUNDLE INFO BOX                                 */
+    /* ============================================= */
+    .bundle-info-box {
+      background: linear-gradient(135deg,
+        rgba(74, 144, 217, 0.08),
+        rgba(74, 144, 217, 0.02)
+      );
+      border: 1px solid var(--accent-blue);
+      border-left: 4px solid var(--accent-blue);
+      border-radius: 12px;
+      padding: 20px 25px;
+      margin-top: 25px;
+    }
+
+    .bundle-info-box h4 {
+      font-family: 'Literata', Georgia, serif;
+      color: var(--accent-blue);
+      font-size: 16px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .bundle-info-box p {
+      font-family: 'Gentium Plus', Georgia, serif;
+      color: var(--text-light);
+      font-size: 14px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .bundle-info-box strong {
+      color: var(--accent-blue);
+    }
+
+    /* ============================================= */
+    /* CATEGORY SELECTION MODAL                        */
+    /* User ko categories select karne ka modal       */
+    /* ============================================= */
+    .category-select-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 20px;
+    }
+
+    .category-select-modal.show {
+      display: flex;
+    }
+
+    .category-select-box {
+      background: var(--bg-card);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 700px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      border: 2px solid var(--primary);
+      position: relative;
+    }
+
+    .category-select-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 24px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .category-select-close:hover {
+      color: var(--accent-red);
+      transform: rotate(90deg);
+    }
+
+    .category-select-box h2 {
+      font-family: 'Literata', Georgia, serif;
+      font-size: 24px;
+      color: var(--text-white);
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .category-select-box .modal-info {
+      font-family: 'Gentium Plus', Georgia, serif;
+      color: var(--text-light);
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+
+    .category-select-box .selection-counter {
+      background: linear-gradient(135deg,
+        rgba(255, 215, 0, 0.1),
+        rgba(255, 165, 0, 0.05)
+      );
+      border: 1px solid var(--primary);
+      border-radius: 25px;
+      padding: 10px 20px;
+      text-align: center;
+      margin-bottom: 20px;
+      font-family: 'Literata', Georgia, serif;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* Category checkbox grid */
+    .category-checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .category-checkbox-item {
+      background: var(--bg-dark);
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      padding: 12px 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .category-checkbox-item:hover {
+      border-color: var(--primary);
+      background: var(--bg-card-hover);
+    }
+
+    .category-checkbox-item.selected {
+      border-color: var(--primary);
+      background: linear-gradient(135deg,
+        rgba(255, 215, 0, 0.1),
+        rgba(255, 165, 0, 0.05)
+      );
+    }
+
+    .category-checkbox-item.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .cat-check-icon {
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .cat-check-info {
+      flex: 1;
+    }
+
+    .cat-check-info h4 {
+      font-family: 'Literata', Georgia, serif;
+      font-size: 14px;
+      color: var(--text-white);
+      margin: 0;
+    }
+
+    .cat-check-info p {
+      font-family: 'Gentium Plus', Georgia, serif;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .cat-check-mark {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .category-checkbox-item.selected .cat-check-mark {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-color: var(--primary);
+    }
+
+    body.dark-mode .category-checkbox-item.selected .cat-check-mark {
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+    }
+
+    .cat-check-mark i {
+      color: white;
+      font-size: 11px;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    body.dark-mode .category-checkbox-item.selected .cat-check-mark i {
+      color: #0A0A0A;
+    }
+
+    .category-checkbox-item.selected .cat-check-mark i {
+      opacity: 1;
+    }
+
+    /* Modal action buttons */
+    .modal-action-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-modal-confirm {
+      flex: 1;
+      padding: 13px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-family: 'Literata', Georgia, serif;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    body.dark-mode .btn-modal-confirm {
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      color: #0A0A0A;
+    }
+
+    .btn-modal-confirm:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+    }
+
+    .btn-modal-confirm:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .btn-modal-cancel {
+      padding: 13px 25px;
+      background: transparent;
+      color: var(--text-light);
+      border: 2px solid var(--border-color);
+      border-radius: 25px;
+      font-family: 'Literata', Georgia, serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-modal-cancel:hover {
+      border-color: var(--accent-red);
+      color: var(--accent-red);
+    }
+
+    /* ============================================= */
+    /* MOBILE RESPONSIVE                              */
+    /* ============================================= */
+    @media (max-width: 768px) {
+      .bundle-section {
+        padding: 0 15px;
+      }
+
+      .bundle-section-title h2 {
+        font-size: 26px;
+      }
+
+      .bundle-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .bundle-card {
+        padding: 25px 20px;
+      }
+
+      .category-checkbox-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category-select-box {
+        padding: 20px;
+      }
+
+      .modal-action-buttons {
+        flex-direction: column;
+      }
+    }
+
+    /* ============================================= */
+    /* CATEGORY BUNDLE CSS END                         */
+    /* ============================================= */
   </style>
 </head>
 <body>
@@ -6182,6 +7210,304 @@
         </div>
         <!-- COMPARE PLANS TABLE END -->
 
+                <!-- ============================================= -->
+        <!-- LIFETIME PLAN - Special Premium Section       -->
+        <!-- ============================================= -->
+        <div class="lifetime-section">
+
+          <!-- Section Title -->
+          <div class="lifetime-section-title">
+            <h2>
+              <span>👑</span>
+              Lifetime Access
+              <span>👑</span>
+            </h2>
+            <p>One-time payment, forever access. The ultimate magical deal!</p>
+          </div>
+
+          <!-- Main Lifetime Card -->
+          <div class="lifetime-card">
+
+            <!-- Top decorations -->
+            <div class="lifetime-crown">👑</div>
+            <div class="lifetime-badge">VIP DEAL</div>
+
+            <!-- Content Grid -->
+            <div class="lifetime-content">
+
+              <!-- LEFT SIDE - Info -->
+              <div class="lifetime-left">
+
+                <!-- Tagline -->
+                <span class="lifetime-tagline">
+                  🌟 BEST VALUE EVER
+                </span>
+
+                <!-- Title -->
+                <h3 class="lifetime-title">
+                  Pay Once,<br>
+                  Get <span class="gold-text">LIFETIME</span> Access
+                </h3>
+
+                <!-- Subtitle -->
+                <p class="lifetime-subtitle">
+                  Unlock the magic lamp forever! Access all <strong>3780+ blogs</strong>,
+                  21 categories, and every future addition - all for a single payment.
+                  Never worry about renewals again!
+                </p>
+
+                <!-- Features List -->
+                <ul class="lifetime-features">
+                  <li>
+                    <i class="fas fa-check"></i>
+                    <span><strong>Forever Access</strong> - Never expires, ever!</span>
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i>
+                    <span>All <strong>3780+ premium blogs</strong> unlocked</span>
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i>
+                    <span><strong>All future blogs</strong> included free</span>
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i>
+                    <span><strong>VIP support</strong> - 24/7 priority help</span>
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i>
+                    <span><strong>Exclusive content</strong> for lifetime members</span>
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i>
+                    <span>Early access to <strong>new blogs & features</strong></span>
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i>
+                    <span><strong>No monthly payments</strong> ever again!</span>
+                  </li>
+                </ul>
+
+              </div>
+
+              <!-- RIGHT SIDE - Price & CTA -->
+              <div class="lifetime-right">
+
+                <!-- Price Label -->
+                <div class="lifetime-price-label">One-Time Payment</div>
+
+                <!-- Old Price -->
+                <div class="lifetime-price-old">$999</div>
+
+                <!-- Main Price -->
+                <div class="lifetime-price-main">$299</div>
+
+                <!-- Period -->
+                <div class="lifetime-price-period">Forever Access · No Renewals</div>
+
+                <!-- Savings Badge -->
+                <div class="lifetime-savings">
+                  <i class="fas fa-tag"></i>
+                  SAVE $700 (70% OFF)
+                </div>
+
+                <!-- CTA Button -->
+                <button class="lifetime-cta-btn" onclick="openPaymentModal('Lifetime', 299, 'Forever')">
+                  <i class="fas fa-crown"></i>
+                  Get Lifetime Access
+                </button>
+
+                <!-- Guarantee -->
+                <div class="lifetime-guarantee">
+                  <i class="fas fa-shield-alt"></i>
+                  30-Day Money Back Guarantee
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Benefits Strip -->
+          <div class="lifetime-benefits">
+
+            <div class="lifetime-benefit-item">
+              <span class="benefit-icon">♾️</span>
+              <h4>Unlimited Access</h4>
+              <p>Read as many blogs as you want, anytime, forever</p>
+            </div>
+
+            <div class="lifetime-benefit-item">
+              <span class="benefit-icon">💰</span>
+              <h4>Best Long-Term Value</h4>
+              <p>Pay once and save thousands compared to monthly plans</p>
+            </div>
+
+            <div class="lifetime-benefit-item">
+              <span class="benefit-icon">🎁</span>
+              <h4>Future Updates Free</h4>
+              <p>All new blogs and features included at no extra cost</p>
+            </div>
+
+          </div>
+
+        </div>
+        <!-- LIFETIME PLAN END -->
+                <!-- ============================================= -->
+        <!-- CATEGORY BUNDLE SYSTEM                         -->
+        <!-- Buy specific categories only                   -->
+        <!-- ============================================= -->
+        <div class="bundle-section">
+
+          <!-- Section Title -->
+          <div class="bundle-section-title">
+            <h2>
+              <span>📦</span>
+              Category Bundles
+              <span>📦</span>
+            </h2>
+            <p>
+              Don't need everything? Pick only the categories you love!
+              Perfect for focused learning at affordable prices.
+            </p>
+          </div>
+
+          <!-- Bundle Cards Grid -->
+          <div class="bundle-grid">
+
+            <!-- 1 CATEGORY BUNDLE -->
+            <div class="bundle-card">
+              <div class="bundle-icon-wrapper">
+                <span class="bundle-icon">📂</span>
+              </div>
+              <h3>Single Category</h3>
+              <p class="bundle-tagline">Perfect for focused learning</p>
+
+              <div class="bundle-price">$15</div>
+              <div class="bundle-price-period">per month</div>
+
+              <ul class="bundle-features">
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  Access to <strong>1 category</strong>
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  All <strong>30 sub-categories</strong>
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  <strong>180 blogs</strong> in selected category
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  30 days validity
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  Email support
+                </li>
+              </ul>
+
+              <button class="bundle-cta-btn" onclick="openCategorySelectionModal(1, 15, 'Single Category Bundle')">
+                <i class="fas fa-shopping-cart"></i> Choose 1 Category
+              </button>
+            </div>
+
+            <!-- 3 CATEGORIES BUNDLE - Featured -->
+            <div class="bundle-card featured">
+              <div class="bundle-ribbon">⭐ POPULAR</div>
+              <div class="bundle-icon-wrapper">
+                <span class="bundle-icon">📚</span>
+              </div>
+              <h3>Mini Bundle</h3>
+              <p class="bundle-tagline">Best for exploring multiple topics</p>
+
+              <div class="bundle-price">$35</div>
+              <div class="bundle-price-period">per month <strong style="color: #27AE60;">(Save $10)</strong></div>
+
+              <ul class="bundle-features">
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  Access to <strong>3 categories</strong>
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  All <strong>90 sub-categories</strong>
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  <strong>540 blogs</strong> across 3 categories
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  30 days validity
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  Priority email support
+                </li>
+              </ul>
+
+              <button class="bundle-cta-btn" onclick="openCategorySelectionModal(3, 35, 'Mini Bundle')">
+                <i class="fas fa-shopping-cart"></i> Choose 3 Categories
+              </button>
+            </div>
+
+            <!-- 5 CATEGORIES BUNDLE -->
+            <div class="bundle-card">
+              <div class="bundle-icon-wrapper">
+                <span class="bundle-icon">🎯</span>
+              </div>
+              <h3>Super Bundle</h3>
+              <p class="bundle-tagline">For dedicated learners</p>
+
+              <div class="bundle-price">$50</div>
+              <div class="bundle-price-period">per month <strong style="color: #27AE60;">(Save $25)</strong></div>
+
+              <ul class="bundle-features">
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  Access to <strong>5 categories</strong>
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  All <strong>150 sub-categories</strong>
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  <strong>900 blogs</strong> across 5 categories
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  30 days validity
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  Priority support (12hr)
+                </li>
+              </ul>
+
+              <button class="bundle-cta-btn" onclick="openCategorySelectionModal(5, 50, 'Super Bundle')">
+                <i class="fas fa-shopping-cart"></i> Choose 5 Categories
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Info Box -->
+          <div class="bundle-info-box">
+            <h4><i class="fas fa-info-circle"></i> How Category Bundles Work</h4>
+            <p>
+              Choose your favorite categories and pay only for what you need!
+              <strong>Single Category</strong> = 180 blogs, <strong>Mini Bundle</strong> = 540 blogs,
+              <strong>Super Bundle</strong> = 900 blogs. Want all 21 categories?
+              Consider our <strong>Pro Plan ($45)</strong> for full access!
+            </p>
+          </div>
+
+        </div>
+        <!-- CATEGORY BUNDLE END -->
       </div>
     </div>
     <!-- PRICING PAGE END -->
@@ -6564,6 +7890,49 @@
     </div>
   </div>
   <!-- PAYMENT MODAL END -->
+
+    <!-- ============================================= -->
+  <!-- CATEGORY SELECTION MODAL                       -->
+  <!-- Bundle khareedte waqt categories select karna  -->
+  <!-- ============================================= -->
+  <div class="category-select-modal" id="categorySelectModal">
+    <div class="category-select-box">
+
+      <!-- Close Button -->
+      <button class="category-select-close" onclick="closeCategorySelectionModal()">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <!-- Modal Title -->
+      <h2 id="catSelectTitle">📦 Select Your Categories</h2>
+      <p class="modal-info" id="catSelectInfo">
+        Choose categories you want to access
+      </p>
+
+      <!-- Selection Counter -->
+      <div class="selection-counter" id="catSelectCounter">
+        Selected: 0 / 0
+      </div>
+
+      <!-- Category Checkbox Grid -->
+      <div class="category-checkbox-grid" id="categoryCheckboxGrid">
+        <!-- Categories yahan JavaScript se aayengi -->
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="modal-action-buttons">
+        <button class="btn-modal-cancel" onclick="closeCategorySelectionModal()">
+          Cancel
+        </button>
+        <button class="btn-modal-confirm" id="catSelectConfirmBtn" onclick="confirmCategorySelection()" disabled>
+          <i class="fas fa-check"></i> Confirm & Pay
+        </button>
+      </div>
+
+    </div>
+  </div>
+  <!-- CATEGORY SELECTION MODAL END -->
+  
   <!-- ============================================= -->
   <!-- JAVASCRIPT START                               -->
   <!-- Part 1: Basic Functions + Page Navigation +    -->
@@ -7884,7 +9253,7 @@
     // 5. Koi access nahi → Preview + Lock           //
     // ============================================= //
     function checkBlogAccess(blogData) {
-      // Agar blog FREE hai toh sab ko access do
+      // Agar blog FREE hai toh sab ko access do 
       if (blogData.type === 'free') {
         return {
           hasAccess: true,
@@ -7893,7 +9262,7 @@
         };
       }
 
-      // Agar user login nahi hai
+      // Agar user login nahi hai 
       if (!currentUser) {
         return {
           hasAccess: false,
@@ -9681,7 +11050,297 @@
       initLampCursor();
       animateTrail();
     });
-    
+        // ============================================= //
+    // CATEGORY BUNDLE SYSTEM                          //
+    // ============================================= //
+
+    // Current bundle data
+    var currentBundle = {
+      maxCategories: 0,
+      price: 0,
+      name: '',
+      selectedCategories: []
+    };
+
+    // ============================================= //
+    // OPEN CATEGORY SELECTION MODAL                   //
+    // ============================================= //
+    function openCategorySelectionModal(maxCats, price, bundleName) {
+      // Check user login
+      if (!currentUser) {
+        if (typeof showToast === 'function') {
+          showToast('⚠️ Pehle login karein!', 'error');
+        }
+        showPage('auth');
+        return;
+      }
+
+      // Bundle data set karo
+      currentBundle = {
+        maxCategories: maxCats,
+        price: price,
+        name: bundleName,
+        selectedCategories: []
+      };
+
+      // Modal title update karo
+      document.getElementById('catSelectTitle').textContent =
+        '📦 ' + bundleName + ' - $' + price + '/month';
+
+      document.getElementById('catSelectInfo').textContent =
+        'Select ' + maxCats + ' ' +
+        (maxCats === 1 ? 'category' : 'categories') +
+        ' you want to access';
+
+      // Counter update karo
+      updateSelectionCounter();
+
+      // Categories render karo
+      renderCategoryCheckboxes();
+
+      // Modal dikhao
+      document.getElementById('categorySelectModal').classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // ============================================= //
+    // CLOSE CATEGORY MODAL                            //
+    // ============================================= //
+    function closeCategorySelectionModal() {
+      document.getElementById('categorySelectModal').classList.remove('show');
+      document.body.style.overflow = 'auto';
+      currentBundle.selectedCategories = [];
+    }
+
+    // ============================================= //
+    // RENDER CATEGORY CHECKBOXES                      //
+    // 21 categories ki list                          //
+    // ============================================= //
+    function renderCategoryCheckboxes() {
+      var grid = document.getElementById('categoryCheckboxGrid');
+      var html = '';
+
+      // demoCategories use karo
+      if (typeof demoCategories !== 'undefined' && demoCategories.length > 0) {
+        demoCategories.forEach(function(cat) {
+          html += `
+            <div class="category-checkbox-item" data-cat-id="${cat.id}" onclick="toggleCategorySelection('${cat.id}', '${cat.name.replace(/'/g, "\\'")}')">
+              <span class="cat-check-icon">${cat.icon}</span>
+              <div class="cat-check-info">
+                <h4>${cat.name}</h4>
+                <p>30 sub-categories</p>
+              </div>
+              <div class="cat-check-mark">
+                <i class="fas fa-check"></i>
+              </div>
+            </div>
+          `;
+        });
+      }
+
+      grid.innerHTML = html;
+    }
+
+    // ============================================= //
+    // TOGGLE CATEGORY SELECTION                       //
+    // ============================================= //
+    function toggleCategorySelection(catId, catName) {
+      var item = document.querySelector('[data-cat-id="' + catId + '"]');
+      if (!item) return;
+
+      // Already selected hai?
+      var index = currentBundle.selectedCategories.findIndex(function(c) {
+        return c.id === catId;
+      });
+
+      if (index > -1) {
+        // Remove from selection
+        currentBundle.selectedCategories.splice(index, 1);
+        item.classList.remove('selected');
+      } else {
+        // Max limit check karo
+        if (currentBundle.selectedCategories.length >= currentBundle.maxCategories) {
+          if (typeof showToast === 'function') {
+            showToast('⚠️ Aap sirf ' + currentBundle.maxCategories +
+              ' categories select kar sakte hain', 'error');
+          }
+          return;
+        }
+
+        // Add to selection
+        currentBundle.selectedCategories.push({
+          id: catId,
+          name: catName
+        });
+        item.classList.add('selected');
+      }
+
+      updateSelectionCounter();
+      updateConfirmButton();
+    }
+
+    // ============================================= //
+    // UPDATE SELECTION COUNTER                        //
+    // ============================================= //
+    function updateSelectionCounter() {
+      var counter = document.getElementById('catSelectCounter');
+      var selected = currentBundle.selectedCategories.length;
+      var max = currentBundle.maxCategories;
+
+      counter.innerHTML = `Selected: <strong>${selected}</strong> / ${max}`;
+
+      if (selected === max) {
+        counter.style.color = '#27AE60';
+        counter.style.borderColor = '#27AE60';
+      } else {
+        counter.style.color = '';
+        counter.style.borderColor = '';
+      }
+    }
+
+    // ============================================= //
+    // UPDATE CONFIRM BUTTON                           //
+    // ============================================= //
+    function updateConfirmButton() {
+      var btn = document.getElementById('catSelectConfirmBtn');
+      var selected = currentBundle.selectedCategories.length;
+      var max = currentBundle.maxCategories;
+
+      if (selected === max) {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-check"></i> Confirm & Pay $' +
+          currentBundle.price;
+      } else {
+        btn.disabled = true;
+        var remaining = max - selected;
+        btn.innerHTML = '<i class="fas fa-info-circle"></i> Select ' +
+          remaining + ' more ' +
+          (remaining === 1 ? 'category' : 'categories');
+      }
+    }
+
+    // ============================================= //
+    // CONFIRM CATEGORY SELECTION                      //
+    // Payment modal kholo                            //
+    // ============================================= //
+    function confirmCategorySelection() {
+      if (currentBundle.selectedCategories.length !== currentBundle.maxCategories) {
+        return;
+      }
+
+      // Bundle data store karo for payment
+      var selectedNames = currentBundle.selectedCategories
+        .map(function(c) { return c.name; })
+        .join(', ');
+
+      var bundleData = {
+        name: currentBundle.name,
+        price: currentBundle.price,
+        duration: '1 Month',
+        type: 'bundle',
+        categories: currentBundle.selectedCategories,
+        categoryNames: selectedNames
+      };
+
+      // Category selection modal band karo
+      closeCategorySelectionModal();
+
+      // Payment modal open karo bundle data ke saath
+      openBundlePaymentModal(bundleData);
+    }
+
+    // ============================================= //
+    // OPEN BUNDLE PAYMENT MODAL                       //
+    // ============================================= //
+    function openBundlePaymentModal(bundleData) {
+      currentPaymentItem = bundleData;
+
+      // Modal mein info fill karo
+      document.getElementById('modalItemName').textContent =
+        bundleData.name + ' (' + bundleData.categories.length + ' Categories)';
+      document.getElementById('modalItemDuration').textContent =
+        '30 Days · ' + bundleData.categoryNames;
+      document.getElementById('modalItemPrice').textContent = '$' + bundleData.price;
+
+      // Email auto-fill
+      document.getElementById('payEmail').value = currentUser.email;
+
+      // Reset modal
+      resetPaymentModal();
+
+      // Show modal
+      document.getElementById('paymentModal').classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // ============================================= //
+    // UPDATED SUBMIT PAYMENT - Handle bundles too    //
+    // ============================================= //
+    var _origSubmitPayment = submitPayment;
+    submitPayment = function() {
+      var txId = document.getElementById('payTxId').value.trim();
+      var email = document.getElementById('payEmail').value.trim();
+      var msg = document.getElementById('paymentMsg');
+      var btn = document.getElementById('paySubmitBtn');
+
+      // Bundle payment handle karo
+      if (currentPaymentItem && currentPaymentItem.type === 'bundle') {
+        if (!txId || !email || !selectedPaymentMethod) {
+          msg.textContent = '⚠️ Sare fields fill karein!';
+          msg.className = 'auth-message error';
+          return;
+        }
+
+        msg.textContent = '⏳ Submitting...';
+        msg.className = 'auth-message loading';
+        btn.disabled = true;
+
+        var formData = new FormData();
+        formData.append('action', 'buy_bundle');
+        formData.append('email', email);
+        formData.append('bundleName', currentPaymentItem.name);
+        formData.append('categories', currentPaymentItem.categoryNames);
+        formData.append('categoryIds', currentPaymentItem.categories
+          .map(function(c) { return c.id; }).join(','));
+        formData.append('price', currentPaymentItem.price);
+        formData.append('method', selectedPaymentMethod);
+        formData.append('txId', txId);
+
+        fetch(SCRIPT_URL, { method: 'POST', body: formData })
+          .then(function(res) { return res.json(); })
+          .then(function(data) {
+            btn.disabled = false;
+            if (data.status === 'bundle_payment_submitted' ||
+                data.status === 'payment_submitted') {
+              msg.textContent = '✅ Bundle payment submitted! Admin verify karega.';
+              msg.className = 'auth-message success';
+              setTimeout(closePaymentModal, 3000);
+            } else {
+              msg.textContent = '❌ Error! Dobara try karein';
+              msg.className = 'auth-message error';
+            }
+          })
+          .catch(function(err) {
+            btn.disabled = false;
+            msg.textContent = '❌ Network error!';
+            msg.className = 'auth-message error';
+          });
+
+        return;
+      }
+
+      // Default - original function call karo
+      _origSubmitPayment();
+    };
+
+    // ============================================= //
+    // CLOSE MODAL ON OUTSIDE CLICK                    //
+    // ============================================= //
+    document.getElementById('categorySelectModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeCategorySelectionModal();
+      }
+    });
   </script>
 
 </body>
