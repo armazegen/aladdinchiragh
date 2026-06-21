@@ -11,10 +11,14 @@
   <!-- ============================================= -->
   
   <title>ALADDIN CHIRAGH</title>
-
-  <!-- Google Fonts - Website ke fonts ke liye -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  
+  <!-- ============================================= -->
+  <!-- Google Fonts - 2 different fonts:              -->
+  <!-- Literata = Headings (Premium serif font)       -->
+  <!-- Gentium Plus = Body text (Readable serif)      -->
+  <!-- ============================================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:wght@400;500;600;700;800;900&family=Gentium+Plus:wght@400;700&display=swap" rel="stylesheet">
   <!-- Font Awesome - Icons ke liye -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -106,15 +110,28 @@
       --shadow-gold: 0 0 20px rgba(255, 215, 0, 0.3);
       --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
+    
     /* ============================================= */
     /* BODY - Poore page ka base style                */
+    /* Gentium Plus = Body text (paragraphs)          */
     /* ============================================= */
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Gentium Plus', Georgia, serif;
       background-color: var(--bg-dark);
       color: var(--text-white);
-      line-height: 1.6;
+      line-height: 1.7;
       overflow-x: hidden;
+      font-size: 16px;
+    }
+
+    /* ============================================= */
+    /* HEADINGS - Literata font for all headings      */
+    /* h1, h2, h3, h4, h5, h6                         */
+    /* ============================================= */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Literata', Georgia, serif;
+      font-weight: 700;
+      letter-spacing: -0.5px;
     }
 
     /* ============================================= */
@@ -180,9 +197,13 @@
     /* LOGO TEXT - Light mode mein navy gradient,    */
     /* dark mode mein gold gradient                   */
     /* ============================================= */
+        /* ============================================= */
+    /* LOGO TEXT - Literata font for premium look     */
+    /* ============================================= */
     .logo-text {
+      font-family: 'Literata', Georgia, serif;
       font-size: 22px;
-      font-weight: 800;
+      font-weight: 900;
       background: linear-gradient(135deg, var(--primary), var(--primary-light));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -197,6 +218,14 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
+    /* Dark mode mein gold gradient 
+    body.dark-mode .logo-text {
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }*/
 
     /* Navigation Links - Pages ke links */
     .nav-links {
@@ -1605,18 +1634,18 @@
       margin-bottom: 30px;
     }
 
-    .auth-tabs button {
+        .auth-tabs button {
       flex: 1;
       padding: 14px;
       border: none;
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
       transition: var(--transition);
       background: transparent;
       color: var(--primary);
-      font-family: 'Poppins', sans-serif;
-    }
+      font-family: 'Literata', Georgia, serif;
+        }
 
     .auth-tabs button.active {
       background: linear-gradient(135deg, var(--primary), #FFA500);
@@ -1652,7 +1681,7 @@
       font-weight: 500;
     }
 
-    .form-group input,
+        .form-group input,
     .form-group select,
     .form-group textarea {
       width: 100%;
@@ -1662,10 +1691,10 @@
       border-radius: 10px;
       color: var(--text-white);
       font-size: 15px;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Gentium Plus', Georgia, serif;
       transition: var(--transition);
       outline: none;
-    }
+  }
 
     .form-group input:focus,
     .form-group select:focus,
@@ -1705,22 +1734,28 @@
     }
 
     /* Submit Buttons */
-    .auth-submit-btn {
+        .auth-submit-btn {
       width: 100%;
       padding: 15px;
-      background: linear-gradient(135deg, var(--primary), #FFA500);
-      color: var(--bg-dark);
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #FFFFFF;
       border: none;
       border-radius: 10px;
       font-size: 17px;
       font-weight: 700;
       cursor: pointer;
       transition: var(--transition);
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Literata', Georgia, serif;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
+    }
+
+    /* Dark mode mein gold submit button */
+    body.dark-mode .auth-submit-btn {
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      color: var(--bg-dark);
     }
 
     .auth-submit-btn:hover {
@@ -1808,7 +1843,7 @@
       font-size: 14px;
     }
 
-    .btn-logout {
+        .btn-logout {
       background: transparent;
       border: 2px solid var(--accent-red);
       color: var(--accent-red);
@@ -1818,11 +1853,11 @@
       font-weight: 600;
       cursor: pointer;
       transition: var(--transition);
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Literata', Georgia, serif;
       display: flex;
       align-items: center;
       gap: 6px;
-    }
+        }
 
     .btn-logout:hover {
       background: var(--accent-red);
@@ -2501,7 +2536,7 @@
       position: relative;
     }
 
-    .search-bar input {
+        .search-bar input {
       width: 100%;
       padding: 14px 20px 14px 50px;
       background: var(--bg-card);
@@ -2509,10 +2544,10 @@
       border-radius: 30px;
       color: var(--text-white);
       font-size: 15px;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Gentium Plus', Georgia, serif;
       outline: none;
       transition: var(--transition);
-    }
+        }
 
     .search-bar input:focus {
       border-color: var(--primary);
