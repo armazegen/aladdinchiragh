@@ -4812,6 +4812,411 @@
     /* ============================================= */
     /* 3 WISHES GRANTED CSS END                        */
     /* ============================================= */
+
+    /* ============================================= */
+    /* COMPARE PLANS TABLE - Pricing comparison       */
+    /* ============================================= */
+
+    /* ============================================= */
+    /* COMPARE SECTION CONTAINER                      */
+    /* ============================================= */
+    .compare-section {
+      padding: 30px 40px 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Section header */
+    .compare-section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .compare-section-header h2 {
+      font-family: 'Literata', Georgia, serif;
+      font-size: 36px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+    }
+
+    body.dark-mode .compare-section-header h2 {
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .compare-section-header p {
+      font-family: 'Gentium Plus', Georgia, serif;
+      color: var(--text-light);
+      font-size: 16px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ============================================= */
+    /* TABLE WRAPPER - For horizontal scroll on mobile */
+    /* ============================================= */
+    .compare-table-wrapper {
+      background: var(--bg-card);
+      border-radius: 20px;
+      border: 2px solid var(--border-color);
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    body:not(.dark-mode) .compare-table-wrapper {
+      box-shadow: 0 10px 40px rgba(9, 31, 92, 0.1);
+    }
+
+    .compare-table-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* ============================================= */
+    /* COMPARE TABLE - Main table                     */
+    /* ============================================= */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 700px;
+    }
+
+    /* ============================================= */
+    /* TABLE HEADER                                    */
+    /* ============================================= */
+    .compare-table thead {
+      background: linear-gradient(135deg,
+        var(--bg-card-hover),
+        var(--bg-card)
+      );
+    }
+
+    .compare-table thead th {
+      padding: 25px 20px;
+      text-align: center;
+      font-family: 'Literata', Georgia, serif;
+      font-weight: 700;
+      color: var(--text-white);
+      border-bottom: 2px solid var(--primary);
+      position: relative;
+    }
+
+    /* Features column header (first column) */
+    .compare-table thead th:first-child {
+      text-align: left;
+      width: 35%;
+      font-size: 18px;
+      color: var(--primary);
+    }
+
+    /* Plan headers */
+    .compare-plan-header {
+      width: 21.66%;
+    }
+
+    .compare-plan-icon {
+      font-size: 36px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .compare-plan-name {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-white);
+      margin-bottom: 5px;
+    }
+
+    .compare-plan-price {
+      font-family: 'Literata', Georgia, serif;
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 3px;
+    }
+
+    .compare-plan-duration {
+      font-family: 'Gentium Plus', Georgia, serif;
+      font-size: 12px;
+      color: var(--text-light);
+      font-weight: 400;
+    }
+
+    /* Popular plan highlight */
+    .compare-plan-header.popular {
+      background: linear-gradient(180deg,
+        rgba(255, 215, 0, 0.1),
+        transparent
+      );
+      position: relative;
+    }
+
+    body:not(.dark-mode) .compare-plan-header.popular {
+      background: linear-gradient(180deg,
+        rgba(9, 31, 92, 0.08),
+        transparent
+      );
+    }
+
+    .popular-ribbon {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #FFFFFF;
+      padding: 4px 20px;
+      font-family: 'Literata', Georgia, serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    body.dark-mode .popular-ribbon {
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      color: #0A0A0A;
+    }
+
+    /* ============================================= */
+    /* TABLE BODY                                      */
+    /* ============================================= */
+    .compare-table tbody tr {
+      transition: background 0.3s ease;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .compare-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .compare-table tbody tr:hover {
+      background: var(--bg-card-hover);
+    }
+
+    /* Category row (group header) */
+    .compare-category-row {
+      background: linear-gradient(90deg,
+        var(--bg-card-hover),
+        transparent
+      ) !important;
+    }
+
+    .compare-category-row td {
+      padding: 15px 20px;
+      font-family: 'Literata', Georgia, serif;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Regular cells */
+    .compare-table tbody td {
+      padding: 18px 20px;
+      text-align: center;
+      font-family: 'Gentium Plus', Georgia, serif;
+      color: var(--text-light);
+      font-size: 14px;
+    }
+
+    /* Feature name cell (first column) */
+    .compare-table tbody td:first-child {
+      text-align: left;
+      font-weight: 600;
+      color: var(--text-white);
+      font-family: 'Literata', Georgia, serif;
+    }
+
+    /* Highlight popular column */
+    .compare-table tbody td.popular-col {
+      background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 215, 0, 0.05),
+        transparent
+      );
+      border-left: 1px solid rgba(255, 215, 0, 0.2);
+      border-right: 1px solid rgba(255, 215, 0, 0.2);
+    }
+
+    body:not(.dark-mode) .compare-table tbody td.popular-col {
+      background: linear-gradient(90deg,
+        transparent,
+        rgba(9, 31, 92, 0.04),
+        transparent
+      );
+      border-left: 1px solid rgba(9, 31, 92, 0.2);
+      border-right: 1px solid rgba(9, 31, 92, 0.2);
+    }
+
+    /* ============================================= */
+    /* CHECK / CROSS ICONS                            */
+    /* ============================================= */
+    .compare-check {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #27AE60, #2ECC71);
+      color: white;
+      font-size: 14px;
+      box-shadow: 0 3px 10px rgba(39, 174, 96, 0.3);
+    }
+
+    .compare-cross {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: rgba(231, 76, 60, 0.15);
+      color: var(--accent-red);
+      font-size: 14px;
+      border: 1px solid rgba(231, 76, 60, 0.3);
+    }
+
+    /* Value text (like "30 days") */
+    .compare-value {
+      font-family: 'Literata', Georgia, serif;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 15px;
+    }
+
+    /* Limited value */
+    .compare-limited {
+      color: var(--accent-red);
+      font-weight: 600;
+    }
+
+    /* ============================================= */
+    /* TABLE FOOTER - Action buttons row              */
+    /* ============================================= */
+    .compare-table tfoot {
+      background: var(--bg-card-hover);
+    }
+
+    .compare-table tfoot td {
+      padding: 25px 20px;
+      text-align: center;
+    }
+
+    .compare-action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 12px 25px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #FFFFFF;
+      border: none;
+      border-radius: 25px;
+      font-family: 'Literata', Georgia, serif;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    body.dark-mode .compare-action-btn {
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      color: #0A0A0A;
+    }
+
+    .compare-action-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+    }
+
+    /* Popular button - different style */
+    .compare-action-btn.popular {
+      background: linear-gradient(135deg, #27AE60, #2ECC71);
+      color: white;
+      box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+    }
+
+    .compare-action-btn.popular:hover {
+      box-shadow: 0 8px 25px rgba(39, 174, 96, 0.5);
+    }
+
+    /* ============================================= */
+    /* SCROLL INDICATOR (Mobile)                      */
+    /* ============================================= */
+    .compare-scroll-hint {
+      display: none;
+      text-align: center;
+      padding: 10px;
+      color: var(--text-muted);
+      font-size: 12px;
+      font-style: italic;
+      background: var(--bg-card-hover);
+      border-top: 1px solid var(--border-color);
+    }
+
+    .compare-scroll-hint i {
+      animation: scrollHint 1.5s ease-in-out infinite;
+      margin: 0 5px;
+    }
+
+    @keyframes scrollHint {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(8px); }
+    }
+
+    /* ============================================= */
+    /* MOBILE RESPONSIVE                              */
+    /* ============================================= */
+    @media (max-width: 768px) {
+      .compare-section {
+        padding: 20px 15px 40px;
+      }
+
+      .compare-section-header h2 {
+        font-size: 26px;
+      }
+
+      .compare-section-header p {
+        font-size: 14px;
+      }
+
+      .compare-scroll-hint {
+        display: block;
+      }
+
+      .compare-plan-icon {
+        font-size: 28px;
+      }
+
+      .compare-plan-name {
+        font-size: 16px;
+      }
+
+      .compare-plan-price {
+        font-size: 18px;
+      }
+
+      .compare-action-btn {
+        padding: 10px 18px;
+        font-size: 11px;
+      }
+    }
+
+    /* ============================================= */
+    /* COMPARE PLANS TABLE CSS END                     */
+    /* ============================================= */
     
   </style>
 </head>
@@ -5432,6 +5837,280 @@
           </div>
 
         </div>
+
+                <!-- ============================================= -->
+        <!-- COMPARE PLANS TABLE                            -->
+        <!-- ============================================= -->
+        <div class="compare-section">
+
+          <!-- Section Header -->
+          <div class="compare-section-header">
+            <h2>📊 Compare All Plans</h2>
+            <p>
+              Detail comparison of all features. Find the perfect plan
+              that matches your magical journey!
+            </p>
+          </div>
+
+          <!-- Table Wrapper -->
+          <div class="compare-table-wrapper">
+
+            <div class="compare-table-scroll">
+
+              <table class="compare-table">
+
+                <!-- ===== TABLE HEADER ===== -->
+                <thead>
+                  <tr>
+                    <th>Features</th>
+
+                    <!-- Basic Plan -->
+                    <th class="compare-plan-header">
+                      <span class="compare-plan-icon">⚡</span>
+                      <div class="compare-plan-name">Basic</div>
+                      <div class="compare-plan-price">$58</div>
+                      <div class="compare-plan-duration">15 Days</div>
+                    </th>
+
+                    <!-- Pro Plan (Popular) -->
+                    <th class="compare-plan-header popular">
+                      <div class="popular-ribbon">⭐ POPULAR</div>
+                      <span class="compare-plan-icon">🔥</span>
+                      <div class="compare-plan-name">Pro</div>
+                      <div class="compare-plan-price">$93</div>
+                      <div class="compare-plan-duration">1 Month</div>
+                    </th>
+
+                    <!-- Premium Plan -->
+                    <th class="compare-plan-header">
+                      <span class="compare-plan-icon">💎</span>
+                      <div class="compare-plan-name">Premium</div>
+                      <div class="compare-plan-price">$120</div>
+                      <div class="compare-plan-duration">2 Months</div>
+                    </th>
+                  </tr>
+                </thead>
+
+                <!-- ===== TABLE BODY ===== -->
+                <tbody>
+
+                  <!-- ===== ACCESS CATEGORY ===== -->
+                  <tr class="compare-category-row">
+                    <td colspan="4">📚 Content Access</td>
+                  </tr>
+
+                  <tr>
+                    <td>All Blogs Access</td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td class="popular-col"><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                  </tr>
+
+                  <tr>
+                    <td>21 Categories</td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td class="popular-col"><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                  </tr>
+
+                  <tr>
+                    <td>630 Sub-Categories</td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td class="popular-col"><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                  </tr>
+
+                  <tr>
+                    <td>3780+ Premium Blogs</td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td class="popular-col"><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                  </tr>
+
+                  <tr>
+                    <td>3 Free Wishes (Blogs)</td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td class="popular-col"><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                  </tr>
+
+                  <!-- ===== DURATION CATEGORY ===== -->
+                  <tr class="compare-category-row">
+                    <td colspan="4">⏱️ Subscription Duration</td>
+                  </tr>
+
+                  <tr>
+                    <td>Validity Period</td>
+                    <td><span class="compare-value">15 Days</span></td>
+                    <td class="popular-col"><span class="compare-value">30 Days</span></td>
+                    <td><span class="compare-value">60 Days</span></td>
+                  </tr>
+
+                  <tr>
+                    <td>Cost Per Day</td>
+                    <td><span class="compare-value">~$3.86</span></td>
+                    <td class="popular-col"><span class="compare-value">~$3.10</span></td>
+                    <td><span class="compare-value">~$2.00</span></td>
+                  </tr>
+
+                  <tr>
+                    <td>Best Value</td>
+                    <td><span class="compare-cross"><i class="fas fa-times"></i></span></td>
+                    <td class="popular-col"><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                  </tr>
+
+                  <!-- ===== FEATURES CATEGORY ===== -->
+                  <tr class="compare-category-row">
+                    <td colspan="4">✨ Features</td>
+                  </tr>
+
+                  <tr>
+                    <td>Instant Access</td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td class="popular-col"><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                  </tr>
+
+                  <tr>
+                    <td>Mobile Friendly</td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td class="popular-col"><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                  </tr>
+
+                  <tr>
+                    <td>Dark / Light Mode</td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td class="popular-col"><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                  </tr>
+
+                  <tr>
+                    <td>New Blogs Added Weekly</td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td class="popular-col"><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                  </tr>
+
+                  <tr>
+                    <td>Bookmark Blogs</td>
+                    <td><span class="compare-cross"><i class="fas fa-times"></i></span></td>
+                    <td class="popular-col"><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                  </tr>
+
+                  <tr>
+                    <td>Offline Reading</td>
+                    <td><span class="compare-cross"><i class="fas fa-times"></i></span></td>
+                    <td class="popular-col"><span class="compare-cross"><i class="fas fa-times"></i></span></td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                  </tr>
+
+                  <!-- ===== SUPPORT CATEGORY ===== -->
+                  <tr class="compare-category-row">
+                    <td colspan="4">🎯 Support</td>
+                  </tr>
+
+                  <tr>
+                    <td>Email Support</td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td class="popular-col"><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                  </tr>
+
+                  <tr>
+                    <td>Priority Support</td>
+                    <td><span class="compare-cross"><i class="fas fa-times"></i></span></td>
+                    <td class="popular-col"><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                  </tr>
+
+                  <tr>
+                    <td>VIP Support (24/7)</td>
+                    <td><span class="compare-cross"><i class="fas fa-times"></i></span></td>
+                    <td class="popular-col"><span class="compare-cross"><i class="fas fa-times"></i></span></td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                  </tr>
+
+                  <tr>
+                    <td>Response Time</td>
+                    <td><span class="compare-value">48 hours</span></td>
+                    <td class="popular-col"><span class="compare-value">12 hours</span></td>
+                    <td><span class="compare-value">2 hours</span></td>
+                  </tr>
+
+                  <!-- ===== BONUSES CATEGORY ===== -->
+                  <tr class="compare-category-row">
+                    <td colspan="4">🎁 Bonuses</td>
+                  </tr>
+
+                  <tr>
+                    <td>Welcome Bonus</td>
+                    <td><span class="compare-cross"><i class="fas fa-times"></i></span></td>
+                    <td class="popular-col"><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                  </tr>
+
+                  <tr>
+                    <td>Exclusive Premium Content</td>
+                    <td><span class="compare-cross"><i class="fas fa-times"></i></span></td>
+                    <td class="popular-col"><span class="compare-cross"><i class="fas fa-times"></i></span></td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                  </tr>
+
+                  <tr>
+                    <td>Early Access to New Blogs</td>
+                    <td><span class="compare-cross"><i class="fas fa-times"></i></span></td>
+                    <td class="popular-col"><span class="compare-cross"><i class="fas fa-times"></i></span></td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                  </tr>
+
+                  <tr>
+                    <td>Free Lifetime Updates</td>
+                    <td><span class="compare-cross"><i class="fas fa-times"></i></span></td>
+                    <td class="popular-col"><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                    <td><span class="compare-check"><i class="fas fa-check"></i></span></td>
+                  </tr>
+
+                </tbody>
+
+                <!-- ===== TABLE FOOTER - Action Buttons ===== -->
+                <tfoot>
+                  <tr>
+                    <td><strong style="color: var(--primary); font-family: 'Literata', serif;">Get Started:</strong></td>
+                    <td>
+                      <button class="compare-action-btn" onclick="openPaymentModal('Basic', 58, '15 Days')">
+                        <i class="fas fa-shopping-cart"></i> Get Basic
+                      </button>
+                    </td>
+                    <td class="popular-col">
+                      <button class="compare-action-btn popular" onclick="openPaymentModal('Pro', 93, '1 Month')">
+                        <i class="fas fa-fire"></i> Get Pro
+                      </button>
+                    </td>
+                    <td>
+                      <button class="compare-action-btn" onclick="openPaymentModal('Premium', 120, '2 Months')">
+                        <i class="fas fa-crown"></i> Get Premium
+                      </button>
+                    </td>
+                  </tr>
+                </tfoot>
+
+              </table>
+
+            </div>
+
+            <!-- Mobile scroll hint -->
+            <div class="compare-scroll-hint">
+              <i class="fas fa-arrow-left"></i>
+              Swipe to see all plans
+              <i class="fas fa-arrow-right"></i>
+            </div>
+
+          </div>
+        </div>
+        <!-- COMPARE PLANS TABLE END -->
 
         <!-- Single Blog Purchase Info -->
         <div class="section-info">
