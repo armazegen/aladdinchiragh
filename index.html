@@ -2640,10 +2640,2328 @@
       color: var(--bg-dark);
       transform: rotate(360deg);
     }
+
+    /* ============================================= */
+    /* SMOOTH ANIMATIONS + SCROLL REVEAL              */
+    /* Website ko alive feel dega                     */
+    /* ============================================= */
+
+    /* ============================================= */
+    /* SCROLL REVEAL ANIMATIONS                        */
+    /* Elements scroll pe nazar aane par animate      */
+    /* ============================================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Left se aana */
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-80px);
+      transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    .reveal-left.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Right se aana */
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(80px);
+      transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    .reveal-right.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Zoom in animation */
+    .reveal-zoom {
+      opacity: 0;
+      transform: scale(0.7);
+      transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    .reveal-zoom.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Fade in only */
+    .reveal-fade {
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .reveal-fade.active {
+      opacity: 1;
+    }
+
+    /* ============================================= */
+    /* DELAY CLASSES - Animation thoda time lag se    */
+    /* shuru ho (cascade effect)                      */
+    /* ============================================= */
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+    .delay-5 { transition-delay: 0.5s; }
+    .delay-6 { transition-delay: 0.6s; }
+
+    /* ============================================= */
+    /* PAGE LOAD ANIMATIONS                            */
+    /* Page open hote hi yeh animations chalengi      */
+    /* ============================================= */
+
+    /* Header slide down */
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .header {
+      animation: slideDown 0.6s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    /* Hero content fade up */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-content h1 {
+      animation: fadeUp 1s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    .hero-content p {
+      animation: fadeUp 1s cubic-bezier(0.5, 0, 0, 1) 0.2s;
+      animation-fill-mode: both;
+    }
+
+    .hero-buttons {
+      animation: fadeUp 1s cubic-bezier(0.5, 0, 0, 1) 0.4s;
+      animation-fill-mode: both;
+    }
+
+    /* ============================================= */
+    /* CARDS HOVER ANIMATIONS (Enhanced)              */
+    /* Aur smooth aur attractive                      */
+    /* ============================================= */
+
+    /* Blog Card Animation */
+    .blog-card {
+      transition: all 0.4s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    .blog-card:hover {
+      transform: translateY(-12px) scale(1.02);
+    }
+
+    .blog-card-image img {
+      transition: all 0.6s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    .blog-card:hover .blog-card-image img {
+      transform: scale(1.15) rotate(-1deg);
+    }
+
+    /* Category Card Animation */
+    .category-card {
+      transition: all 0.4s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    .category-card:hover {
+      transform: translateY(-8px) scale(1.03);
+    }
+
+    .category-icon {
+      transition: all 0.4s cubic-bezier(0.5, 0, 0, 1);
+      display: inline-block;
+    }
+
+    .category-card:hover .category-icon {
+      transform: scale(1.3) rotate(10deg);
+    }
+
+    /* Sub-category Card Animation */
+    .subcat-card {
+      transition: all 0.4s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    .subcat-card:hover {
+      transform: translateY(-6px) scale(1.04);
+    }
+
+    .subcat-card-icon {
+      transition: all 0.4s cubic-bezier(0.5, 0, 0, 1);
+      display: inline-block;
+    }
+
+    .subcat-card:hover .subcat-card-icon {
+      transform: scale(1.2) rotate(-5deg);
+    }
+
+    /* Pricing Card Animation */
+    .pricing-card {
+      transition: all 0.5s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-15px) scale(1.05);
+    }
+
+    .pricing-card-icon {
+      transition: all 0.5s cubic-bezier(0.5, 0, 0, 1);
+      display: inline-block;
+    }
+
+    .pricing-card:hover .pricing-card-icon {
+      transform: scale(1.4) rotate(15deg);
+    }
+
+    /* ============================================= */
+    /* BUTTONS ANIMATIONS (Enhanced)                   */
+    /* ============================================= */
+    .btn-primary,
+    .btn-outline,
+    .btn-buy-blog,
+    .btn-get-plan {
+      transition: all 0.4s cubic-bezier(0.5, 0, 0, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Button shine effect */
+    .btn-primary::before,
+    .btn-outline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+      );
+      transition: left 0.6s;
+    }
+
+    .btn-primary:hover::before,
+    .btn-outline:hover::before {
+      left: 100%;
+    }
+
+    .btn-primary:hover,
+    .btn-outline:hover {
+      transform: translateY(-4px) scale(1.05);
+    }
+
+    /* Nav Auth Button Animation */
+    .nav-auth-btn {
+      transition: all 0.4s cubic-bezier(0.5, 0, 0, 1) !important;
+    }
+
+    .nav-auth-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+    }
+
+    /* ============================================= */
+    /* NAV LINKS - Smooth underline animation          */
+    /* ============================================= */
+    .nav-links a::after {
+      transition: width 0.4s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    /* ============================================= */
+    /* SOCIAL LINKS - Pop animation                    */
+    /* ============================================= */
+    .social-links a {
+      transition: all 0.3s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    .social-links a:hover {
+      transform: translateY(-5px) rotate(360deg) scale(1.2);
+    }
+
+    /* ============================================= */
+    /* MODAL ANIMATIONS                                */
+    /* Smooth open/close                              */
+    /* ============================================= */
+    .modal-overlay {
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    .modal-overlay.show {
+      opacity: 1;
+    }
+
+    .modal-box {
+      transform: scale(0.7) translateY(50px);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    .modal-overlay.show .modal-box {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+
+    /* ============================================= */
+    /* PAGE TRANSITION                                 */
+    /* Page change pe smooth fade                     */
+    /* ============================================= */
+    .page {
+      animation: pageEnter 0.5s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    @keyframes pageEnter {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ============================================= */
+    /* SMOOTH SCROLLING                                */
+    /* Page scroll smooth ho                          */
+    /* ============================================= */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ============================================= */
+    /* INPUT FIELDS ANIMATION                          */
+    /* Focus pe lift up                               */
+    /* ============================================= */
+    .form-group input,
+    .form-group select,
+    .form-group textarea,
+    .search-bar input {
+      transition: all 0.3s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus,
+    .search-bar input:focus {
+      transform: translateY(-2px);
+    }
+
+    /* ============================================= */
+    /* THEME TOGGLE - Smooth rotation                  */
+    /* ============================================= */
+    .theme-toggle {
+      transition: all 0.5s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    .theme-toggle i {
+      transition: all 0.5s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    .theme-toggle:hover i {
+      transform: rotate(360deg) scale(1.2);
+    }
+
+    /* ============================================= */
+    /* SECTION TITLES - Bounce effect                  */
+    /* ============================================= */
+    @keyframes titleBounce {
+      0% {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      60% {
+        opacity: 1;
+        transform: translateY(10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .section-title.active h2 {
+      animation: titleBounce 0.8s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    /* ============================================= */
+    /* PULSE ANIMATION for special elements           */
+    /* ============================================= */
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4);
+      }
+      50% {
+        box-shadow: 0 0 0 20px rgba(255, 215, 0, 0);
+      }
+    }
+
+    .pricing-card.popular {
+      animation: pulse 2s infinite;
+    }
+
+    body:not(.dark-mode) .pricing-card.popular {
+      animation: pulseLight 2s infinite;
+    }
+
+    @keyframes pulseLight {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(9, 31, 92, 0.3);
+      }
+      50% {
+        box-shadow: 0 0 0 20px rgba(9, 31, 92, 0);
+      }
+    }
+
+    /* ============================================= */
+    /* TOAST ANIMATIONS - Enhanced                     */
+    /* ============================================= */
+    @keyframes slideInBounce {
+      0% {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      60% {
+        transform: translateX(-20px);
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .toast {
+      animation: slideInBounce 0.5s cubic-bezier(0.5, 0, 0, 1) !important;
+    }
+
+    /* ============================================= */
+    /* REDUCE MOTION - Accessibility                  */
+    /* Agar user motion kam karne ka set kare         */
+    /* ============================================= */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* ============================================= */
+    /* SMOOTH ANIMATIONS CSS END                       */
+    /* ============================================= */
+
+    /* ============================================= */
+    /* MAGIC LAMP LOADER - Loading animation          */
+    /* ============================================= */
+
+    /* Main Loader Container - Full screen */
+    .magic-loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #0A0A0A 0%, #1A1A2E 50%, #0A0A0A 100%);
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      overflow: hidden;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+
+    /* Loader hide hone pe */
+    .magic-loader.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    /* Body scroll lock jab loader chal raha ho */
+    body.loading {
+      overflow: hidden;
+    }
+
+    /* ============================================= */
+    /* BACKGROUND SPARKLES - Random sparkles bg pe   */
+    /* ============================================= */
+    .loader-sparkles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .loader-sparkles .sparkle {
+      position: absolute;
+      font-size: 24px;
+      opacity: 0;
+      animation: sparkleFloat 3s infinite ease-in-out;
+    }
+
+    /* Har sparkle ki position aur delay alag */
+    .loader-sparkles .sparkle:nth-child(1) {
+      top: 10%; left: 15%;
+      animation-delay: 0s;
+      font-size: 20px;
+    }
+
+    .loader-sparkles .sparkle:nth-child(2) {
+      top: 20%; right: 20%;
+      animation-delay: 0.5s;
+      font-size: 28px;
+    }
+
+    .loader-sparkles .sparkle:nth-child(3) {
+      bottom: 25%; left: 10%;
+      animation-delay: 1s;
+      font-size: 22px;
+    }
+
+    .loader-sparkles .sparkle:nth-child(4) {
+      bottom: 15%; right: 15%;
+      animation-delay: 1.5s;
+      font-size: 26px;
+    }
+
+    .loader-sparkles .sparkle:nth-child(5) {
+      top: 50%; left: 5%;
+      animation-delay: 0.8s;
+      font-size: 18px;
+    }
+
+    .loader-sparkles .sparkle:nth-child(6) {
+      top: 60%; right: 8%;
+      animation-delay: 1.2s;
+      font-size: 24px;
+    }
+
+    .loader-sparkles .sparkle:nth-child(7) {
+      top: 30%; left: 30%;
+      animation-delay: 2s;
+      font-size: 16px;
+    }
+
+    .loader-sparkles .sparkle:nth-child(8) {
+      bottom: 40%; right: 35%;
+      animation-delay: 0.3s;
+      font-size: 20px;
+    }
+
+    /* Sparkle floating animation */
+    @keyframes sparkleFloat {
+      0%, 100% {
+        opacity: 0;
+        transform: translateY(0) scale(0.5);
+      }
+      50% {
+        opacity: 1;
+        transform: translateY(-20px) scale(1.2);
+      }
+    }
+
+    /* ============================================= */
+    /* LOADER CONTENT - Center content                */
+    /* ============================================= */
+    .loader-content {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ============================================= */
+    /* MAGIC LAMP - The animated lamp                  */
+    /* ============================================= */
+    .magic-lamp {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 30px;
+    }
+
+    .lamp-body {
+      font-size: 120px;
+      display: inline-block;
+      animation: lampRub 2s ease-in-out infinite;
+      filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.8));
+      transform-origin: bottom center;
+    }
+
+    /* Lamp glow effect */
+    .lamp-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(
+        circle,
+        rgba(255, 215, 0, 0.4) 0%,
+        rgba(255, 165, 0, 0.2) 40%,
+        transparent 70%
+      );
+      border-radius: 50%;
+      animation: glowPulse 2s ease-in-out infinite;
+    }
+
+    /* Lamp rubbing animation */
+    @keyframes lampRub {
+      0%, 100% {
+        transform: rotate(0deg) scale(1);
+      }
+      25% {
+        transform: rotate(-8deg) scale(1.05);
+      }
+      75% {
+        transform: rotate(8deg) scale(1.05);
+      }
+    }
+
+    /* Glow pulse */
+    @keyframes glowPulse {
+      0%, 100% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.3);
+      }
+    }
+
+    /* ============================================= */
+    /* SMOKE FROM LAMP                                 */
+    /* Magic smoke rising up                          */
+    /* ============================================= */
+    .lamp-smoke {
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 100px;
+      pointer-events: none;
+    }
+
+    .smoke-puff {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 40px;
+      height: 40px;
+      background: radial-gradient(
+        circle,
+        rgba(255, 215, 0, 0.6) 0%,
+        rgba(255, 165, 0, 0.3) 50%,
+        transparent 100%
+      );
+      border-radius: 50%;
+      opacity: 0;
+      animation: smokeRise 3s infinite ease-out;
+    }
+
+    /* Different delay for each smoke puff */
+    .smoke-puff:nth-child(1) {
+      animation-delay: 0s;
+      transform: translateX(-50%);
+    }
+
+    .smoke-puff:nth-child(2) {
+      animation-delay: 0.6s;
+      transform: translateX(-30%);
+    }
+
+    .smoke-puff:nth-child(3) {
+      animation-delay: 1.2s;
+      transform: translateX(-70%);
+    }
+
+    .smoke-puff:nth-child(4) {
+      animation-delay: 1.8s;
+      transform: translateX(-40%);
+    }
+
+    .smoke-puff:nth-child(5) {
+      animation-delay: 2.4s;
+      transform: translateX(-60%);
+    }
+
+    /* Smoke rising animation */
+    @keyframes smokeRise {
+      0% {
+        opacity: 0;
+        bottom: 0;
+        transform: translateX(-50%) scale(0.5);
+      }
+      30% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        bottom: 100px;
+        transform: translateX(-30%) scale(2);
+      }
+    }
+
+    /* ============================================= */
+    /* LOADER TITLE - ALADDIN CHIRAGH                 */
+    /* Each letter animates separately               */
+    /* ============================================= */
+    .loader-title {
+      font-family: 'Literata', Georgia, serif;
+      font-size: 42px;
+      font-weight: 900;
+      letter-spacing: 4px;
+      margin-bottom: 15px;
+      background: linear-gradient(135deg, #FFD700, #FFA500, #FFD700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .loader-title span {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: letterReveal 0.6s forwards;
+    }
+
+    /* Har letter ki animation alag time pe */
+    .loader-title span:nth-child(1) { animation-delay: 0.1s; }
+    .loader-title span:nth-child(2) { animation-delay: 0.2s; }
+    .loader-title span:nth-child(3) { animation-delay: 0.3s; }
+    .loader-title span:nth-child(4) { animation-delay: 0.4s; }
+    .loader-title span:nth-child(5) { animation-delay: 0.5s; }
+    .loader-title span:nth-child(6) { animation-delay: 0.6s; }
+    .loader-title span:nth-child(7) { animation-delay: 0.7s; }
+    .loader-title span:nth-child(8) { animation-delay: 0.8s; }
+    .loader-title span:nth-child(9) { animation-delay: 0.9s; }
+    .loader-title span:nth-child(10) { animation-delay: 1.0s; }
+    .loader-title span:nth-child(11) { animation-delay: 1.1s; }
+    .loader-title span:nth-child(12) { animation-delay: 1.2s; }
+    .loader-title span:nth-child(13) { animation-delay: 1.3s; }
+    .loader-title span:nth-child(14) { animation-delay: 1.4s; }
+    .loader-title span:nth-child(15) { animation-delay: 1.5s; }
+
+    @keyframes letterReveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ============================================= */
+    /* LOADER TAGLINE                                  */
+    /* ============================================= */
+    .loader-tagline {
+      font-family: 'Gentium Plus', Georgia, serif;
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 30px;
+      opacity: 0;
+      animation: fadeInUp 1s ease 1.8s forwards;
+      font-style: italic;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ============================================= */
+    /* LOADING DOTS                                    */
+    /* Bouncing dots animation                        */
+    /* ============================================= */
+    .loader-dots {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      opacity: 0;
+      animation: fadeInUp 1s ease 2s forwards;
+    }
+
+    .loader-dots span {
+      width: 12px;
+      height: 12px;
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      border-radius: 50%;
+      animation: dotBounce 1.4s infinite ease-in-out;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+
+    .loader-dots span:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .loader-dots span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .loader-dots span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes dotBounce {
+      0%, 80%, 100% {
+        transform: scale(0.6);
+        opacity: 0.5;
+      }
+      40% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+    }
+
+    /* ============================================= */
+    /* MOBILE RESPONSIVE                              */
+    /* ============================================= */
+    @media (max-width: 768px) {
+      .lamp-body {
+        font-size: 80px;
+      }
+
+      .lamp-glow {
+        width: 150px;
+        height: 150px;
+      }
+
+      .loader-title {
+        font-size: 28px;
+        letter-spacing: 2px;
+      }
+
+      .loader-tagline {
+        font-size: 14px;
+        padding: 0 20px;
+      }
+
+      .loader-sparkles .sparkle {
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .loader-title {
+        font-size: 22px;
+        letter-spacing: 1px;
+      }
+
+      .lamp-body {
+        font-size: 70px;
+      }
+    }
+
+    /* ============================================= */
+    /* MAGIC LAMP LOADER CSS END                       */
+    /* ============================================= */
+
+    /* ============================================= */
+    /* WELCOME GENIE - First visit pop-up              */
+    /* ============================================= */
+
+    /* Main Container - Bottom right corner */
+    .genie-welcome {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 9998;
+      display: none;
+      align-items: flex-end;
+      gap: 15px;
+      max-width: 420px;
+      animation: genieAppear 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* Show class */
+    .genie-welcome.show {
+      display: flex;
+    }
+
+    /* Hide class */
+    .genie-welcome.hide {
+      animation: genieDisappear 0.5s ease forwards;
+    }
+
+    /* Appear animation - smoke se nikalna */
+    @keyframes genieAppear {
+      0% {
+        opacity: 0;
+        transform: translateY(100px) scale(0.3);
+      }
+      60% {
+        transform: translateY(-10px) scale(1.05);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Disappear animation - smoke me ghum jana */
+    @keyframes genieDisappear {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.5) rotate(20deg);
+      }
+    }
+
+    /* ============================================= */
+    /* MAGIC BACKGROUND - Floating magic dots         */
+    /* ============================================= */
+    .genie-magic-bg {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      bottom: -20px;
+      left: -20px;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .magic-dot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+      animation: dotFloat 3s infinite ease-in-out;
+    }
+
+    .magic-dot:nth-child(1) {
+      top: 20%; left: 10%;
+      animation-delay: 0s;
+    }
+
+    .magic-dot:nth-child(2) {
+      top: 60%; right: 5%;
+      animation-delay: 0.6s;
+    }
+
+    .magic-dot:nth-child(3) {
+      bottom: 30%; left: 5%;
+      animation-delay: 1.2s;
+    }
+
+    .magic-dot:nth-child(4) {
+      top: 40%; right: 15%;
+      animation-delay: 1.8s;
+    }
+
+    .magic-dot:nth-child(5) {
+      bottom: 15%; right: 25%;
+      animation-delay: 2.4s;
+    }
+
+    @keyframes dotFloat {
+      0%, 100% {
+        opacity: 0;
+        transform: translateY(0) scale(0.5);
+      }
+      50% {
+        opacity: 1;
+        transform: translateY(-30px) scale(1.2);
+      }
+    }
+
+    /* ============================================= */
+    /* GENIE AVATAR - Animated genie                  */
+    /* ============================================= */
+    .genie-avatar {
+      position: relative;
+      flex-shrink: 0;
+      margin-bottom: 10px;
+    }
+
+    .genie-emoji {
+      font-size: 70px;
+      display: inline-block;
+      animation: genieFloat 2.5s ease-in-out infinite;
+      filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Genie floating animation */
+    @keyframes genieFloat {
+      0%, 100% {
+        transform: translateY(0) rotate(-3deg);
+      }
+      50% {
+        transform: translateY(-12px) rotate(3deg);
+      }
+    }
+
+    /* Genie glow background */
+    .genie-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(
+        circle,
+        rgba(255, 215, 0, 0.4) 0%,
+        rgba(255, 165, 0, 0.2) 40%,
+        transparent 70%
+      );
+      border-radius: 50%;
+      animation: genieGlowPulse 2s ease-in-out infinite;
+      z-index: 1;
+    }
+
+    @keyframes genieGlowPulse {
+      0%, 100% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.4);
+      }
+    }
+
+    /* ============================================= */
+    /* SPEECH BUBBLE - Genie ka message               */
+    /* ============================================= */
+    .genie-speech {
+      background: var(--bg-card);
+      border: 2px solid var(--primary);
+      border-radius: 20px;
+      padding: 20px 22px;
+      position: relative;
+      flex: 1;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3),
+                  0 0 30px rgba(255, 215, 0, 0.2);
+    }
+
+    /* Bubble tail (pointing to genie) */
+    .speech-tail {
+      position: absolute;
+      bottom: 30px;
+      left: -12px;
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-right: 12px solid var(--primary);
+    }
+
+    .speech-tail::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 3px;
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-right: 10px solid var(--bg-card);
+    }
+
+    /* ============================================= */
+    /* CLOSE BUTTON                                    */
+    /* ============================================= */
+    .genie-close {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 30px;
+      height: 30px;
+      background: var(--bg-card);
+      border: 2px solid var(--primary);
+      border-radius: 50%;
+      color: var(--primary);
+      font-size: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      z-index: 10;
+    }
+
+    .genie-close:hover {
+      background: var(--primary);
+      color: var(--bg-dark);
+      transform: rotate(90deg) scale(1.1);
+    }
+
+    /* ============================================= */
+    /* GREETING                                        */
+    /* ============================================= */
+    .genie-greeting {
+      font-family: 'Literata', Georgia, serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .greeting-emoji {
+      display: inline-block;
+      animation: waveHand 1.5s ease-in-out infinite;
+      transform-origin: 70% 70%;
+    }
+
+    @keyframes waveHand {
+      0%, 100% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(-20deg);
+      }
+      75% {
+        transform: rotate(20deg);
+      }
+    }
+
+    /* ============================================= */
+    /* MESSAGE                                         */
+    /* ============================================= */
+    .genie-message {
+      font-family: 'Gentium Plus', Georgia, serif;
+      font-size: 15px;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .genie-message strong {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* ============================================= */
+    /* WISHES CARD                                     */
+    /* ============================================= */
+    .wishes-card {
+      background: linear-gradient(135deg,
+        rgba(255, 215, 0, 0.1),
+        rgba(255, 165, 0, 0.05)
+      );
+      border: 1px solid var(--primary);
+      border-radius: 12px;
+      padding: 12px 15px;
+      margin-bottom: 18px;
+    }
+
+    .wishes-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .wish-icon {
+      font-size: 22px;
+      animation: bounce 1.5s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    .wish-title {
+      font-family: 'Literata', Georgia, serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .wishes-text {
+      font-family: 'Gentium Plus', Georgia, serif;
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .wishes-text strong {
+      color: var(--primary);
+    }
+
+    /* ============================================= */
+    /* BUTTONS                                         */
+    /* ============================================= */
+    .genie-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-genie-primary {
+      flex: 1;
+      padding: 11px 16px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #FFFFFF;
+      border: none;
+      border-radius: 25px;
+      font-family: 'Literata', Georgia, serif;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    body.dark-mode .btn-genie-primary {
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      color: #0A0A0A;
+    }
+
+    .btn-genie-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+    }
+
+    .btn-genie-outline {
+      padding: 11px 20px;
+      background: transparent;
+      color: var(--text-light);
+      border: 1.5px solid var(--border-color);
+      border-radius: 25px;
+      font-family: 'Literata', Georgia, serif;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-genie-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* ============================================= */
+    /* MOBILE RESPONSIVE                              */
+    /* ============================================= */
+    @media (max-width: 768px) {
+      .genie-welcome {
+        bottom: 15px;
+        right: 15px;
+        left: 15px;
+        max-width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+      }
+
+      .genie-avatar {
+        margin-bottom: -25px;
+        z-index: 5;
+        position: relative;
+      }
+
+      .genie-emoji {
+        font-size: 60px;
+      }
+
+      .speech-tail {
+        display: none;
+      }
+
+      .genie-speech {
+        padding-top: 35px;
+        text-align: center;
+        width: 100%;
+      }
+
+      .genie-greeting {
+        justify-content: center;
+        font-size: 18px;
+      }
+
+      .genie-buttons {
+        flex-direction: column;
+      }
+
+      .btn-genie-outline {
+        order: 2;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .genie-emoji {
+        font-size: 55px;
+      }
+
+      .genie-greeting {
+        font-size: 16px;
+      }
+
+      .genie-message {
+        font-size: 14px;
+      }
+
+      .wish-title {
+        font-size: 14px;
+      }
+
+      .wishes-text {
+        font-size: 12px;
+      }
+    }
+
+    /* ============================================= */
+    /* WELCOME GENIE CSS END                           */
+    /* ============================================= */
+
+    /* ============================================= */
+    /* GOLDEN SPARKLES ON HOVER                        */
+    /* Magic sparkle effect cursor ke around          */
+    /* ============================================= */
+
+    /* Sparkle element - JS se create hoga */
+    .sparkle-effect {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9997;
+      font-size: 16px;
+      animation: sparkleAnimation 1s ease-out forwards;
+      will-change: transform, opacity;
+      user-select: none;
+    }
+
+    /* Sparkle animation - float up + fade out */
+    @keyframes sparkleAnimation {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0) rotate(0deg);
+      }
+      20% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2) rotate(90deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -150%) scale(0.5) rotate(360deg);
+      }
+    }
+
+    /* Different sparkle sizes for variety */
+    .sparkle-effect.size-small {
+      font-size: 12px;
+    }
+
+    .sparkle-effect.size-medium {
+      font-size: 18px;
+    }
+
+    .sparkle-effect.size-large {
+      font-size: 24px;
+    }
+
+    /* ============================================= */
+    /* SPARKLE GLOW EFFECTS                            */
+    /* Cards aur buttons pe hover pe extra glow       */
+    /* ============================================= */
+
+    /* Sparkle-enabled elements pe hover effect */
+    .sparkle-trigger {
+      position: relative;
+    }
+
+    /* Sparkle on hover - cards ke andar */
+    .sparkle-card-glow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      background: radial-gradient(
+        circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(255, 215, 0, 0.15) 0%,
+        transparent 60%
+      );
+      border-radius: inherit;
+    }
+
+    .sparkle-trigger:hover .sparkle-card-glow {
+      opacity: 1;
+    }
+
+    /* Light mode mein navy blue glow */
+    body:not(.dark-mode) .sparkle-card-glow {
+      background: radial-gradient(
+        circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(9, 31, 92, 0.1) 0%,
+        transparent 60%
+      );
+    }
+
+    /* ============================================= */
+    /* DISABLE ON MOBILE - Performance ke liye        */
+    /* ============================================= */
+    @media (max-width: 768px) {
+      .sparkle-effect {
+        display: none !important;
+      }
+    }
+
+    /* ============================================= */
+    /* GOLDEN SPARKLES CSS END                         */
+    /* ============================================= */
+
+    /* ============================================= */
+    /* CUTE LAMP CURSOR - Custom Aladdin cursor       */
+    /* ============================================= */
+
+    /* Cursor toggle button - Header mein */
+    .cursor-toggle {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      transition: var(--transition);
+      margin-right: 8px;
+    }
+
+    .cursor-toggle:hover {
+      background: var(--primary);
+      color: var(--bg-dark);
+      transform: scale(1.1);
+    }
+
+    body.dark-mode .cursor-toggle:hover {
+      color: #0A0A0A;
+    }
+
+    /* ============================================= */
+    /* CUSTOM LAMP CURSOR - Main cursor element       */
+    /* ============================================= */
+    .lamp-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 40px;
+      pointer-events: none;
+      z-index: 99999;
+      font-size: 32px;
+      line-height: 1;
+      transform: translate(-50%, -50%);
+      transition: transform 0.05s ease;
+      filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+      user-select: none;
+      display: none;
+    }
+
+    /* Lamp cursor active state */
+    body.lamp-cursor-active .lamp-cursor {
+      display: block;
+    }
+
+    /* Hide default cursor when lamp is active */
+    body.lamp-cursor-active,
+    body.lamp-cursor-active * {
+      cursor: none !important;
+    }
+
+    /* Trail cursor - Smooth follow effect */
+    .lamp-cursor-trail {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 50px;
+      height: 50px;
+      pointer-events: none;
+      z-index: 99998;
+      border: 2px solid var(--primary);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.5;
+      transition: transform 0.15s ease-out, opacity 0.2s ease,
+                  width 0.2s ease, height 0.2s ease,
+                  background 0.2s ease;
+      display: none;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    }
+
+    body.lamp-cursor-active .lamp-cursor-trail {
+      display: block;
+    }
+
+    /* Trail grow on hover */
+    .lamp-cursor-trail.hovering {
+      width: 70px;
+      height: 70px;
+      opacity: 0.8;
+      background: rgba(255, 215, 0, 0.1);
+      border-width: 3px;
+    }
+
+    /* Trail click effect */
+    .lamp-cursor-trail.clicking {
+      width: 30px;
+      height: 30px;
+      opacity: 1;
+      background: rgba(255, 215, 0, 0.3);
+    }
+
+    /* ============================================= */
+    /* LAMP ANIMATIONS                                 */
+    /* ============================================= */
+
+    /* Lamp idle - Gentle floating */
+    @keyframes lampIdle {
+      0%, 100% {
+        transform: translate(-50%, -50%) rotate(-5deg);
+      }
+      50% {
+        transform: translate(-50%, -50%) rotate(5deg);
+      }
+    }
+
+    .lamp-cursor.idle {
+      animation: lampIdle 2s ease-in-out infinite;
+    }
+
+    /* Lamp hover - Bigger and tilted */
+    .lamp-cursor.hovering {
+      animation: lampHover 0.4s ease forwards;
+    }
+
+    @keyframes lampHover {
+      to {
+        transform: translate(-50%, -50%) scale(1.3) rotate(-10deg);
+        filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.9));
+      }
+    }
+
+    /* Lamp click - Shake animation */
+    .lamp-cursor.clicking {
+      animation: lampShake 0.4s ease;
+    }
+
+    @keyframes lampShake {
+      0%, 100% {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      25% {
+        transform: translate(-50%, -50%) rotate(-20deg) scale(1.4);
+      }
+      50% {
+        transform: translate(-50%, -50%) rotate(20deg) scale(1.2);
+      }
+      75% {
+        transform: translate(-50%, -50%) rotate(-10deg) scale(1.3);
+      }
+    }
+
+    /* ============================================= */
+    /* LIGHT MODE COLORS                              */
+    /* ============================================= */
+    body:not(.dark-mode) .lamp-cursor {
+      filter: drop-shadow(0 0 8px rgba(9, 31, 92, 0.6));
+    }
+
+    body:not(.dark-mode) .lamp-cursor.hovering {
+      filter: drop-shadow(0 0 15px rgba(9, 31, 92, 0.9));
+    }
+
+    body:not(.dark-mode) .lamp-cursor-trail {
+      border-color: var(--primary);
+      box-shadow: 0 0 15px rgba(9, 31, 92, 0.4);
+    }
+
+    body:not(.dark-mode) .lamp-cursor-trail.hovering {
+      background: rgba(9, 31, 92, 0.08);
+    }
+
+    body:not(.dark-mode) .lamp-cursor-trail.clicking {
+      background: rgba(9, 31, 92, 0.2);
+    }
+
+    /* ============================================= */
+    /* MOBILE - Disable everywhere                    */
+    /* ============================================= */
+    @media (max-width: 768px), (pointer: coarse) {
+      .lamp-cursor,
+      .lamp-cursor-trail {
+        display: none !important;
+      }
+
+      body.lamp-cursor-active,
+      body.lamp-cursor-active * {
+        cursor: auto !important;
+      }
+    }
+
+    /* ============================================= */
+    /* CUTE LAMP CURSOR CSS END                        */
+    /* ============================================= */
+
+    /* ============================================= */
+    /* 3 WISHES GRANTED - Free blogs special design   */
+    /* ============================================= */
+
+    /* ============================================= */
+    /* WISHES SECTION HEADER                           */
+    /* ============================================= */
+    .wishes-section-title {
+      text-align: center;
+      padding: 50px 20px 30px;
+      position: relative;
+    }
+
+    /* Decorative line above title */
+    .wishes-section-title::before {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+      margin: 0 auto 15px;
+    }
+
+    .wishes-title-main {
+      font-family: 'Literata', Georgia, serif;
+      font-size: 42px;
+      font-weight: 900;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light), var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    body.dark-mode .wishes-title-main {
+      background: linear-gradient(135deg, var(--primary), #FFA500, var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .wishes-title-icon {
+      font-size: 38px;
+      display: inline-block;
+      animation: wishGiftBounce 2s ease-in-out infinite;
+      filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+    }
+
+    @keyframes wishGiftBounce {
+      0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+      }
+      50% {
+        transform: translateY(-8px) rotate(5deg);
+      }
+    }
+
+    .wishes-subtitle {
+      font-family: 'Gentium Plus', Georgia, serif;
+      font-size: 16px;
+      color: var(--text-light);
+      font-style: italic;
+      max-width: 600px;
+      margin: 0 auto 20px;
+    }
+
+    .wishes-subtitle strong {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* Decorative emojis around subtitle */
+    .wishes-decoration {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin-top: 10px;
+      font-size: 20px;
+    }
+
+    .wishes-decoration span {
+      animation: wishDecorFloat 3s ease-in-out infinite;
+      display: inline-block;
+    }
+
+    .wishes-decoration span:nth-child(1) { animation-delay: 0s; }
+    .wishes-decoration span:nth-child(2) { animation-delay: 0.5s; }
+    .wishes-decoration span:nth-child(3) { animation-delay: 1s; }
+    .wishes-decoration span:nth-child(4) { animation-delay: 1.5s; }
+    .wishes-decoration span:nth-child(5) { animation-delay: 2s; }
+
+    @keyframes wishDecorFloat {
+      0%, 100% {
+        transform: translateY(0);
+        opacity: 0.7;
+      }
+      50% {
+        transform: translateY(-10px);
+        opacity: 1;
+      }
+    }
+
+    /* ============================================= */
+    /* WISH CARDS GRID                                 */
+    /* ============================================= */
+    .wishes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ============================================= */
+    /* INDIVIDUAL WISH CARD                            */
+    /* ============================================= */
+    .wish-card {
+      background: var(--bg-card);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 2px solid var(--primary);
+      transition: all 0.4s cubic-bezier(0.5, 0, 0, 1);
+      cursor: pointer;
+      position: relative;
+      box-shadow: 0 5px 20px rgba(255, 215, 0, 0.1);
+    }
+
+    body:not(.dark-mode) .wish-card {
+      box-shadow: 0 5px 20px rgba(9, 31, 92, 0.1);
+    }
+
+    .wish-card:hover {
+      transform: translateY(-15px) scale(1.03);
+      box-shadow: 0 20px 50px rgba(255, 215, 0, 0.3);
+    }
+
+    body:not(.dark-mode) .wish-card:hover {
+      box-shadow: 0 20px 50px rgba(9, 31, 92, 0.25);
+    }
+
+    /* ============================================= */
+    /* WISH NUMBER BADGE - Top left corner            */
+    /* ============================================= */
+    .wish-number-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: #FFFFFF;
+      font-family: 'Literata', Georgia, serif;
+      font-weight: 900;
+      z-index: 5;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      border: 3px solid var(--bg-card);
+    }
+
+    body.dark-mode .wish-number-badge {
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      color: #0A0A0A;
+    }
+
+    .wish-number-badge .wish-label {
+      font-size: 8px;
+      letter-spacing: 1px;
+      line-height: 1;
+      margin-bottom: 2px;
+      opacity: 0.9;
+    }
+
+    .wish-number-badge .wish-num {
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    /* ============================================= */
+    /* WISH GRANTED BADGE - Top right corner          */
+    /* ============================================= */
+    .wish-granted-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: linear-gradient(135deg, #27AE60, #2ECC71);
+      color: #FFFFFF;
+      padding: 6px 14px;
+      border-radius: 15px;
+      font-family: 'Literata', Georgia, serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      z-index: 5;
+      box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      animation: grantedPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes grantedPulse {
+      0%, 100% {
+        box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+      }
+      50% {
+        box-shadow: 0 5px 25px rgba(39, 174, 96, 0.8);
+      }
+    }
+
+    /* ============================================= */
+    /* WISH CARD IMAGE                                 */
+    /* ============================================= */
+    .wish-card-image {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1A1A2E, #16213E);
+    }
+
+    .wish-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    .wish-card:hover .wish-card-image img {
+      transform: scale(1.15);
+    }
+
+    /* Magic overlay on image */
+    .wish-card-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        180deg,
+        transparent 0%,
+        transparent 60%,
+        rgba(0, 0, 0, 0.7) 100%
+      );
+      pointer-events: none;
+    }
+
+    /* Sparkle decorations on image */
+    .wish-card-sparkles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .wish-card-sparkles span {
+      position: absolute;
+      font-size: 20px;
+      opacity: 0;
+      animation: wishSparkleFloat 2.5s infinite ease-in-out;
+    }
+
+    .wish-card:hover .wish-card-sparkles span {
+      opacity: 1;
+    }
+
+    .wish-card-sparkles span:nth-child(1) {
+      top: 30%; left: 20%;
+      animation-delay: 0s;
+    }
+
+    .wish-card-sparkles span:nth-child(2) {
+      top: 50%; right: 25%;
+      animation-delay: 0.5s;
+    }
+
+    .wish-card-sparkles span:nth-child(3) {
+      bottom: 40%; left: 40%;
+      animation-delay: 1s;
+    }
+
+    @keyframes wishSparkleFloat {
+      0%, 100% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0;
+      }
+      50% {
+        transform: translateY(-15px) scale(1.2);
+        opacity: 1;
+      }
+    }
+
+    /* ============================================= */
+    /* WISH CARD BODY                                  */
+    /* ============================================= */
+    .wish-card-body {
+      padding: 25px 22px 22px;
+      position: relative;
+    }
+
+    /* Magic glow on top of body */
+    .wish-card-body::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    }
+
+    /* Wish tag - "Free Wish" label */
+    .wish-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 12px;
+      background: linear-gradient(135deg,
+        rgba(255, 215, 0, 0.15),
+        rgba(255, 165, 0, 0.05)
+      );
+      border: 1px solid var(--primary);
+      border-radius: 20px;
+      color: var(--primary);
+      font-family: 'Literata', Georgia, serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .wish-card-body h3 {
+      font-family: 'Literata', Georgia, serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .wish-card-body p {
+      font-family: 'Gentium Plus', Georgia, serif;
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* ============================================= */
+    /* WISH CARD FOOTER                                */
+    /* ============================================= */
+    .wish-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 15px;
+      border-top: 1px dashed var(--border-color);
+    }
+
+    .wish-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'Gentium Plus', Georgia, serif;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .wish-card-meta i {
+      color: var(--primary);
+    }
+
+    /* "Unlock Wish" button */
+    .wish-unlock-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #FFFFFF;
+      border: none;
+      border-radius: 20px;
+      font-family: 'Literata', Georgia, serif;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      letter-spacing: 0.5px;
+    }
+
+    body.dark-mode .wish-unlock-btn {
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      color: #0A0A0A;
+    }
+
+    .wish-unlock-btn:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+    }
+
+    body.dark-mode .wish-unlock-btn:hover {
+      box-shadow: 0 5px 15px rgba(255, 165, 0, 0.5);
+    }
+
+    /* ============================================= */
+    /* WISHES INFO BOX                                 */
+    /* ============================================= */
+    .wishes-info-box {
+      max-width: 800px;
+      margin: 40px auto 30px;
+      padding: 25px 30px;
+      background: linear-gradient(135deg,
+        rgba(255, 215, 0, 0.08),
+        rgba(255, 165, 0, 0.03)
+      );
+      border-radius: 15px;
+      border: 1px solid var(--primary);
+      text-align: center;
+      position: relative;
+    }
+
+    .wishes-info-box::before {
+      content: '🪄';
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--bg-dark);
+      padding: 0 15px;
+      font-size: 30px;
+    }
+
+    .wishes-info-box h4 {
+      font-family: 'Literata', Georgia, serif;
+      color: var(--primary);
+      font-size: 18px;
+      margin-bottom: 10px;
+      margin-top: 5px;
+    }
+
+    .wishes-info-box p {
+      font-family: 'Gentium Plus', Georgia, serif;
+      color: var(--text-light);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    .wishes-info-box .upgrade-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #FFFFFF;
+      border: none;
+      border-radius: 25px;
+      font-family: 'Literata', Georgia, serif;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    body.dark-mode .wishes-info-box .upgrade-btn {
+      background: linear-gradient(135deg, var(--primary), #FFA500);
+      color: #0A0A0A;
+    }
+
+    .wishes-info-box .upgrade-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+    }
+
+    /* ============================================= */
+    /* MOBILE RESPONSIVE                              */
+    /* ============================================= */
+    @media (max-width: 1024px) {
+      .wishes-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .wishes-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .wishes-title-main {
+        font-size: 30px;
+      }
+
+      .wishes-title-icon {
+        font-size: 28px;
+      }
+
+      .wishes-subtitle {
+        font-size: 14px;
+        padding: 0 15px;
+      }
+
+      .wish-card-image {
+        height: 180px;
+      }
+
+      .wishes-info-box {
+        margin: 30px 15px;
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .wishes-title-main {
+        font-size: 24px;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .wish-number-badge {
+        width: 42px;
+        height: 42px;
+      }
+
+      .wish-number-badge .wish-num {
+        font-size: 18px;
+      }
+
+      .wish-granted-badge {
+        font-size: 9px;
+        padding: 5px 10px;
+      }
+    }
+
+    /* ============================================= */
+    /* 3 WISHES GRANTED CSS END                        */
+    /* ============================================= */
     
   </style>
 </head>
 <body>
+
+    <!-- ============================================= -->
+  <!-- CUTE LAMP CURSOR - Custom cursor elements     -->
+  <!-- ============================================= -->
+  <div class="lamp-cursor idle" id="lampCursor">🪔</div>
+  <div class="lamp-cursor-trail" id="lampCursorTrail"></div>
+
+  <!-- ============================================= -->
+  <!-- MAGIC LAMP LOADER - Page load hote waqt        -->
+  <!-- Beautiful loading animation                    -->
+  <!-- ============================================= -->
+  <div class="magic-loader" id="magicLoader">
+
+    <!-- Background sparkles -->
+    <div class="loader-sparkles">
+      <span class="sparkle">✨</span>
+      <span class="sparkle">⭐</span>
+      <span class="sparkle">✨</span>
+      <span class="sparkle">💫</span>
+      <span class="sparkle">⭐</span>
+      <span class="sparkle">✨</span>
+      <span class="sparkle">💫</span>
+      <span class="sparkle">⭐</span>
+    </div>
+
+    <!-- Magic Lamp Container -->
+    <div class="loader-content">
+
+      <!-- Smoke from lamp -->
+      <div class="lamp-smoke">
+        <span class="smoke-puff"></span>
+        <span class="smoke-puff"></span>
+        <span class="smoke-puff"></span>
+        <span class="smoke-puff"></span>
+        <span class="smoke-puff"></span>
+      </div>
+
+      <!-- The Magic Lamp -->
+      <div class="magic-lamp">
+        <div class="lamp-body">🪔</div>
+        <div class="lamp-glow"></div>
+      </div>
+
+      <!-- Website Name -->
+      <h1 class="loader-title">
+        <span>A</span>
+        <span>L</span>
+        <span>A</span>
+        <span>D</span>
+        <span>D</span>
+        <span>I</span>
+        <span>N</span>
+        <span>&nbsp;</span>
+        <span>C</span>
+        <span>H</span>
+        <span>I</span>
+        <span>R</span>
+        <span>A</span>
+        <span>G</span>
+        <span>H</span>
+      </h1>
+
+      <!-- Tagline -->
+      <p class="loader-tagline">Unlocking the magic of knowledge...</p>
+
+      <!-- Loading Dots -->
+      <div class="loader-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+    </div>
+  </div>
+  <!-- MAGIC LAMP LOADER END -->
+
+  <!-- ============================================= -->
+  <!-- WELCOME GENIE - First time visit pe dikhega   -->
+  <!-- Aladdin theme matching welcome message        -->
+  <!-- ============================================= -->
+  <div class="genie-welcome" id="genieWelcome">
+
+    <!-- Genie ka magic background -->
+    <div class="genie-magic-bg">
+      <span class="magic-dot"></span>
+      <span class="magic-dot"></span>
+      <span class="magic-dot"></span>
+      <span class="magic-dot"></span>
+      <span class="magic-dot"></span>
+    </div>
+
+    <!-- Close button -->
+    <button class="genie-close" onclick="closeGenie()" title="Close">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <!-- Genie Avatar -->
+    <div class="genie-avatar">
+      <div class="genie-emoji">🧞</div>
+      <div class="genie-glow"></div>
+    </div>
+
+    <!-- Speech Bubble -->
+    <div class="genie-speech">
+
+      <!-- Bubble tail -->
+      <div class="speech-tail"></div>
+
+      <!-- Welcome Message -->
+      <h3 class="genie-greeting">
+        <span class="greeting-text">As-salamu alaykum!</span>
+        <span class="greeting-emoji">👋</span>
+      </h3>
+
+      <p class="genie-message">
+        Welcome to <strong>ALADDIN CHIRAGH</strong>! 
+        I'm your magical guide. 🪔
+      </p>
+
+      <!-- Wishes Card -->
+      <div class="wishes-card">
+        <div class="wishes-header">
+          <span class="wish-icon">🎁</span>
+          <span class="wish-title">3 Free Wishes</span>
+        </div>
+        <p class="wishes-text">
+          You have <strong>3 FREE blogs</strong> to read instantly! 
+          No login needed. ✨
+        </p>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="genie-buttons">
+        <button class="btn-genie-primary" onclick="genieExplore()">
+          <i class="fas fa-magic"></i> Start Reading
+        </button>
+        <button class="btn-genie-outline" onclick="closeGenie()">
+          Skip
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- WELCOME GENIE END -->
+  
   <!-- ============================================= -->
   <!-- TOAST NOTIFICATIONS - Success/Error messages   -->
   <!-- ============================================= -->
@@ -2668,6 +4986,13 @@
       <li><a onclick="showPage('products')"><i class="fas fa-box"></i> Products</a></li>
       <li><a onclick="showPage('pricing')"><i class="fas fa-tags"></i> Pricing</a></li>
       <li><a onclick="showPage('contact')"><i class="fas fa-envelope"></i> Contact</a></li>
+
+      <!-- Cursor Toggle Button - Lamp cursor on/off -->
+      <li>
+        <button class="cursor-toggle" onclick="toggleLampCursor()" id="cursorToggleBtn" title="Toggle Lamp Cursor">
+          <i class="fas fa-magic" id="cursorIcon"></i>
+        </button>
+      </li>
       
       <!-- Theme Toggle Button - Dark/Light mode switch -->
       <li>
@@ -2717,66 +5042,50 @@
         </div>
       </section>
 
-      <!-- FREE BLOGS SECTION - 3 Free blogs -->
+            <!-- ============================================= -->
+      <!-- 3 WISHES GRANTED SECTION - Free blogs        -->
+      <!-- Aladdin theme matching design                 -->
+      <!-- ============================================= -->
       <section id="freeBlogs">
-        <div class="section-title">
-          <h2>⭐ Free Blogs</h2>
-          <p>Yeh 3 blogs bilkul FREE hain - Abhi padho!</p>
+
+        <!-- Section Header -->
+        <div class="wishes-section-title">
+          <h2 class="wishes-title-main">
+            <span class="wishes-title-icon">🎁</span>
+            Your 3 Wishes
+            <span class="wishes-title-icon">🎁</span>
+          </h2>
+          <p class="wishes-subtitle">
+            The magic lamp has granted you <strong>3 FREE wishes</strong>!
+            Read these premium blogs without any cost. ✨
+          </p>
+
+          <!-- Decoration emojis -->
+          <div class="wishes-decoration">
+            <span>✨</span>
+            <span>⭐</span>
+            <span>💫</span>
+            <span>⭐</span>
+            <span>✨</span>
+          </div>
         </div>
 
+        <!-- Wish Cards Grid -->
         <div class="free-blogs-section">
-                    <div class="free-blogs-grid" id="freeBlogsGrid">
-            <!-- Free blogs JavaScript se load honge -->
-            <!-- Abhi demo cards daal rahe hain -->
+          <div class="wishes-grid" id="freeBlogsGrid">
+            <!-- Wish cards JavaScript se load honge -->
+          </div>
 
-            <!-- Free Blog 1 -->
-            <div class="blog-card" onclick="openBlog('free-1')">
-              <div class="blog-card-image">
-                <img src="https://via.placeholder.com/400x200/1A1A2E/FFD700?text=Free+Blog+1" alt="Blog">
-              </div>
-              <div class="blog-card-body">
-                <span class="blog-card-tag tag-free">🆓 FREE</span>
-                <h3>Getting Started Guide</h3>
-                <p>Learn the basics and start your journey with our comprehensive beginner's guide.</p>
-                <div class="blog-card-footer">
-                  <span class="blog-card-date"><i class="far fa-calendar"></i> Jan 15, 2024</span>
-                  <span class="blog-card-price">FREE</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Free Blog 2 -->
-            <div class="blog-card" onclick="openBlog('free-2')">
-              <div class="blog-card-image">
-                <img src="https://via.placeholder.com/400x200/1A1A2E/FFD700?text=Free+Blog+2" alt="Blog">
-              </div>
-              <div class="blog-card-body">
-                <span class="blog-card-tag tag-free">🆓 FREE</span>
-                <h3>Understanding the Market</h3>
-                <p>A complete overview of market trends and analysis for beginners.</p>
-                <div class="blog-card-footer">
-                  <span class="blog-card-date"><i class="far fa-calendar"></i> Jan 20, 2024</span>
-                  <span class="blog-card-price">FREE</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Free Blog 3 -->
-            <div class="blog-card" onclick="openBlog('free-3')">
-              <div class="blog-card-image">
-                <img src="https://via.placeholder.com/400x200/1A1A2E/FFD700?text=Free+Blog+3" alt="Blog">
-              </div>
-              <div class="blog-card-body">
-                <span class="blog-card-tag tag-free">🆓 FREE</span>
-                <h3>Top 10 Tips for Success</h3>
-                <p>Essential tips that every beginner should know before starting.</p>
-                <div class="blog-card-footer">
-                  <span class="blog-card-date"><i class="far fa-calendar"></i> Jan 25, 2024</span>
-                  <span class="blog-card-price">FREE</span>
-                </div>
-              </div>
-            </div>
-
+          <!-- Info Box - Want more? -->
+          <div class="wishes-info-box">
+            <h4>Want More Wishes?</h4>
+            <p>
+              These 3 wishes are just the beginning! Unlock <strong>3780+ premium blogs</strong>
+              across 21 categories with our subscription plans.
+            </p>
+            <a class="upgrade-btn" onclick="showPage('pricing')">
+              <i class="fas fa-crown"></i> Get Unlimited Wishes
+            </a>
           </div>
         </div>
       </section>
@@ -5420,59 +7729,108 @@
     // Home page ke 3 free blogs ko properly handle   //
     // karo                                           //
     // ============================================= //
+        // ============================================= //
+    // SETUP FREE BLOGS - "3 Wishes Granted" Design   //
+    // Aladdin theme matching wish cards              //
+    // ============================================= //
     function setupFreeBlogs() {
       var freeBlogsData = [
         {
           id: 'free-1',
           title: 'Getting Started Guide',
-          desc: 'Learn the basics and start your journey with our comprehensive beginner guide.',
+          desc: 'Begin your magical journey with our comprehensive beginner guide. Learn the basics and unlock the door to endless possibilities.',
           price: 0,
           date: 'Jan 15, 2024',
           type: 'free',
-          image: 'https://via.placeholder.com/400x200/1A1A2E/27AE60?text=FREE+Blog+1',
-          file: 'blogs/free-1.md'
+          image: 'https://via.placeholder.com/400x220/091F5C/FFD700?text=Wish+%231',
+          file: 'blogs/free-1.md',
+          readTime: '5 min read'
         },
         {
           id: 'free-2',
           title: 'Understanding the Market',
-          desc: 'A complete overview of market trends and analysis for beginners.',
+          desc: 'Discover the secrets of market analysis. A complete overview crafted to enlighten beginners and seasoned readers alike.',
           price: 0,
           date: 'Jan 20, 2024',
           type: 'free',
-          image: 'https://via.placeholder.com/400x200/1A1A2E/27AE60?text=FREE+Blog+2',
-          file: 'blogs/free-2.md'
+          image: 'https://via.placeholder.com/400x220/091F5C/FFD700?text=Wish+%232',
+          file: 'blogs/free-2.md',
+          readTime: '7 min read'
         },
         {
           id: 'free-3',
           title: 'Top 10 Tips for Success',
-          desc: 'Essential tips that every beginner should know before starting.',
+          desc: 'Essential wisdom shared by experts. These golden tips will pave your path to success in any endeavor you choose.',
           price: 0,
           date: 'Jan 25, 2024',
           type: 'free',
-          image: 'https://via.placeholder.com/400x200/1A1A2E/27AE60?text=FREE+Blog+3',
-          file: 'blogs/free-3.md'
+          image: 'https://via.placeholder.com/400x220/091F5C/FFD700?text=Wish+%233',
+          file: 'blogs/free-3.md',
+          readTime: '6 min read'
         }
       ];
 
       var grid = document.getElementById('freeBlogsGrid');
+      if (!grid) return;
+
       var html = '';
 
-      freeBlogsData.forEach(function(blog) {
+      freeBlogsData.forEach(function(blog, index) {
         var blogStr = JSON.stringify(blog).replace(/'/g, "&#39;");
+        var wishNumber = index + 1;
 
         html += `
-          <div class="blog-card" onclick='openFreeBlog(${blogStr})'>
-            <div class="blog-card-image">
-              <img src="${blog.image}" alt="${blog.title}">
+          <div class="wish-card" onclick='openFreeBlog(${blogStr})'>
+
+            <!-- Wish Number Badge -->
+            <div class="wish-number-badge">
+              <span class="wish-label">WISH</span>
+              <span class="wish-num">#${wishNumber}</span>
             </div>
-            <div class="blog-card-body">
-              <span class="blog-card-tag tag-free">🆓 FREE</span>
-              <h3>${blog.title}</h3>
-              <p>${blog.desc}</p>
-              <div class="blog-card-footer">
-                <span class="blog-card-date"><i class="far fa-calendar"></i> ${blog.date}</span>
-                <span class="blog-card-price">FREE</span>
+
+            <!-- Wish Granted Badge -->
+            <div class="wish-granted-badge">
+              <i class="fas fa-check-circle"></i> GRANTED
+            </div>
+
+            <!-- Card Image -->
+            <div class="wish-card-image">
+              <img src="${blog.image}" alt="${blog.title}">
+
+              <!-- Floating sparkles on hover -->
+              <div class="wish-card-sparkles">
+                <span>✨</span>
+                <span>⭐</span>
+                <span>💫</span>
               </div>
+            </div>
+
+            <!-- Card Body -->
+            <div class="wish-card-body">
+
+              <!-- Free Wish Tag -->
+              <span class="wish-tag">
+                <i class="fas fa-gift"></i> FREE WISH
+              </span>
+
+              <!-- Title -->
+              <h3>${blog.title}</h3>
+
+              <!-- Description -->
+              <p>${blog.desc}</p>
+
+              <!-- Footer -->
+              <div class="wish-card-footer">
+                <span class="wish-card-meta">
+                  <i class="far fa-clock"></i>
+                  ${blog.readTime}
+                </span>
+
+                <button class="wish-unlock-btn">
+                  Unlock Wish <i class="fas fa-magic"></i>
+                </button>
+              </div>
+
             </div>
           </div>
         `;
@@ -5692,6 +8050,897 @@
     // Page load hote hi theme apply karo
     window.addEventListener('DOMContentLoaded', function() {
       loadSavedTheme();
+    });
+
+    // ============================================= //
+    // SCROLL REVEAL SYSTEM                            //
+    // Elements scroll pe nazar aate hi animate ho    //
+    // ============================================= //
+
+    // Intersection Observer banao
+    var scrollObserver = new IntersectionObserver(
+      function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      },
+      {
+        threshold: 0.15,  // 15% visible hote hi trigger
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    // ============================================= //
+    // ADD REVEAL CLASSES                              //
+    // Sab cards aur sections par reveal class lagao  //
+    // ============================================= //
+    function setupScrollReveal() {
+      // Section titles
+      document.querySelectorAll('.section-title').forEach(function(el) {
+        el.classList.add('reveal');
+        scrollObserver.observe(el);
+      });
+
+      // Section info boxes
+      document.querySelectorAll('.section-info').forEach(function(el) {
+        el.classList.add('reveal');
+        scrollObserver.observe(el);
+      });
+
+      // Free blog cards (cascade effect)
+      document.querySelectorAll('.free-blogs-grid .blog-card').forEach(function(el, index) {
+        el.classList.add('reveal-zoom');
+        if (index < 6) {
+          el.classList.add('delay-' + (index + 1));
+        }
+        scrollObserver.observe(el);
+      });
+
+      // Category cards (cascade effect)
+      document.querySelectorAll('.categories-grid .category-card').forEach(function(el, index) {
+        el.classList.add('reveal');
+        if (index < 6) {
+          el.classList.add('delay-' + ((index % 3) + 1));
+        }
+        scrollObserver.observe(el);
+      });
+
+      // Sub-category cards
+      document.querySelectorAll('.subcategories-grid .subcat-card').forEach(function(el, index) {
+        el.classList.add('reveal-zoom');
+        if (index < 6) {
+          el.classList.add('delay-' + ((index % 4) + 1));
+        }
+        scrollObserver.observe(el);
+      });
+
+      // Sub-category blogs
+      document.querySelectorAll('.blogs-grid .blog-card').forEach(function(el, index) {
+        el.classList.add('reveal');
+        if (index < 6) {
+          el.classList.add('delay-' + ((index % 3) + 1));
+        }
+        scrollObserver.observe(el);
+      });
+
+      // Pricing cards
+      document.querySelectorAll('.pricing-card').forEach(function(el, index) {
+        el.classList.add('reveal-zoom');
+        el.classList.add('delay-' + (index + 1));
+        scrollObserver.observe(el);
+      });
+
+      // Footer columns
+      document.querySelectorAll('.footer-col').forEach(function(el, index) {
+        el.classList.add('reveal');
+        el.classList.add('delay-' + (index + 1));
+        scrollObserver.observe(el);
+      });
+
+      // Blog content sections
+      document.querySelectorAll('.blog-content-header, .blog-content-body, .blog-info-box').forEach(function(el) {
+        el.classList.add('reveal');
+        scrollObserver.observe(el);
+      });
+
+      // Dashboard sections
+      document.querySelectorAll('.dashboard-welcome, .sub-status-card, .purchased-blogs-card').forEach(function(el, index) {
+        el.classList.add('reveal');
+        el.classList.add('delay-' + (index + 1));
+        scrollObserver.observe(el);
+      });
+
+      // Page headers
+      document.querySelectorAll('.page-header').forEach(function(el) {
+        el.classList.add('reveal-fade');
+        scrollObserver.observe(el);
+      });
+    }
+
+    // ============================================= //
+    // RE-RUN AFTER PAGE CHANGE                        //
+    // Jab user kisi nayi page pe jaye toh dobara     //
+    // animations setup karo                          //
+    // ============================================= //
+    var _origShowPage = showPage;
+    showPage = function(pageName) {
+      _origShowPage(pageName);
+
+      // Thora delay de ke setup karo (taake DOM ready ho)
+      setTimeout(function() {
+        setupScrollReveal();
+      }, 100);
+    };
+
+    // ============================================= //
+    // RE-RUN AFTER DYNAMIC CONTENT LOADS              //
+    // Jab categories, subcategories, blogs render    //
+    // hon toh animations dobara setup karo           //
+    // ============================================= //
+
+    // Categories render ke baad
+    var _origRenderCategories = renderCategories;
+    renderCategories = function() {
+      _origRenderCategories();
+      setTimeout(setupScrollReveal, 100);
+    };
+
+    // Sub-categories render ke baad
+    var _origRenderSubCategories = renderSubCategories;
+    renderSubCategories = function(subCats) {
+      _origRenderSubCategories(subCats);
+      setTimeout(setupScrollReveal, 100);
+    };
+
+    // Blogs render ke baad
+    var _origRenderBlogs = renderBlogs;
+    renderBlogs = function(blogs) {
+      _origRenderBlogs(blogs);
+      setTimeout(setupScrollReveal, 100);
+    };
+
+    // ============================================= //
+    // INITIAL SETUP - Page load hote hi              //
+    // ============================================= //
+    window.addEventListener('DOMContentLoaded', function() {
+      setTimeout(setupScrollReveal, 300);
+    });
+
+    // Window load (sab images load hone ke baad)
+    window.addEventListener('load', function() {
+      setupScrollReveal();
+    });
+
+    // ============================================= //
+    // SMOOTH SCROLL FOR ANCHOR LINKS                  //
+    // # links smooth scroll honge                    //
+    // ============================================= //
+    document.addEventListener('click', function(e) {
+      var target = e.target.closest('a[href^="#"]');
+      if (target) {
+        var href = target.getAttribute('href');
+        if (href.length > 1) {
+          e.preventDefault();
+          var element = document.querySelector(href);
+          if (element) {
+            element.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+      }
+    });
+
+    // ============================================= //
+    // MAGIC LAMP LOADER - Loading Animation Logic    //
+    // ============================================= //
+
+    // Page load hote hi loader show karo
+    document.body.classList.add('loading');
+
+    // ============================================= //
+    // HIDE LOADER FUNCTION                            //
+    // Jab sab ready ho toh loader hatao              //
+    // ============================================= //
+    function hideMagicLoader() {
+      var loader = document.getElementById('magicLoader');
+      if (loader) {
+        loader.classList.add('hide');
+        document.body.classList.remove('loading');
+
+        // 1 second baad poori tarah remove karo
+        setTimeout(function() {
+          loader.style.display = 'none';
+        }, 800);
+      }
+    }
+
+    // ============================================= //
+    // SHOW LOADER FUNCTION                            //
+    // Agar dobara show karna ho (refresh ke liye)    //
+    // ============================================= //
+    function showMagicLoader() {
+      var loader = document.getElementById('magicLoader');
+      if (loader) {
+        loader.style.display = 'flex';
+        loader.classList.remove('hide');
+        document.body.classList.add('loading');
+      }
+    }
+
+    // ============================================= //
+    // AUTO HIDE LOADER                                //
+    // Page load hone ke 3 second baad loader hide   //
+    // ============================================= //
+    window.addEventListener('load', function() {
+      // Minimum 3 second tak loader dikhao
+      // (taake animation pori dikhe)
+      setTimeout(function() {
+        hideMagicLoader();
+      }, 3000);
+    });
+
+    // ============================================= //
+    // FALLBACK - Agar load event nahi mila          //
+    // 5 second baad force hide                       //
+    // ============================================= //
+    setTimeout(function() {
+      hideMagicLoader();
+    }, 5000);
+
+    // ============================================= //
+    // WELCOME GENIE - First visit popup              //
+    // ============================================= //
+
+    // Genie show karne ka delay (seconds)
+    var GENIE_DELAY = 3500;    // Loader ke baad kab dikhe
+    var GENIE_AUTO_HIDE = 15000; // Auto hide kab ho (15 sec)
+
+    // ============================================= //
+    // CHECK & SHOW GENIE                              //
+    // Check karo agar pehli visit hai toh genie      //
+    // dikhao                                         //
+    // ============================================= //
+    function checkAndShowGenie() {
+      // LocalStorage check karo
+      var genieShown = localStorage.getItem('genieWelcomeShown');
+
+      // Agar pehle nahi dikha toh dikhao
+      if (!genieShown) {
+        setTimeout(function() {
+          showGenie();
+        }, GENIE_DELAY);
+      }
+    }
+
+    // ============================================= //
+    // SHOW GENIE FUNCTION                             //
+    // ============================================= //
+    function showGenie() {
+      var genie = document.getElementById('genieWelcome');
+      if (genie) {
+        genie.classList.add('show');
+        genie.classList.remove('hide');
+
+        // Auto hide after 15 seconds
+        setTimeout(function() {
+          if (genie.classList.contains('show')) {
+            closeGenie();
+          }
+        }, GENIE_AUTO_HIDE);
+      }
+    }
+
+    // ============================================= //
+    // CLOSE GENIE FUNCTION                            //
+    // ============================================= //
+    function closeGenie() {
+      var genie = document.getElementById('genieWelcome');
+      if (genie) {
+        genie.classList.add('hide');
+
+        // LocalStorage mein mark karo (dobara na dikhe)
+        localStorage.setItem('genieWelcomeShown', 'yes');
+
+        // 500ms baad poori tarah hide
+        setTimeout(function() {
+          genie.classList.remove('show');
+          genie.classList.remove('hide');
+        }, 500);
+      }
+    }
+
+    // ============================================= //
+    // GENIE EXPLORE BUTTON                            //
+    // "Start Reading" pe click karein toh free       //
+    // blogs section pe scroll karo                   //
+    // ============================================= //
+    function genieExplore() {
+      closeGenie();
+
+      // Home page pe aao
+      showPage('home');
+
+      // Free blogs section pe scroll karo
+      setTimeout(function() {
+        var freeBlogs = document.getElementById('freeBlogs');
+        if (freeBlogs) {
+          freeBlogs.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 600);
+
+      // Toast notification dikhao
+      if (typeof showToast === 'function') {
+        showToast('✨ Your 3 free wishes are below!', 'success');
+      }
+    }
+
+    // ============================================= //
+    // RESET GENIE (testing purpose)                  //
+    // Console mein resetGenie() likho to dobara      //
+    // dikhega                                        //
+    // ============================================= //
+    function resetGenie() {
+      localStorage.removeItem('genieWelcomeShown');
+      console.log('✅ Genie reset! Refresh page to see again.');
+    }
+
+    // ============================================= //
+    // INITIALIZE - Page load hote hi                 //
+    // ============================================= //
+    window.addEventListener('load', function() {
+      checkAndShowGenie();
+    });
+
+    // ============================================= //
+    // GOLDEN SPARKLES ON HOVER                        //
+    // Cursor ke around magic sparkles dikhana        //
+    // ============================================= //
+
+    // Sparkle settings
+    var SPARKLE_EMOJIS = ['✨', '⭐', '💫', '✦', '⚡'];
+    var SPARKLE_INTERVAL = 80;   // Milliseconds (zyada = kam sparkles)
+    var lastSparkleTime = 0;
+    var sparkleEnabled = true;
+
+    // ============================================= //
+    // CHECK IF MOBILE - Mobile pe disable            //
+    // ============================================= //
+    function isMobileDevice() {
+      return window.innerWidth <= 768 ||
+             /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+
+    // ============================================= //
+    // CREATE SPARKLE FUNCTION                         //
+    // Ek sparkle banane ka kaam                      //
+    // ============================================= //
+    function createSparkle(x, y) {
+      // Mobile pe nahi banana
+      if (isMobileDevice() || !sparkleEnabled) return;
+
+      // Random emoji choose karo
+      var emoji = SPARKLE_EMOJIS[
+        Math.floor(Math.random() * SPARKLE_EMOJIS.length)
+      ];
+
+      // Sparkle element banao
+      var sparkle = document.createElement('span');
+      sparkle.className = 'sparkle-effect';
+
+      // Random size
+      var sizes = ['size-small', 'size-medium', 'size-large'];
+      sparkle.classList.add(sizes[Math.floor(Math.random() * sizes.length)]);
+
+      sparkle.textContent = emoji;
+
+      // Position set karo (slight random offset for natural feel)
+      var offsetX = (Math.random() - 0.5) * 30;
+      var offsetY = (Math.random() - 0.5) * 30;
+      sparkle.style.left = (x + offsetX) + 'px';
+      sparkle.style.top = (y + offsetY) + 'px';
+
+      // Body mein add karo
+      document.body.appendChild(sparkle);
+
+      // 1 second baad remove karo
+      setTimeout(function() {
+        if (sparkle.parentElement) {
+          sparkle.remove();
+        }
+      }, 1000);
+    }
+
+    // ============================================= //
+    // SPARKLE TRIGGER ELEMENTS                        //
+    // Yeh elements pe hover pe sparkles aayenge      //
+    // ============================================= //
+    var SPARKLE_SELECTORS = [
+      '.blog-card',
+      '.category-card',
+      '.subcat-card',
+      '.pricing-card',
+      '.btn-primary',
+      '.btn-outline',
+      '.nav-auth-btn',
+      '.btn-buy-blog',
+      '.btn-get-plan',
+      '.btn-genie-primary',
+      '.theme-toggle',
+      '.logo',
+      '.social-links a',
+      '.payment-method-card',
+      '.auth-submit-btn'
+    ];
+
+    // ============================================= //
+    // HOVER LISTENER                                  //
+    // Sparkle trigger elements pe hover detect       //
+    // ============================================= //
+    function setupSparkleHover() {
+      // Document pe mousemove event lagao
+      document.addEventListener('mousemove', function(e) {
+        // Mobile check
+        if (isMobileDevice()) return;
+
+        // Throttle - har 80ms mein ek baar
+        var now = Date.now();
+        if (now - lastSparkleTime < SPARKLE_INTERVAL) return;
+
+        // Check karo cursor kisi sparkle trigger pe hai ya nahi
+        var element = e.target;
+        var isOnSparkleTrigger = false;
+
+        // Selectors check karo
+        for (var i = 0; i < SPARKLE_SELECTORS.length; i++) {
+          if (element.closest(SPARKLE_SELECTORS[i])) {
+            isOnSparkleTrigger = true;
+            break;
+          }
+        }
+
+        // Agar trigger element pe hai toh sparkle banao
+        if (isOnSparkleTrigger) {
+          createSparkle(e.clientX, e.clientY);
+          lastSparkleTime = now;
+        }
+      });
+    }
+
+    // ============================================= //
+    // SPECIAL CLICK SPARKLES                          //
+    // Click pe burst of sparkles                     //
+    // ============================================= //
+    function setupClickSparkles() {
+      document.addEventListener('click', function(e) {
+        // Mobile pe disable
+        if (isMobileDevice()) return;
+
+        var element = e.target;
+        var isOnTrigger = false;
+
+        // Check karo click trigger element pe hai
+        for (var i = 0; i < SPARKLE_SELECTORS.length; i++) {
+          if (element.closest(SPARKLE_SELECTORS[i])) {
+            isOnTrigger = true;
+            break;
+          }
+        }
+
+        // Agar trigger element pe click hai toh burst banao
+        if (isOnTrigger) {
+          createSparkleBurst(e.clientX, e.clientY);
+        }
+      });
+    }
+
+    // ============================================= //
+    // SPARKLE BURST - Click pe multiple sparkles     //
+    // ============================================= //
+    function createSparkleBurst(x, y) {
+      // 8 sparkles ek saath
+      for (var i = 0; i < 8; i++) {
+        setTimeout(function(index) {
+          return function() {
+            var angle = (index / 8) * Math.PI * 2;
+            var distance = 30 + Math.random() * 20;
+            var burstX = x + Math.cos(angle) * distance;
+            var burstY = y + Math.sin(angle) * distance;
+            createSparkle(burstX, burstY);
+          };
+        }(i), i * 30);
+      }
+    }
+
+    // ============================================= //
+    // CARD GLOW FOLLOW MOUSE                          //
+    // Cards mein cursor follow karne wala glow       //
+    // ============================================= //
+    function setupCardGlow() {
+      // Selectors jin pe glow follow karega
+      var glowSelectors = [
+        '.blog-card',
+        '.category-card',
+        '.subcat-card',
+        '.pricing-card'
+      ];
+
+      glowSelectors.forEach(function(selector) {
+        var elements = document.querySelectorAll(selector);
+
+        elements.forEach(function(el) {
+          // Glow div add karo agar pehle se nahi hai
+          if (!el.querySelector('.sparkle-card-glow')) {
+            var glow = document.createElement('div');
+            glow.className = 'sparkle-card-glow';
+            el.classList.add('sparkle-trigger');
+            el.appendChild(glow);
+          }
+
+          // Mouse move pe glow position update karo
+          el.addEventListener('mousemove', function(e) {
+            if (isMobileDevice()) return;
+
+            var rect = el.getBoundingClientRect();
+            var x = e.clientX - rect.left;
+            var y = e.clientY - rect.top;
+
+            // CSS variables set karo
+            el.style.setProperty('--mouse-x', x + 'px');
+            el.style.setProperty('--mouse-y', y + 'px');
+          });
+        });
+      });
+    }
+
+    // ============================================= //
+    // RE-SETUP AFTER DYNAMIC CONTENT                  //
+    // Naye cards aane par dobara setup karo          //
+    // ============================================= //
+    function reSetupSparkles() {
+      // Card glow ko dobara setup karo
+      setupCardGlow();
+    }
+
+    // ============================================= //
+    // ENABLE / DISABLE SPARKLES                       //
+    // User chahe to off kar sake                     //
+    // ============================================= //
+    function toggleSparkles() {
+      sparkleEnabled = !sparkleEnabled;
+      if (typeof showToast === 'function') {
+        showToast(
+          sparkleEnabled ? '✨ Sparkles enabled' : '🚫 Sparkles disabled',
+          'info'
+        );
+      }
+      localStorage.setItem('sparklesEnabled', sparkleEnabled ? 'yes' : 'no');
+    }
+
+    // ============================================= //
+    // LOAD SAVED PREFERENCE                           //
+    // ============================================= //
+    function loadSparklePreference() {
+      var saved = localStorage.getItem('sparklesEnabled');
+      if (saved === 'no') {
+        sparkleEnabled = false;
+      }
+    }
+
+    // ============================================= //
+    // OVERRIDE RENDER FUNCTIONS                       //
+    // Naye cards aane par sparkles add karo          //
+    // ============================================= //
+
+    // Categories render override
+    var _origRenderCategoriesSparkle = renderCategories;
+    renderCategories = function() {
+      _origRenderCategoriesSparkle();
+      setTimeout(reSetupSparkles, 100);
+    };
+
+    // Sub-categories render override
+    var _origRenderSubCategoriesSparkle = renderSubCategories;
+    renderSubCategories = function(subCats) {
+      _origRenderSubCategoriesSparkle(subCats);
+      setTimeout(reSetupSparkles, 100);
+    };
+
+    // Blogs render override
+    var _origRenderBlogsSparkle = renderBlogs;
+    renderBlogs = function(blogs) {
+      _origRenderBlogsSparkle(blogs);
+      setTimeout(reSetupSparkles, 100);
+    };
+
+    // ============================================= //
+    // INITIALIZE - Page load hote hi setup karo      //
+    // ============================================= //
+    window.addEventListener('DOMContentLoaded', function() {
+      loadSparklePreference();
+      setupSparkleHover();
+      setupClickSparkles();
+
+      // Thora delay de ke cards setup karo
+      setTimeout(function() {
+        setupCardGlow();
+      }, 500);
+    });
+
+    // Window resize pe check karo
+    window.addEventListener('resize', function() {
+      // Sirf desktop pe sparkles
+      if (isMobileDevice()) {
+        sparkleEnabled = false;
+      } else {
+        loadSparklePreference();
+      }
+    });
+
+    // ============================================= //
+    // CUTE LAMP CURSOR - Custom cursor               //
+    // ============================================= //
+
+    // Cursor elements
+    var lampCursor = null;
+    var lampCursorTrail = null;
+    var lampCursorActive = false;
+
+    // Mouse position tracking
+    var mouseX = 0;
+    var mouseY = 0;
+    var trailX = 0;
+    var trailY = 0;
+
+    // ============================================= //
+    // CHECK MOBILE DEVICE                             //
+    // ============================================= //
+    function isMobile() {
+      return window.innerWidth <= 768 ||
+             window.matchMedia('(pointer: coarse)').matches;
+    }
+
+    // ============================================= //
+    // INITIALIZE LAMP CURSOR                          //
+    // ============================================= //
+    function initLampCursor() {
+      lampCursor = document.getElementById('lampCursor');
+      lampCursorTrail = document.getElementById('lampCursorTrail');
+
+      if (!lampCursor || !lampCursorTrail) return;
+
+      // Saved preference check karo
+      var saved = localStorage.getItem('lampCursorActive');
+
+      // Default ON (agar mobile nahi hai)
+      if (!isMobile() && (saved === null || saved === 'yes')) {
+        enableLampCursor();
+      }
+    }
+
+    // ============================================= //
+    // ENABLE LAMP CURSOR                              //
+    // ============================================= //
+    function enableLampCursor() {
+      if (isMobile()) return;
+
+      lampCursorActive = true;
+      document.body.classList.add('lamp-cursor-active');
+
+      // Cursor icon update karo
+      var icon = document.getElementById('cursorIcon');
+      if (icon) {
+        icon.className = 'fas fa-magic';
+      }
+
+      localStorage.setItem('lampCursorActive', 'yes');
+    }
+
+    // ============================================= //
+    // DISABLE LAMP CURSOR                             //
+    // ============================================= //
+    function disableLampCursor() {
+      lampCursorActive = false;
+      document.body.classList.remove('lamp-cursor-active');
+
+      // Icon update karo
+      var icon = document.getElementById('cursorIcon');
+      if (icon) {
+        icon.className = 'fas fa-mouse-pointer';
+      }
+
+      localStorage.setItem('lampCursorActive', 'no');
+    }
+
+    // ============================================= //
+    // TOGGLE LAMP CURSOR                              //
+    // ============================================= //
+    function toggleLampCursor() {
+      if (isMobile()) {
+        if (typeof showToast === 'function') {
+          showToast('🪔 Lamp cursor sirf desktop pe kaam karta hai', 'info');
+        }
+        return;
+      }
+
+      if (lampCursorActive) {
+        disableLampCursor();
+        if (typeof showToast === 'function') {
+          showToast('🚫 Lamp cursor disabled', 'info');
+        }
+      } else {
+        enableLampCursor();
+        if (typeof showToast === 'function') {
+          showToast('🪔 Lamp cursor activated!', 'success');
+        }
+      }
+    }
+
+    // ============================================= //
+    // MOUSE MOVE TRACKING                             //
+    // ============================================= //
+    document.addEventListener('mousemove', function(e) {
+      if (!lampCursorActive || isMobile()) return;
+
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      // Lamp cursor instantly follow karta hai
+      if (lampCursor) {
+        lampCursor.style.left = mouseX + 'px';
+        lampCursor.style.top = mouseY + 'px';
+      }
+    });
+
+    // ============================================= //
+    // SMOOTH TRAIL ANIMATION                          //
+    // Trail thora delay se follow karta hai          //
+    // ============================================= //
+    function animateTrail() {
+      if (lampCursorActive && !isMobile() && lampCursorTrail) {
+        // Smooth lerp
+        trailX += (mouseX - trailX) * 0.15;
+        trailY += (mouseY - trailY) * 0.15;
+
+        lampCursorTrail.style.left = trailX + 'px';
+        lampCursorTrail.style.top = trailY + 'px';
+      }
+      requestAnimationFrame(animateTrail);
+    }
+
+    // ============================================= //
+    // HOVER DETECTION                                 //
+    // Interactive elements pe special effect         //
+    // ============================================= //
+    var HOVERABLE_SELECTORS = [
+      'a', 'button',
+      '.blog-card', '.category-card', '.subcat-card', '.pricing-card',
+      '.btn-primary', '.btn-outline',
+      'input', 'textarea', 'select',
+      '.nav-auth-btn', '.theme-toggle', '.cursor-toggle',
+      '.modal-close', '.menu-toggle',
+      '.payment-method-card', '.copy-btn',
+      '.btn-buy-blog', '.btn-get-plan',
+      '.btn-genie-primary', '.btn-genie-outline'
+    ];
+
+    document.addEventListener('mouseover', function(e) {
+      if (!lampCursorActive || isMobile()) return;
+
+      var element = e.target;
+      var isHoverable = false;
+
+      // Check karo hoverable element pe hai
+      for (var i = 0; i < HOVERABLE_SELECTORS.length; i++) {
+        if (element.closest(HOVERABLE_SELECTORS[i])) {
+          isHoverable = true;
+          break;
+        }
+      }
+
+      if (isHoverable) {
+        if (lampCursor) {
+          lampCursor.classList.remove('idle');
+          lampCursor.classList.add('hovering');
+        }
+        if (lampCursorTrail) {
+          lampCursorTrail.classList.add('hovering');
+        }
+      }
+    });
+
+    document.addEventListener('mouseout', function(e) {
+      if (!lampCursorActive || isMobile()) return;
+
+      var element = e.target;
+      var isHoverable = false;
+
+      for (var i = 0; i < HOVERABLE_SELECTORS.length; i++) {
+        if (element.closest(HOVERABLE_SELECTORS[i])) {
+          isHoverable = true;
+          break;
+        }
+      }
+
+      if (isHoverable) {
+        if (lampCursor) {
+          lampCursor.classList.remove('hovering');
+          lampCursor.classList.add('idle');
+        }
+        if (lampCursorTrail) {
+          lampCursorTrail.classList.remove('hovering');
+        }
+      }
+    });
+
+    // ============================================= //
+    // CLICK ANIMATION                                 //
+    // ============================================= //
+    document.addEventListener('mousedown', function() {
+      if (!lampCursorActive || isMobile()) return;
+
+      if (lampCursor) {
+        lampCursor.classList.remove('idle');
+        lampCursor.classList.add('clicking');
+      }
+      if (lampCursorTrail) {
+        lampCursorTrail.classList.add('clicking');
+      }
+
+      // 400ms baad clicking class remove
+      setTimeout(function() {
+        if (lampCursor) {
+          lampCursor.classList.remove('clicking');
+          lampCursor.classList.add('idle');
+        }
+        if (lampCursorTrail) {
+          lampCursorTrail.classList.remove('clicking');
+        }
+      }, 400);
+    });
+
+    // ============================================= //
+    // HIDE CURSOR WHEN MOUSE LEAVES WINDOW            //
+    // ============================================= //
+    document.addEventListener('mouseleave', function() {
+      if (lampCursor) {
+        lampCursor.style.opacity = '0';
+      }
+      if (lampCursorTrail) {
+        lampCursorTrail.style.opacity = '0';
+      }
+    });
+
+    document.addEventListener('mouseenter', function() {
+      if (lampCursor) {
+        lampCursor.style.opacity = '1';
+      }
+      if (lampCursorTrail) {
+        lampCursorTrail.style.opacity = '0.5';
+      }
+    });
+
+    // ============================================= //
+    // WINDOW RESIZE HANDLER                           //
+    // ============================================= //
+    window.addEventListener('resize', function() {
+      if (isMobile()) {
+        disableLampCursor();
+      }
+    });
+
+    // ============================================= //
+    // INITIALIZE - Page load hote hi                 //
+    // ============================================= //
+    window.addEventListener('DOMContentLoaded', function() {
+      initLampCursor();
+      animateTrail();
     });
     
   </script>
